@@ -1,0 +1,75 @@
+Cis-regulatory elements (CREs) encode when and where genes are expressed through
+combinations of transcription-factor binding sites embedded in local sequence
+context~\citep{Wasserman2004,ENCODE2012,Thurman2012,Roadmap2015}. Massively parallel
+reporter assays (MPRAs) and STARR-seq now measure the regulatory activity of hundreds
+of thousands of sequences in parallel~\citep{Melnikov2012,Arnold2013,Tewhey2016,
+Inoue2017,Gordon2020}, enabling sequence-to-activity deep networks that recover
+regulatory features directly from DNA and support computational design of synthetic
+enhancers~\citep{Alipanahi2015,Kelley2016,Kelley2018,Avsec2021,Almeida2022,
+Taskiran2024,Gosai2024}.
+
+Most regulatory-design studies have emphasized de novo generation or score
+maximization~\citep{Vaishnav2022,Almeida2024,Gosai2024}. A complementary and biologically
+grounded strategy is \emph{minimal editing}: retuning an existing natural CRE for
+greater cell-type selectivity while leaving nearly all of its sequence unchanged. The
+natural parent provides a validated scaffold, and the substitution budget gives a
+direct measure of design distance. The same constraint, however, makes the search
+problem demanding: a small number of edits must improve the target-versus-off-target
+activity margin without creating implausible sequence patterns or overfitting to the
+model directing the search.
+
+This challenge is central to the practical use of deep networks for regulatory-sequence
+design. A highly optimized sequence can move into a region of sequence space where the
+directing predictor is confident for the wrong reason, even when held-out predictive
+performance is strong~\citep{Whalen2022,deBoer2024,Ovadia2019,Rafi2025}. Standard
+greedy search compounds this risk because each substitution is retained solely for its
+immediate score gain under a single objective. Beam search explores a broader set of edit
+paths, but a wider search under the same predictor does not by itself establish that
+the selected signal transfers across models. Cross-model generalization---rather than
+single-model optimization---is therefore the key requirement for converting
+model-guided search into experimentally actionable candidate sequences.
+
+We developed SafeEdit-CRE to address this problem (Fig.~\ref{fig:workflow}). The
+published Malinois predictor~\citep{Gosai2024} provides the primary cell-type
+specificity objective. An architecture-diverse residual-dilated CNN ensemble serves as
+an independent evaluation reviewer during constrained beam search, while
+validation-calibrated uncertainty and sequence-domain controls (strand consistency,
+GC shift, homopolymers, 6-mer naturalness) guard against out-of-distribution edits.
+Selected sequences are then assessed by a second independently trained multi-kernel
+ensemble that is held out from the search process, providing an additional layer of
+cross-model evaluation. Fixed edit budgets of 1, 5, 10, and 20 nucleotides allow the
+effect of design freedom to be quantified without conflating minimal editing with
+unconstrained sequence generation.
+
+We benchmark SafeEdit-CRE against three comparators: random substitutions as a null
+baseline, iterative greedy optimization to test whether local score maximization is
+sufficient, and a compute-matched primary-model beam that uses the same beam width and
+expansion schedule as SafeEdit but only the primary predictor score. The compute-matched
+beam is critical because it isolates the benefit of cross-model selection from the
+benefit of a larger candidate pool. We evaluate four complementary endpoints: cross-model
+generalization on 600 held-out natural CRE parents across K562, HepG2, and SK-N-SH; a
+nine-criterion design-quality benchmark on 96 independent parents; stratified analyses
+by cell type and edit budget; and complete re-search ablations that identify which
+components govern the trade-off between predicted selectivity and uncertainty.
+
+Our results demonstrate three main findings. First, relative to greedy search,
+SafeEdit-CRE substantially improves cross-model cell-type-specificity margin. Second,
+relative to a compute-matched beam search, SafeEdit-CRE preserves equivalent predicted
+specificity while selecting lower-uncertainty variants. Third, SafeEdit-CRE raises
+design-criteria pass rates from 38.5\% to 61.5\% and yields 78 high-priority candidate
+sequences spanning all three cell types and four budgets. These findings establish
+constrained cross-model minimal editing as a practical strategy for producing compact,
+experimentally actionable CRE variant libraries from natural sequence scaffolds.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{fig1_workflow.pdf}
+  \caption{\textbf{SafeEdit-CRE study design.} Natural CRE parents are edited under
+  fixed substitution budgets. Malinois supplies the primary specificity objective,
+  while a residual-dilated CNN ensemble provides independent review during constrained
+  beam search. Validation-calibrated controls for uncertainty and sequence-domain
+  behavior guard against implausible edits. Selected sequences are then evaluated by
+  a second independently trained multi-kernel ensemble for cross-model generalization
+  assessment.}
+  \label{fig:workflow}
+\end{figure}

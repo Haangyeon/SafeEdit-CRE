@@ -1,0 +1,72 @@
+# FROZEN G4 Confirmation Configuration
+# All parameters are locked for R2 remediation audit
+# Date frozen: 2026-07-14
+
+n_parents: 96
+targets: ["K562", "HepG2", "SKNSH"]
+budgets: [1, 5, 10, 20]
+methods: ["random_matched", "greedy_malinois", "safeedit_consensus"]
+expected_rows: 3456  # 96 parents × 3 targets × 4 budgets × 3 methods
+beam_width: 24
+seed: 20260714
+batch_size:
+  primary: 128
+  reviewer: 1024
+device: cuda
+
+# Calibration: validation random edits only, fixed quantile thresholds
+calibration:
+  source: "validation random edits only"
+  quantiles:
+    strand_disagreement_max: 0.95
+    reviewer_uncertainty_max: 0.95
+    naturalness_delta_min: 0.05
+    absolute_gc_delta_max: 0.95
+  threshold_relaxation: 1.0  # NO *1.5 relaxation; strict frozen thresholds
+  homopolymer_max_allowed: 6
+
+# Statistical testing
+mcnemar:
+  implementation: "scipy.stats.binomtest"
+  alternative: "two-sided"
+  pvalue_multiplier: 1.0  # NO extra *2 factor
+
+bootstrap:
+  n_iterations: 100000
+  resampling: "parent-cluster"
+  ci_level: 0.95
+  seed: 20260713
+
+# Pareto selection logic
+pareto:
+  objectives: ["primary_margin_gain", "reviewer_margin_gain"]
+  maximize: true
+  near_pareto_tolerance:
+    relative: 0.05  # 5% relative
+    absolute: 0.1   # 0.1 absolute margin units
+
+# Tier classification (three separate columns)
+tier_logic:
+  columns_separated: true
+  columns: ["audit_status", "design_method", "priority_tier"]
+  tier_a_criteria:
+    - method == "safeedit_consensus"
+    - audit_pass == true
+    - no_synth_risk == true
+    - pareto_or_near_pareto == true
+    - core_quality_met == true
+
+# Infeasible handling
+infeasible_rows:
+  output_placeholder: true
+  design_status: "infeasible"
+  accepted: false
+  required_columns_present: true
+
+# G4 acceptor validation
+g4_acceptor:
+  expected_row_count: 3456
+  required_tuples_present: true
+  tuple_keys: ["parent_id", "target_cell", "budget", "method"]
+  no_missing: true
+  no_extra: true

@@ -1,0 +1,184 @@
+\subsection{MPRA data and fixed chromosome partitions}
+
+We used the public MPRA sequence-performance table from Gosai et
+al.~\citep{Gosai2024}, containing activity estimates and standard errors for K562,
+HepG2, and SK-N-SH. The upstream chromosome partition was preserved: chromosomes 19,
+21, and X were validation; chromosomes 7 and 13 were test; remaining eligible
+chromosomes were training. Records were required to contain only A/C/G/T, have length
+at most 200 nt, contain finite activity and standard-error values, and have maximum
+reported log-fold-change standard error below 1.0. Exact sequence duplicates were
+removed before full-data model training. Sequences shorter than 200 nt were centered
+in a 200-position tensor, and a fifth input channel marked valid positions.
+
+\subsection{Leakage and parent-overlap auditing}
+
+We examined exact identity, reverse-complement identity, primary-variant group
+membership, and cross-split Hamming distance up to three among 200-nt constructs. The
+near-duplicate audit identified 27 cross-split pairs involving eight training-side
+variant groups. Parent deny lists included earlier development and confirmation
+parents, matching identifiers, sequence hashes, and audit-flagged conflicts. The
+600-parent primary-evaluation table was created without activity labels by sorting
+eligible 200-nt test sequences by SHA-256 of \texttt{ID + tab + sequence} and
+selecting the first 600 after deny-list removal. The ablation study used a fixed
+180-parent subset, and the nine-criterion benchmark used a fixed 96-parent subset.
+Parent overlap across phases was checked by identifier and sequence hash.
+
+The full-data loader performed exact deduplication. The separate Hamming-distance
+manifest was applied to parent eligibility, ensuring that no flagged near-duplicate
+was admitted to the editing benchmarks.
+
+\subsection{Primary predictor}
+
+Malinois BassetBranched, released with Gosai et al.~\citep{Gosai2024}, served as the
+primary predictor. The checkpoint was loaded in weights-only mode. Each sequence was
+evaluated in forward and reverse-complement orientations and the activity prediction
+was averaged. For target cell $t$, the specificity margin was
+\begin{equation}
+M_t(x)=f_t(x)-\max_{j\ne t} f_j(x),
+\end{equation}
+where $f_j(x)$ is predicted activity in cell type $j$. Candidate margin gain was
+$\Delta M_t=M_t(x_{\mathrm{edit}})-M_t(x_{\mathrm{parent}})$.
+
+\subsection{Reviewer and cross-model evaluation ensembles}
+
+Two architecture-diverse heteroscedastic CNNs were trained on all quality-filtered
+training records to provide independent evaluation at different stages. The reviewer
+ensemble is a residual-dilated 1D CNN with an 11-nt stem, residual blocks at
+dilations 1, 2, 4, and 8, and shared mean and log-variance heads; it is available
+during candidate search for cross-model reranking. The cross-model evaluation
+ensemble (termed the post-freeze evaluator in the procedural protocol below) is a
+multi-kernel CNN with parallel 3-, 7-, 15-, and 21-nt branches, pointwise fusion,
+depthwise convolution, and separate mean and variance
+heads~\citep{He2016,Lakshminarayanan2017}. Each architecture used three fixed seeds:
+20260721--20260723 for the reviewer and 20260731--20260733 for the cross-model
+evaluation ensemble.
+
+Models were trained for at most 20 epochs with AdamW~\citep{Loshchilov2019}, cosine
+learning-rate decay, batch size 256, learning rate $10^{-3}$, weight decay $10^{-4}$,
+dropout 0.25, and gradient clipping at 5.0. The loss combined heteroscedastic Gaussian
+negative log likelihood, reported measurement standard error, and a
+reverse-complement consistency penalty weighted 0.1. Early stopping used mean
+validation Pearson correlation with patience six. Test records were not used to
+choose checkpoints, architectures, hyperparameters, or variance scales.
+
+For each ensemble, prediction was the mean of the three seed-specific means, in the
+spirit of bootstrap-aggregated ensemble prediction \citep{Breiman2001}. Predictive
+variance combined mean learned within-model variance with between-seed variance. One
+multiplicative variance scale per cell type was estimated from squared errors on
+validation only and then frozen~\citep{Ovadia2019}. The cross-model evaluation
+ensemble was never imported by the search code; it was applied only after candidate
+files and their SHA-256 hashes had been written (procedurally frozen), ensuring
+complete separation between generation and evaluation.
+
+\subsection{Editing methods}
+
+All methods were evaluated for target cells K562, HepG2, and SK-N-SH at exact
+substitution budgets 1, 5, 10, and 20. Positions could be edited at most once along a
+search path.
+
+\paragraph{Random matched edits.}
+Positions and non-reference alleles were sampled uniformly without replacement.
+The 600-parent evaluation used three independent fixed seeds (20260801--20260803).
+Numeric endpoints were averaged across replicates for method-level comparisons; the
+best random replicate was never selected.
+
+\paragraph{Greedy Malinois.}
+At each step, every available single-nucleotide substitution was scored by the primary
+specificity margin and the highest-scoring substitution was retained. No review,
+uncertainty, or sequence-domain constraints were enforced during search.
+
+\paragraph{Primary beam (compute-matched control).}
+A beam of 24 partial edit sets was expanded one substitution at a time. Up to 96
+candidates per step were retained by the primary score, which was the primary margin
+minus 0.05 times forward/reverse strand disagreement. Beam width, maximum expansion
+depth, and pre-screen size exactly matched SafeEdit-CRE. No reviewer score,
+uncertainty penalty, or sequence-domain reranking was used.
+
+\paragraph{SafeEdit-CRE.}
+SafeEdit-CRE used the same primary expansion and compute budget as the primary beam.
+The top primary candidates were rescored by the reviewer ensemble according to
+\begin{equation}
+S(x)=M_t^{\mathrm{primary}}(x)+0.3M_t^{\mathrm{reviewer}}(x)
+-0.1D_{\mathrm{strand}}(x)-0.05U_{\mathrm{reviewer}}(x).
+\end{equation}
+Candidates were prefiltered for homopolymer length above 8 and absolute parent-relative
+GC change above 0.12. Reranking used validation-derived, budget-specific limits for
+strand disagreement, reviewer uncertainty, 6-mer naturalness change, GC change, and
+homopolymer length. Positive primary and reviewer margins were favored; fallback
+scores retained a path when no candidate passed every preferred condition. A snapshot
+was taken independently at each requested budget.
+
+Sequence naturalness was the position-independent mean log likelihood of overlapping
+6-mers under frequencies estimated from natural training sequences. It was used as a
+computational sequence-domain diagnostic during reranking.
+
+\subsection{Nine-criterion design benchmark}
+
+The nine-criterion benchmark (G4) used 96 test-split CRE parents with no overlap to
+development or primary-evaluation parents. For each method--parent--target--budget
+combination, nine Boolean checks were recorded: non-negative primary target gain,
+positive primary margin gain, positive reviewer margin transfer, strand disagreement
+within domain, reviewer uncertainty within domain, naturalness within domain, GC
+change within domain, homopolymer safety, and exact edit budget. Thresholds were
+calibrated from validation-set random edits and locked before evaluation. Infeasible
+combinations were required to remain in the result table with failed status.
+
+The primary contrast was the paired nine-criterion pass-rate difference between
+SafeEdit-CRE and greedy. We used a 100,000-replicate parent-cluster bootstrap for 95\%
+confidence intervals, preserving the dependence among the 12 target--budget
+conditions contributed by each parent. An exact two-sided McNemar test on pooled
+binary outcomes was retained as a descriptive sensitivity analysis. Stratified
+target--budget summaries were used to examine heterogeneity.
+
+\subsection{Primary cross-model evaluation (600 parents)}
+
+The primary evaluation (G8) evaluated 600 label-blind, previously unused parents with
+random matched, greedy, primary beam, and SafeEdit-CRE methods. Search produced 43,200
+sequence rows because random editing had three replicates. For method-level
+statistics, the three random replicates were averaged to one numeric record per
+parent--target--budget combination, giving 28,800 rows. This collapsed table was used
+only for numeric comparisons, never to select a DNA sequence. Candidate files were
+frozen (SHA-256 hashes written) before cross-model-ensemble inference.
+
+The principal endpoint was cross-model specificity-margin gain. Secondary endpoints
+were cross-model target gain, positive-margin fraction, and cross-model ensemble
+uncertainty. For each contrast, metrics were first averaged over the 12
+target--budget conditions within a parent; 100,000 bootstrap samples then resampled
+the 600 parents with replacement. Infeasible beam-search outcomes were retained as
+parent sequences with zero edits and zero gain.
+
+\subsection{Complete re-search ablation}
+
+Seven searches were independently rerun on 180 parents: primary beam, full
+SafeEdit-CRE, SafeEdit-CRE without reviewer score, without uncertainty penalty,
+without strand penalty, without naturalness reranking, and without the sequence
+prefilter. Unlike post-hoc filter deletion, each ablation could generate a different
+sequence. The cross-model evaluation ensemble was then rerun on all 15,120 candidate
+rows. We verified candidate keys, exact edit budgets, finite numeric values, and
+separate computation of cross-model target and margin gains. Paired parent-cluster
+bootstrap intervals used the same procedure as the primary evaluation.
+
+\subsection{Candidate tiering}
+
+The 3,456 nine-criterion-benchmark candidates were organized into three computational
+priority tiers. Tier A required SafeEdit-CRE generation, passage of all nine
+criteria, non-negative target gain, positive primary and reviewer margin gains, exact
+edit budget, no synthesis-risk flags, and location on or near the two-objective
+primary--reviewer Pareto frontier. Near-Pareto candidates were within 5\% relative or
+0.1 absolute of the frontier. Tier B passed core activity and cross-model checks but
+permitted Pareto suboptimality or mild naturalness deviation. Tier C failed one or
+more hard checks and is retained only for diagnostic analysis. Three representative
+Tier A examples spanning K562, HepG2, and SK-N-SH are provided in Supplementary
+Table~S4.
+
+\subsection{Software, reproducibility, and reporting}
+
+Preliminary development phases were run on an NVIDIA RTX 3060 Laptop GPU. Final
+benchmarks were run on RTX 3080 Ti compute nodes under Slurm. Fixed seeds, environment
+records, code hashes, candidate hashes, checkpoint hashes, and run logs are provided
+in the permanent Zenodo archive (v1.0). Statistical values and figures were
+regenerated directly from candidate-level tables by an independent analysis script
+implemented with PyTorch, NumPy, pandas, and
+Matplotlib~\citep{Paszke2019,Harris2020,McKinney2010,Hunter2007}. All code,
+environment files, minimal reproduction scripts, core statistical inputs, candidate
+sequence tables, and pretrained model checkpoints are included in the public release.

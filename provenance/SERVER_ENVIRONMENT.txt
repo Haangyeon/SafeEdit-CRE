@@ -1,0 +1,10 @@
+=== Server Environment ===
+Generated: 2026-07-17T03:12:23.997882
+Node: gpu6
+Python: 3.10.19 | packaged by conda-forge | (main, Oct 22 2025, 22:29:10) [GCC 14.3.0]
+PyTorch: 2.6.0+cu124
+CUDA available: True
+CUDA version: 12.4
+cuDNN version: 90100
+GPU: NVIDIA GeForce RTX 3080 Ti
+Driver: 570.195.03

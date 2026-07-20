@@ -1,0 +1,123 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[a4paper,margin=22mm,headheight=14pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{lineno}
+\usepackage{fancyhdr}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{navy}{HTML}{214B6B}
+\definecolor{orange}{HTML}{D9792B}
+\definecolor{teal}{HTML}{2A7F78}
+\definecolor{graytext}{HTML}{4A5560}
+\hypersetup{colorlinks=true,linkcolor=navy,citecolor=navy,urlcolor=navy}
+\captionsetup{font=small,labelfont={bf,color=navy},justification=justified}
+\setlist{nosep,leftmargin=1.5em}
+\setlength{\parindent}{1.1em}
+\setlength{\parskip}{0pt}
+\graphicspath{{figures/}}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small SafeEdit-CRE}
+\fancyhead[R]{\small Computational regulatory-sequence design}
+\fancyfoot[C]{\thepage}
+
+\title{\textbf{SafeEdit-CRE: uncertainty-aware cross-model selection improves minimal regulatory-DNA editing for cell-type-specific design}}
+\author{Angran Xia\\
+School of Chemistry and Chemical Engineering, Shaanxi Normal University,\\
+620 West Chang'an Avenue, Chang'an District, Xi'an, Shaanxi 710119, China\\[0.35em]
+\textit{Correspondence:} \texttt{haangyeon@snnu.edu.cn}}
+\date{}
+
+\begin{document}
+\maketitle
+\linenumbers
+
+\begin{abstract}
+Sequence-to-activity deep networks now predict the regulatory output of short DNA
+sequences with high accuracy, but optimizing nucleotide edits against a single such model
+can exploit idiosyncrasies of that predictor rather than transferable regulatory signal.
+This problem limits the practical utility of model-guided CRE design for downstream
+experimental screens, where synthesis budget is limited and cross-model robustness is
+essential. Here we present SafeEdit-CRE, a computational regulatory-sequence design
+framework that selects cell-type-selective variants of natural 200-nt cis-regulatory
+elements (CREs) under fixed substitution budgets of 1, 5, 10, or 20 nucleotides.
+SafeEdit-CRE couples the published Malinois cell-type-specificity predictor with an
+architecture-diverse independent evaluation ensemble, validation-calibrated
+uncertainty, sequence-domain controls, and constrained beam search; candidates are
+then passed to a second independently trained multi-kernel ensemble for
+cross-model generalization assessment. Across 600 held-out natural CRE parents in K562,
+HepG2, and SK-N-SH cells, SafeEdit-CRE increased cross-model cell-type-specificity margin
+gain relative to iterative greedy search (0.877 vs.\ 0.822; paired difference 0.055;
+95\% CI 0.040--0.071). Against a compute-matched beam search using only the primary
+predictor, SafeEdit-CRE retained equivalent specificity gain (difference $-0.004$;
+95\% CI $-0.011$--0.004) while lowering cross-model ensemble uncertainty (0.314 vs.\
+0.335) and reducing aggressive target gain excursions. In an independent 96-parent
+design-criteria benchmark, SafeEdit-CRE produced 61.5\% designs passing all prespecified
+sequence and cross-model checks, compared with 38.5\% for greedy and 13.0\% for random
+substitutions. We report 78 experimentally actionable Tier A candidate sequences across
+all three cell types and four edit budgets, together with a tiered library suitable for
+compact first-pass reporter screening. SafeEdit-CRE provides a general and reproducible
+strategy for converting model-guided regulatory-sequence optimization into cross-model
+candidate selection, yielding experimentally actionable CRE variants under realistic
+editing budgets.
+\end{abstract}
+
+\noindent\textbf{Keywords:} cis-regulatory elements; regulatory-sequence design;
+uncertainty-aware selection; cross-model generalization; beam search; MPRA;
+computational genomics
+
+\section{Introduction}
+\input{sections/introduction}
+
+\section{Results}
+\input{sections/results}
+
+\section{Discussion}
+\input{sections/discussion}
+
+\section{Methods}
+\input{sections/methods}
+
+\section*{Data and code availability}
+The source MPRA measurements are publicly available from Gosai et
+al.~\citep{Gosai2024}. All code, environment files, frozen configuration manifests,
+parent identifiers, candidate-level result tables, statistical summaries, analysis
+scripts, fixed model seeds, and the 78 Tier A candidate sequences are archived in a
+permanent Zenodo repository with an assigned DOI ([DOI to be inserted at
+submission]; version v1.0). The repository additionally includes a minimal
+end-to-end reproduction script that regenerates the main figures and statistical
+tables from the released summary inputs. A public mirror of the source repository is
+maintained at \url{https://github.com/[username]/SafeEdit-CRE} (release tag v1.0),
+where issue tracking and post-publication updates will be hosted. Pretrained model
+checkpoints are included in the Zenodo archive.
+
+\section*{Author contributions}
+Angran Xia conceived the study, performed the computational analyses, prepared the
+figures and manuscript, and approved the submitted version.
+
+\section*{Competing interests}
+The authors declare no competing interests.
+
+\section*{Acknowledgements}
+The authors thank the ENCODE consortium and the Gosai et al.~study for making
+MPRA measurements publicly available.
+
+\begingroup
+\small
+\bibliographystyle{unsrtnat}
+\bibliography{references}
+\endgroup
+
+\end{document}

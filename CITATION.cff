@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+title: "SafeEdit-CRE: uncertainty-aware cross-model selection improves minimal regulatory-DNA editing for cell-type-specific design"
+type: software
+authors:
+  - given-names: Yiwei
+    family-names: Zhang
+    email: zhang_yiwei0404@163.com
+abstract: "SafeEdit-CRE is a computational framework for designing cell-type-selective cis-regulatory element variants under fixed nucleotide edit budgets using cross-model uncertainty-aware selection."
+license: MIT
+repository-code: "https://github.com/Haangyeon/SafeEdit-CRE"
+preferred-citation:
+  type: article
+  title: "SafeEdit-CRE: uncertainty-aware cross-model selection improves minimal regulatory-DNA editing for cell-type-specific design"
+  authors:
+    - given-names: Yiwei
+      family-names: Zhang
+  journal: "BMC Bioinformatics"
+  year: 2026
