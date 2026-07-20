@@ -7,6 +7,7 @@ authors:
     email: zhang_yiwei0404@163.com
 abstract: "SafeEdit-CRE is a computational framework for designing cell-type-selective cis-regulatory element variants under fixed nucleotide edit budgets using cross-model uncertainty-aware selection."
 license: MIT
+doi: "10.5281/zenodo.21458489"
 repository-code: "https://github.com/Haangyeon/SafeEdit-CRE"
 preferred-citation:
   type: article

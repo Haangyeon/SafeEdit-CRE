@@ -1,5 +1,7 @@
 # SafeEdit-CRE
 
+[![DOI](https://zenodo.org/badge/1306623847.svg)](https://doi.org/10.5281/zenodo.21458488)
+
 **Uncertainty-aware cross-model selection for cell-type-specific minimal regulatory-DNA editing**
 
 This repository accompanies the manuscript:
@@ -111,7 +113,7 @@ If you use this code or data, please cite:
   author={Yiwei Zhang},
   journal={BMC Bioinformatics},
   year={2026},
-  doi={10.5281/zenodo.XXXXXXX}
+  doi={10.5281/zenodo.21458489}
 }
 ```
 
