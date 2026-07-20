@@ -63,7 +63,7 @@ gain relative to iterative greedy search (0.877 vs.\ 0.822; paired difference 0.
 95\% CI 0.040--0.071). Against a compute-matched beam search using only the primary
 predictor, SafeEdit-CRE retained equivalent specificity gain (difference $-0.004$;
 95\% CI $-0.011$--0.004) while lowering cross-model ensemble uncertainty (0.314 vs.\
-0.335) and reducing aggressive target gain excursions. In an independent 96-parent
+0.335) and reducing aggressive target gain excursions. In a locked non-overlapping 96-parent
 design-criteria benchmark, SafeEdit-CRE produced 61.5\% designs passing all prespecified
 sequence and cross-model checks, compared with 38.5\% for greedy and 13.0\% for random
 substitutions. We report 78 experimentally actionable Tier A candidate sequences across
@@ -95,11 +95,10 @@ The source MPRA measurements are publicly available from Gosai et
 al.~\citep{Gosai2024}. All code, environment files, frozen configuration manifests,
 parent identifiers, candidate-level result tables, statistical summaries, analysis
 scripts, fixed model seeds, and the 78 Tier A candidate sequences are archived in a
-permanent Zenodo repository with an assigned DOI ([DOI to be inserted at
-submission]; version v1.0). The repository additionally includes a minimal
+permanent Zenodo repository with an assigned DOI (\url{https://doi.org/10.5281/zenodo.XXXXXXXX}; version v1.0). The repository additionally includes a minimal
 end-to-end reproduction script that regenerates the main figures and statistical
 tables from the released summary inputs. A public mirror of the source repository is
-maintained at \url{https://github.com/[username]/SafeEdit-CRE} (release tag v1.0),
+maintained at \url{https://github.com/Haangyeon/SafeEdit-CRE} (release tag v1.0),
 where issue tracking and post-publication updates will be hosted. Pretrained model
 checkpoints are included in the Zenodo archive.
 
