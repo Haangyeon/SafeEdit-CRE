@@ -20,7 +20,9 @@ parents, matching identifiers, sequence hashes, and audit-flagged conflicts. The
 600-parent primary-evaluation table was created without activity labels by sorting
 eligible 200-nt test sequences by SHA-256 of \texttt{ID + tab + sequence} and
 selecting the first 600 after deny-list removal. The ablation study used a fixed
-180-parent subset, and the nine-criterion benchmark used a fixed 96-parent subset.
+180-parent subset, and the nine-criterion benchmark used a fixed 90-parent confirmatory
+subset after six nominal parents were found to overlap with an earlier exploratory
+benchmark and were excluded by identifier without reference to outcomes.
 Parent overlap across phases was checked by identifier and sequence hash.
 
 The full-data loader performed exact deduplication. The separate Hamming-distance
@@ -42,20 +44,22 @@ $\Delta M_t=M_t(x_{\mathrm{edit}})-M_t(x_{\mathrm{parent}})$.
 \subsection{Reviewer and cross-model evaluation ensembles}
 
 Two architecture-diverse heteroscedastic CNNs were trained on all quality-filtered
-training records to provide independent evaluation at different stages. The reviewer
+training records to provide held-out evaluation at different stages. The reviewer
 ensemble is a residual-dilated 1D CNN with an 11-nt stem, residual blocks at
 dilations 1, 2, 4, and 8, and shared mean and log-variance heads; it is available
 during candidate search for cross-model reranking. The cross-model evaluation
 ensemble (termed the post-freeze evaluator in the procedural protocol below) is a
 multi-kernel CNN with parallel 3-, 7-, 15-, and 21-nt branches, pointwise fusion,
 depthwise convolution, and separate mean and variance
-heads~\citep{He2016,Lakshminarayanan2017}. Each architecture used three fixed seeds:
+heads~\citep{He2016,Lakshminarayanan2017}. The use of seeded ensembles and predictive
+variance follows established neural-network uncertainty strategies~\citep{Gal2016,Blundell2015,Lakshminarayanan2017}.
+Each architecture used three fixed seeds:
 20260721--20260723 for the reviewer and 20260731--20260733 for the cross-model
 evaluation ensemble.
 
 Models were trained for at most 20 epochs with AdamW~\citep{Loshchilov2019}, cosine
 learning-rate decay, batch size 256, learning rate $10^{-3}$, weight decay $10^{-4}$,
-dropout 0.25, and gradient clipping at 5.0. The loss combined heteroscedastic Gaussian
+dropout 0.25~\citep{Srivastava2014}, and gradient clipping at 5.0. The loss combined heteroscedastic Gaussian
 negative log likelihood, reported measurement standard error, and a
 reverse-complement consistency penalty weighted 0.1. Early stopping used mean
 validation Pearson correlation with patience six. Test records were not used to
@@ -114,8 +118,10 @@ computational sequence-domain diagnostic during reranking.
 
 \subsection{Nine-criterion design benchmark}
 
-The nine-criterion benchmark (G4) used 96 test-split CRE parents with no overlap to
-development or primary-evaluation parents. For each method--parent--target--budget
+The nine-criterion benchmark (G4) used 90 test-split CRE parents with no overlap to
+development or primary-evaluation parents (six of 96 nominal parents were excluded
+after identifier-level overlap with an exploratory benchmark was discovered, without
+reference to outcomes). For each method--parent--target--budget
 combination, nine Boolean checks were recorded: non-negative primary target gain,
 positive primary margin gain, positive reviewer margin transfer, strand disagreement
 within domain, reviewer uncertainty within domain, naturalness within domain, GC
@@ -160,7 +166,7 @@ bootstrap intervals used the same procedure as the primary evaluation.
 
 \subsection{Candidate tiering}
 
-The 3,456 nine-criterion-benchmark candidates were organized into three computational
+The 3,240 nine-criterion-benchmark candidates were organized into three computational
 priority tiers. Tier A required SafeEdit-CRE generation, passage of all nine
 criteria, non-negative target gain, positive primary and reviewer margin gains, exact
 edit budget, no synthesis-risk flags, and location on or near the two-objective
@@ -169,7 +175,7 @@ primary--reviewer Pareto frontier. Near-Pareto candidates were within 5\% relati
 permitted Pareto suboptimality or mild naturalness deviation. Tier C failed one or
 more hard checks and is retained only for diagnostic analysis. Three representative
 Tier A examples spanning K562, HepG2, and SK-N-SH are provided in Supplementary
-Table~S4.
+Table~S10.
 
 \subsection{Software, reproducibility, and reporting}
 

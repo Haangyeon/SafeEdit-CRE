@@ -1,80 +1,72 @@
-SafeEdit-CRE addresses a central challenge in computational regulatory genomics: how
-to design minimal, cell-type-selective edits to natural CREs such that the resulting
-variants generalize across sequence-to-activity models rather than exploiting a single
-predictor. Across three complementary benchmarks---600 held-out natural parents, a
-96-parent nine-criterion design-quality benchmark, and seven complete re-search
-ablations---SafeEdit-CRE produced three principal findings.
+SafeEdit-CRE was designed around a practical regulatory-genomics question: how can a
+natural cis-regulatory element be changed with a small number of substitutions while
+retaining a cell-type-selective signal when the selected sequence is inspected by a
+second model? Existing sequence-to-activity workflows provide strong predictors and
+increasingly capable design tools, but candidate ranking is often tied to the same
+predictor used as the optimization objective~\citep{Whalen2022,deBoer2024,Rafi2025}.
+SafeEdit-CRE separates those roles and uses cross-model selection to decide which
+minimal edits are worth carrying forward.
 
-First, relative to iterative greedy optimization, SafeEdit-CRE improved cross-model
-cell-type-specificity margin by 0.055 standardized units (95\% CI 0.040--0.071).
-This is a meaningful gain in a setting where the greedy baseline already achieves
-positive margin gain in 97.1\% of conditions, and it demonstrates that single-model
-local optimization leaves substantial cross-model transfer performance on the table.
-The improvement was most pronounced at edit budgets of 5--20 nucleotides in K562 and
-HepG2, where the larger space of plausible edit paths increases both the opportunity
-for overfitting and the value of independent review.
+The clearest separation from iterative greedy optimization appeared in the 600-parent
+evaluation. SafeEdit-CRE increased cross-model specificity-margin gain by 0.055
+standardized units (95\% CI 0.040--0.071), even though greedy already produced a
+positive margin gain in 97.1\% of conditions. The difference is therefore a ranking
+effect among mostly plausible edits: the reviewer and uncertainty criteria favor
+variants with larger gains that remain consistent across models. The effect was
+largest at 5--20 nucleotide budgets in K562 and HepG2, where more edit paths are
+available and primary-model preferences can diverge.
 
-Second, against a compute-matched primary-model beam that explores the same number of
-candidate paths but ranks them solely by primary-predictor score, SafeEdit-CRE
-preserved predicted specificity within tight equivalence bounds (difference
-$-0.004$; 95\% CI $-0.011$--0.004) while lowering cross-model ensemble uncertainty by
-0.021 (95\% CI $-0.025$ to $-0.017$) and reducing aggressive target-gain excursions.
-This equivalence-and-improvement pattern is a favorable design outcome: the
-cell-type-specific objective is fully retained, while the sequences returned are less
-dependent on any single model's idiosyncratic extrapolations. In settings where
-oligonucleotide synthesis and reporter assays are the limiting resources, preserving
-predicted selectivity while reducing predictive dispersion is more useful than simply
-maximizing the largest score available from one model.
+Search breadth alone did not account for this behavior. The compute-matched primary
+beam achieved a margin gain of 0.881, closely matching SafeEdit-CRE's
+0.877 (difference $-0.004$; 95\% CI $-0.011$--$0.004$). SafeEdit-CRE nevertheless
+returned variants with lower cross-model uncertainty (0.314 versus 0.335) and smaller
+target-score excursions. In other words, the framework retains the predicted
+cell-type-specific objective while choosing a less dispersed part of the candidate
+landscape. That trade-off is especially useful when synthesis and reporter capacity
+are limited and the experimental budget is better spent on a compact, auditable panel.
 
-Third, SafeEdit-CRE raised nine-criterion design compliance from 38.5\% (greedy) to
-61.5\%, a 22.9 percentage-point improvement that reflects the value of enforcing
-sequence-domain and cross-model constraints \emph{during} search rather than filtering
-afterward. The complete re-search ablation confirmed that naturalness-aware reranking
-is the dominant contributor to uncertainty reduction, while the sequence-domain
-prefilter enforces synthesis feasibility (GC and homopolymer limits) at a modest cost
-in predicted margin. The reviewer ensemble is the component that distinguishes
-SafeEdit-CRE from the primary beam: removing it reproduced the primary beam exactly.
+The nine-criterion benchmark gives the same result in a more demanding design setting.
+SafeEdit-CRE passed 60.6\% of designs, compared with 38.8\% for greedy optimization,
+for a 21.8 percentage-point difference (95\% CI 18.3--25.3). The complete re-search
+ablation shows why: naturalness-aware reranking makes the largest contribution to
+uncertainty reduction, while the sequence-domain prefilter enforces GC and
+homopolymer feasibility during generation. Removing the reviewer reproduced the
+primary-beam result exactly, identifying cross-model review as the component that
+changes which sequence is returned rather than merely annotating it afterwards.
 
-The tiered candidate library changes the practical form of the experimental output.
-Instead of returning a single highest-scoring sequence per parent, SafeEdit-CRE
-produces candidate-level records for primary activity, reviewer transfer, ensemble
-uncertainty, strand consistency, naturalness, base composition, homopolymers, and edit
-count. The 78 Tier A sequences satisfy all nine criteria and lie on or near the
-primary--reviewer Pareto frontier, spanning all three cell types and four budgets to
-provide a compact first-pass synthesis panel. The additional 1,224 Tier B alternatives
-retain breadth for follow-up screening. Three representative Tier A examples
-(Supplementary Table~S4) illustrate the range of edits, from single substitutions
-that subtly shift predicted specificity to multi-base edits that produce larger
-margin gains while maintaining sequence plausibility; observed motif-level changes are
-presented as testable hypotheses rather than asserted mechanisms.
+The output is consequently a candidate library rather than a single model optimum.
+The 74 Tier A sequences passed all nine criteria, met the target and margin
+requirements, carried no synthesis-risk flag, and lay on or near the
+primary--reviewer Pareto frontier. They span three target cell types and four edit
+budgets, providing a compact, well-characterized first-pass panel for reporter
+screening and downstream regulatory-grammar dissection; 1,141 Tier B
+sequences retain breadth for a larger follow-up MPRA. Candidate records preserve the
+parent sequence, edited sequence, edit positions, model-specific gains, uncertainty,
+strand consistency, naturalness, base composition, homopolymer status, and edit count.
+The three representative examples in Supplementary Table~S10 highlight concrete
+sequence-grammar hypotheses: localized substitutions that shift cell-type selectivity
+while preserving the broader CRE scaffold, directly testable via reporter assays.
 
-The study was deliberately built around evaluation practices that strengthen the
-interpretation of model-guided design results~\citep{Whalen2022,deBoer2024,Rafi2025}.
-Parent selection was label-blind; development and evaluation parents were separated by
-identifier and sequence hash; random replicates were averaged rather than selected by
-outcome; confidence intervals resampled whole parents to preserve correlation
-structure; and the independent evaluation ensemble was excluded from candidate
-generation. The compute-matched beam control separates the benefit of search breadth
-from the benefit of cross-model reranking, a distinction that is absent from most
-published sequence-design evaluations. The complete re-search ablation ensures that
-component effects reflect changes in which sequences are selected, not retrospective
-filtering of a fixed candidate set.
+Several design choices make the comparison interpretable. Parent selection was
+label-blind, development and evaluation parents were separated by identifiers and
+sequence hashes, random replicates were averaged rather than selected by outcome, and
+confidence intervals resampled whole parents. The post-freeze evaluator was excluded
+from candidate generation, while the compute-matched beam kept search width and
+expansion cost fixed. The complete re-search ablation further ensures that component
+effects reflect different returned sequences instead of retrospective filtering of one
+candidate table.
 
-The present study establishes computational performance and candidate prioritization.
-Prospective reporter assays will provide the next level of validation for cellular
-activity. Importantly, the independent cross-model evaluation design, compute-matched
-controls, and full re-search ablations provide a rigorous basis for selecting
-candidates before committing experimental resources. The reviewer and evaluation
-ensembles, while architecturally distinct from the primary predictor, share the same
-MPRA training data, and the 6-mer naturalness score is a sequence-domain proxy rather
-than a model of chromatin context; however, the cross-model disagreement captured by
-these controls is precisely the signal that the method exploits to avoid overfitting,
-and the experimental candidate panel is designed to test those predictions directly.
+The immediate biological deliverable is a compact, auditable set of CRE variants for
+reporter screening. The present results establish the computational ranking and its
+cross-model behavior; reporter assays can now test whether the predicted margin and
+uncertainty ordering tracks measured activity. Because the candidates retain natural
+CRE scaffolds and explicit edit budgets, the panel is also suitable for follow-up
+experiments that map local sequence changes to cell-type-selective regulatory output.
 
-SafeEdit-CRE demonstrates that cross-model selection can improve the reliability of
-minimal regulatory-DNA editing without sacrificing the predicted cell-type-specific
-objective. Its combination of natural-sequence scaffolds, uncertainty-aware ranking,
-and independent evaluation offers a practical route from sequence-to-activity models
-to compact experimental candidate libraries. The same design principle can be applied
-to other regulatory-prediction models and other cellular contexts whenever a limited
-synthesis budget makes candidate reliability as important as the predicted optimum.
+SafeEdit-CRE thus provides a reproducible route from sequence-to-activity prediction
+to experimentally testable minimal edits. Cross-model selection preserves the primary
+cell-type-specific objective, reduces predictive dispersion relative to a
+compute-matched single-model search, and produces a practical Tier A panel instead of
+an opaque list of unconstrained high-scoring sequences. The same selection principle
+can be transferred to other regulatory-prediction models and cellular contexts where
+candidate reliability matters as much as the nominal optimum.

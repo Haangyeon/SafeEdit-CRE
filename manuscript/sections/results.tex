@@ -1,4 +1,4 @@
-\subsection{Predictive models and uncertainty calibration}
+\subsection{Modeling the activity landscape for cell-type-selective CRE design}
 
 The public MPRA table contained 798,064 sequence records. After fixed quality
 filtering, sequence validation, length filtering, and exact-sequence deduplication,
@@ -10,10 +10,10 @@ used identifiers and sequence hashes, never activity labels.
 Forward/reverse-complement averaged Malinois predictions reproduced the published
 test performance (mean Pearson $r=0.884$ and mean Spearman $\rho=0.825$ across the
 three cell types). On the same 62,582 test records, the three-member residual-dilated
-reviewer ensemble achieved mean Pearson $r=0.849$, and the three-member multi-kernel
-cross-model evaluator achieved $r=0.793$ (Fig.~\ref{fig:validation}A). Together, the
-two secondary ensembles provided accurate but architecturally distinct readouts for
-candidate review and cross-model generalization assessment.
+reviewer ensemble achieved mean Pearson $r=0.849$, whereas the three-member
+multi-kernel evaluator achieved $r=0.793$ (Fig.~\ref{fig:validation}A). Their different
+convolutional structures allowed one ensemble to review candidates during search and
+the other to evaluate the frozen candidate set.
 
 Predictive uncertainty was formed from learned heteroscedastic variance and
 between-seed variation, with multiplicative scaling estimated exclusively on
@@ -22,8 +22,8 @@ the reviewer and 0.923--0.935 for the cross-model evaluator
 (Fig.~\ref{fig:validation}B). Reviewer uncertainty correlated with absolute error at
 Spearman $\rho=0.399$--0.448; cross-model-evaluator uncertainty gave
 $\rho=0.400$--0.467 (Fig.~\ref{fig:validation}C). Rejection curves showed decreasing
-mean absolute error as high-uncertainty records were removed, confirming that the
-uncertainty signal is informative for risk-based candidate triage.
+mean absolute error as high-uncertainty records were removed (Fig.~\ref{fig:validation}D),
+supporting uncertainty-guided candidate triage.
 
 \begin{figure}[t]
   \centering
@@ -47,7 +47,7 @@ hashes. Methods were applied for each of three target cells (K562, HepG2, SK-N-S
 four substitution budgets (1, 5, 10, 20 nt), producing 28,800 method-level comparisons.
 Random editing used three independent replicates whose metrics were averaged without
 best-of-three selection. After candidate generation, sequences were passed to the
-cross-model (post-freeze) evaluator that had no role in the search.
+held-out cross-model evaluator that had no role in the search.
 
 Across all 7,200 parent--target--budget conditions, SafeEdit-CRE achieved mean
 cross-model specificity-margin gain of 0.877, compared with 0.822 for iterative greedy
@@ -57,7 +57,8 @@ optimization (paired difference 0.055; parent-cluster bootstrap 95\% CI,
 conditions with positive cross-model margin gain was 95.4\% for SafeEdit-CRE and
 97.1\% for greedy, indicating that the advantage over greedy was driven by the
 magnitude and distribution of gains rather than by a larger fraction of positive
-cases.
+cases. SafeEdit-CRE's advantage therefore came from larger gains across the
+condition set, not from increasing the positive-case fraction.
 
 The compute-matched primary beam search---which uses the same beam width, expansion
 schedule, and search budget as SafeEdit-CRE but relies solely on the primary Malinois
@@ -74,6 +75,7 @@ reduced uncertainty by 0.0153 (95\% CI, $-0.0214$ to $-0.0091$).
 \centering
 \caption{Cross-model evaluation outcomes across 600 held-out parents.}
 \label{tab:g8}
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{lrrrr}
 \toprule
 Method & Mean margin gain & Mean target gain & Positive margin (\%) & Mean uncertainty \\
@@ -84,21 +86,19 @@ Primary beam (compute-matched) & 0.881 & 1.866 & 94.8 & 0.335 \\
 SafeEdit-CRE & 0.877 & 1.661 & 95.4 & 0.314 \\
 \bottomrule
 \end{tabular}
+}
 \end{table}
 
-These comparisons establish that cross-model reranking is responsible for the
-qualitative difference between SafeEdit-CRE and greedy search, while the
-uncertainty-aware and sequence-domain controls distinguish SafeEdit-CRE from a
-compute-matched beam that searches equally broadly but evaluates under a single
-model. SafeEdit-CRE therefore attains the predicted selectivity of an unconstrained
-wide search while shifting selection toward lower-uncertainty, less aggressive
-sequence variants that transfer better across models.
+The compute-matched beam shows that search breadth alone can recover the same
+predicted specificity. SafeEdit-CRE changes which member of that broad candidate pool
+is selected: its variants have lower ensemble uncertainty and smaller target-score
+excursions while retaining the specificity margin.
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=\textwidth]{fig3_primary_endpoint.pdf}
   \caption{\textbf{Cross-model evaluation on 600 held-out natural CRE parents.}
-  \textbf{A}, mean cross-model (post-freeze) specificity-margin gain by editing
+  \textbf{A}, mean held-out cross-model specificity-margin gain by editing
   method. \textbf{B}, paired difference in margin gain for SafeEdit-CRE versus
   greedy and the compute-matched primary beam. \textbf{C}, corresponding paired
   difference in absolute target gain. \textbf{D}, corresponding paired difference in
@@ -113,12 +113,14 @@ The sequence-domain prefilter returned a zero-edit outcome for 12 of 600 parents
 preserved the prespecified denominator and quantified the practical cost of sequence
 safeguards.
 
-\subsection{Design-criteria benchmark on 96 non-overlapping parents}
+\subsection{Design-criteria benchmark on 90 non-overlapping confirmatory parents}
 
 To assess whether SafeEdit-CRE designs not only score well under cross-model
 evaluation but also satisfy a broad set of sequence-quality and model-agreement
-criteria, we applied a prespecified nine-criterion design benchmark to 96 parent
-sequences that did not overlap with any development or primary-evaluation parents.
+criteria, we applied a prespecified nine-criterion design benchmark to 90 parent
+sequences that did not overlap with any development or primary-evaluation parents
+(six nominal parents were excluded after identifier-level overlap with an exploratory
+benchmark was discovered).
 For each method--parent--target--budget combination we recorded: non-negative primary
 target gain, positive primary margin gain, positive reviewer margin transfer, strand
 disagreement within domain, reviewer uncertainty within domain, naturalness within
@@ -126,25 +128,25 @@ domain, GC change within domain, homopolymer safety, and exact edit budget.
 Thresholds were derived from validation-set random edits and locked before
 evaluation.
 
-SafeEdit-CRE passed all nine criteria for 708 of 1,152 designs (61.5\%), compared
-with 444 of 1,152 greedy designs (38.5\%) and 150 of 1,152 random designs (13.0\%)
+SafeEdit-CRE passed all nine criteria for 654 of 1,080 designs (60.6\%), compared
+with 419 of 1,080 greedy designs (38.8\%) and 142 of 1,080 random designs (13.1\%)
 (Table~\ref{tab:g4}; Fig.~\ref{fig:hardaudit}A). The paired SafeEdit--greedy
-difference was 22.9 percentage points (parent-cluster bootstrap 95\% CI,
-19.4--26.4 percentage points). The SafeEdit--random difference was 48.4 percentage
-points (95\% CI, 43.8--53.0 percentage points). The advantage over greedy was small
+difference was 21.8 percentage points (parent-cluster bootstrap 95\% CI,
+18.3--25.3 percentage points). The SafeEdit--random difference was 47.4 percentage
+points (95\% CI, 43.0--51.8 percentage points). The advantage over greedy was small
 at a one-base budget and increased at budgets 5--20 (Fig.~\ref{fig:hardaudit}B--D).
 
 \begin{table}[t]
 \centering
-\caption{Nine-criterion design benchmark across 96 non-overlapping parents.}
+\caption{Nine-criterion design benchmark across 90 non-overlapping confirmatory parents.}
 \label{tab:g4}
 \begin{tabular}{lrrrr}
 \toprule
 Method & Designs & Passed & Pass rate (\%) & Parent-bootstrap 95\% CI (\%) \\
 \midrule
-Random matched & 1,152 & 150 & 13.0 & 10.6--15.5 \\
-Greedy Malinois & 1,152 & 444 & 38.5 & 34.5--42.4 \\
-SafeEdit-CRE & 1,152 & 708 & 61.5 & 56.7--66.0 \\
+Random matched & 1,080 & 142 & 13.1 & 10.6--15.8 \\
+Greedy Malinois & 1,080 & 419 & 38.8 & 34.6--42.9 \\
+SafeEdit-CRE & 1,080 & 654 & 60.6 & 55.6--65.3 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -153,16 +155,16 @@ SafeEdit-CRE & 1,152 & 708 & 61.5 & 56.7--66.0 \\
   \centering
   \includegraphics[width=\textwidth]{fig3_hard_audit.pdf}
   \caption{\textbf{Nine-criterion design benchmark.} \textbf{A}, pooled nine-criterion
-  pass rates in the locked non-overlapping 96-parent benchmark. Error bars are parent-cluster bootstrap
+  pass rates in the locked non-overlapping 90-parent confirmatory benchmark. Error bars are parent-cluster bootstrap
   95\% confidence intervals. \textbf{B--D}, pass rates stratified by edit budget
   for K562, HepG2, and SK-N-SH, respectively.}
   \label{fig:hardaudit}
 \end{figure}
 
-The 22.9 percentage-point improvement in design-criteria compliance indicates that
-enforcing review, uncertainty, and sequence-domain constraints \emph{during} search
-produces substantially higher-quality designs than applying the same criteria only
-after an unconstrained greedy search.
+The 21.8 percentage-point difference measures the benefit of enforcing reviewer,
+uncertainty, and sequence-domain criteria during candidate generation. Post hoc
+screening of greedy designs recovered markedly fewer variants that met the same
+prespecified criteria.
 
 \subsection{Cell-type and edit-budget effects}
 
@@ -196,16 +198,17 @@ The pattern is consistent with consensus reranking becoming increasingly valuabl
 the number of plausible edit paths grows. At one substitution, all three directed
 strategies are frequently constrained to the same small neighborhood of the parent
 sequence; at 5--20 substitutions, cross-model review filters out edits that look
-favorable under the primary predictor but transfer poorly to the independent
+favorable under the primary predictor but transfer poorly to the held-out
 ensembles. The SK-N-SH result suggests that design thresholds should be calibrated
 per cell type rather than transferred unchanged across cellular models.
 
 \subsection{Complete re-search ablation identifies key components}
 
-To determine which SafeEdit-CRE components drive the observed behavior, we reran the
-complete search under seven configurations on 180 parents (15,120 rows), rather than
-the weaker procedure of removing filters from already-generated candidates.
-Cross-model inference was recomputed for every candidate after each search.
+To identify which SafeEdit-CRE components drive the observed behavior, we reran the
+complete search under seven configurations on 180 parents (15,120 rows). Each
+configuration generated its own candidate sequences; filters were not removed
+retrospectively from a shared candidate table. Cross-model inference was recomputed
+for every candidate after each search.
 
 Full SafeEdit-CRE yielded mean cross-model margin gain 0.890, target gain 1.705,
 and uncertainty 0.312 (Fig.~\ref{fig:ablation}). The matched primary beam had margin
@@ -235,27 +238,26 @@ whereas the reviewer-free configuration reproduced the primary beam exactly.
   \label{fig:ablation}
 \end{figure}
 
-The ablation thus identifies naturalness-aware reranking as the dominant contributor
-to uncertainty reduction and the sequence-domain prefilter as the main determinant
-of synthesis feasibility. The reviewer ensemble accounts for the divergence from the
-primary beam, confirming that cross-model selection is not a superficial addition but
-an active force shaping which sequences are returned.
+Naturalness-aware reranking made the largest contribution to uncertainty reduction,
+whereas the sequence-domain prefilter determined synthesis feasibility. Removing the
+reviewer reproduced the primary-beam result exactly, showing that the reviewer changes
+the returned sequence rather than merely annotating it after selection.
 
 \subsection{Tier A candidate library and representative examples}
 
-From the 3,456 designs in the 96-parent benchmark, we derived a tiered candidate
-library for experimental screening. Seventy-eight Tier A sequences were generated by
+From the 3,240 designs in the 90-parent confirmatory benchmark, we derived a tiered candidate
+library for experimental screening. Seventy-four Tier A sequences were generated by
 SafeEdit-CRE, passed all nine criteria, met target and margin requirements, had no
 synthesis-risk flag, and lay on or near the primary--reviewer Pareto frontier
-(Supplementary Table~S3; Supplementary Fig.~S3). Tier B contains 1,224 alternatives
+(Supplementary Table~S9; Supplementary Fig.~S3). Tier B contains 1,141 alternatives
 that passed core activity and cross-model checks but were Pareto-dominated or mildly
-outside a sequence-quality criterion; the remaining 2,154 Tier C sequences are
-retained for failure-mode analysis. The resulting 78-sequence Tier A panel spans all
+outside a sequence-quality criterion; the remaining 2,025 Tier C sequences are
+retained for failure-mode analysis. The resulting 74-sequence Tier A panel spans all
 three target cell types and four edit budgets, providing a compact first-pass
-synthesis set, while Tier B retains sufficient breadth for a larger secondary MPRA
-library.
+reporter-screening set, while Tier B retains sufficient breadth for a larger secondary
+MPRA library.
 
-To illustrate the nature of SafeEdit-CRE designs, Supplementary Table~S4 presents
+To illustrate the nature of SafeEdit-CRE designs, Supplementary Table~S10 presents
 three representative Tier A candidates---one each for K562, HepG2, and SK-N-SH---all
 generated under a 5-edit budget and achieving Pareto-frontier status without synthesis
 risk flags. Each example reports the parent and edited 200-nt sequence, edit positions,
@@ -263,5 +265,5 @@ primary and reviewer specificity-margin gains, primary target-cell activity gain
 reduction in cross-model predictive uncertainty, GC content, naturalness, and
 homopolymer status. All three show positive primary target gain and positive reviewer
 margin transfer with decreased cross-model uncertainty. Local sequence changes near
-edited positions are noted as candidate interpretive clues for experimental follow-up,
-not as asserted regulatory mechanisms.
+edited positions are recorded as testable sequence-grammar hypotheses for experimental
+follow-up.
