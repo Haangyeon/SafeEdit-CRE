@@ -30,10 +30,10 @@
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L]{\small SafeEdit-CRE}
-\fancyhead[R]{\small Computational regulatory-sequence design}
+\fancyhead[R]{\small Regulatory genomics and sequence design}
 \fancyfoot[C]{\thepage}
 
-\title{\textbf{SafeEdit-CRE: uncertainty-aware cross-model selection improves minimal regulatory-DNA editing for cell-type-specific design}}
+\title{\textbf{Cross-model uncertainty-aware minimal editing of cis-regulatory elements for cell-type-selective design}}
 \author{Angran Xia\\
 School of Chemistry and Chemical Engineering, Shaanxi Normal University,\\
 620 West Chang'an Avenue, Chang'an District, Xi'an, Shaanxi 710119, China\\[0.35em]
@@ -45,41 +45,41 @@ School of Chemistry and Chemical Engineering, Shaanxi Normal University,\\
 \linenumbers
 
 \begin{abstract}
-Sequence-to-activity deep networks now predict the regulatory output of short DNA
-sequences with high accuracy, but optimizing nucleotide edits against a single such model
-can exploit idiosyncrasies of that predictor rather than transferable regulatory signal.
-This problem limits the practical utility of model-guided CRE design for downstream
-experimental screens, where synthesis budget is limited and cross-model robustness is
-essential. Here we present SafeEdit-CRE, a computational regulatory-sequence design
-framework that selects cell-type-selective variants of natural 200-nt cis-regulatory
-elements (CREs) under fixed substitution budgets of 1, 5, 10, or 20 nucleotides.
-SafeEdit-CRE couples the published Malinois cell-type-specificity predictor with an
-architecture-diverse independent evaluation ensemble, validation-calibrated
-uncertainty, sequence-domain controls, and constrained beam search; candidates are
-then passed to a second independently trained multi-kernel ensemble for
-cross-model generalization assessment. Across 600 held-out natural CRE parents in K562,
-HepG2, and SK-N-SH cells, SafeEdit-CRE increased cross-model cell-type-specificity margin
-gain relative to iterative greedy search (0.877 vs.\ 0.822; paired difference 0.055;
-95\% CI 0.040--0.071). Against a compute-matched beam search using only the primary
-predictor, SafeEdit-CRE retained equivalent specificity gain (difference $-0.004$;
-95\% CI $-0.011$--0.004) while lowering cross-model ensemble uncertainty (0.314 vs.\
-0.335) and reducing aggressive target gain excursions. In a locked non-overlapping 96-parent
-design-criteria benchmark, SafeEdit-CRE produced 61.5\% designs passing all prespecified
-sequence and cross-model checks, compared with 38.5\% for greedy and 13.0\% for random
-substitutions. We report 78 experimentally actionable Tier A candidate sequences across
-all three cell types and four edit budgets, together with a tiered library suitable for
-compact first-pass reporter screening. SafeEdit-CRE provides a general and reproducible
-strategy for converting model-guided regulatory-sequence optimization into cross-model
-candidate selection, yielding experimentally actionable CRE variants under realistic
-editing budgets.
+\textbf{Background/Objectives:} Cis-regulatory elements (CREs) encode cell-type-selective
+gene expression, yet sequence-to-activity models are rarely converted into compact,
+experimentally actionable variant panels that preserve natural regulatory scaffolds.
+We developed SafeEdit-CRE to select minimal edits that preserve cross-model
+specificity while substantially reducing predictive uncertainty, producing auditable
+CRE variant libraries ready for reporter screening.\\
+\textbf{Methods:} SafeEdit-CRE combines the published Malinois cell-type-specificity
+predictor with an architecture-diverse reviewer ensemble, validation-calibrated
+uncertainty, sequence-domain controls, and constrained beam search. Natural 200-nt CREs
+were edited under fixed budgets of 1, 5, 10, or 20 nucleotides and evaluated by a
+separately trained multi-kernel ensemble fully excluded from candidate generation.\\
+\textbf{Results:} Across 600 held-out CRE parents in K562, HepG2, and SK-N-SH cells,
+cross-model specificity-margin gain increased from 0.822 for greedy editing to 0.877
+for SafeEdit-CRE (paired difference 0.055; 95\% CI 0.040--0.071). Against a
+compute-matched primary-model beam, SafeEdit-CRE closely matched predicted specificity
+(difference $-0.004$; 95\% CI $-0.011$--$0.004$), while cross-model ensemble uncertainty
+decreased from 0.335 to 0.314. In a locked confirmatory benchmark of 90 non-overlapping
+parents, 60.6\% of SafeEdit-CRE designs passed all nine prespecified sequence and
+model-agreement checks, compared with 38.8\% for greedy and 13.1\% for random
+substitutions (paired difference +21.8 pp; 95\% CI 18.3--25.3).\\
+\textbf{Conclusions:} SafeEdit-CRE provides a reproducible sequence-engineering
+strategy for interrogating cell-type-specific regulatory grammar and yields a curated
+library of 74 Tier A CRE variants prioritized for reporter screening across three cell
+types and four edit budgets.
 \end{abstract}
 
-\noindent\textbf{Keywords:} cis-regulatory elements; regulatory-sequence design;
-uncertainty-aware selection; cross-model generalization; beam search; MPRA;
-computational genomics
+\noindent\textbf{Keywords:} cis-regulatory elements; transcriptional regulation;
+functional genomics; cell-type specificity; MPRA; regulatory-sequence design;
+machine learning
 
 \section{Introduction}
 \input{sections/introduction}
+
+\section{Materials and Methods}
+\input{sections/methods}
 
 \section{Results}
 \input{sections/results}
@@ -87,14 +87,30 @@ computational genomics
 \section{Discussion}
 \input{sections/discussion}
 
-\section{Methods}
-\input{sections/methods}
+\section{Conclusions}
+SafeEdit-CRE establishes cross-model uncertainty-aware minimal editing as a practical
+route for converting sequence-to-activity models into compact, cell-type-selective CRE
+variant libraries. By retaining natural sequence scaffolds and explicitly controlling
+edit distance, model agreement, and predictive uncertainty, the framework provides a
+focused starting point for functional-genomics studies of regulatory sequence grammar.
 
-\section*{Data and code availability}
-The source MPRA measurements are publicly available from Gosai et
-al.~\citep{Gosai2024}. All code, environment files, frozen configuration manifests,
+\section*{Funding}
+This research received no external funding.
+
+\section*{Institutional Review Board Statement}
+Not applicable. The study used publicly available sequence and MPRA summary data and
+did not involve human participants, identifiable personal data, or animal experiments.
+
+\section*{Informed Consent Statement}
+Not applicable.
+
+\section*{Data Availability Statement}
+The processed MPRA measurements used to train Malinois are provided in Supplementary
+Table 2 of Gosai et al.~\citep{Gosai2024}. The associated raw data, processing
+notebooks, model weights, and immunofluorescence images are archived at Zenodo record
+10698014. All SafeEdit-CRE code, environment files, frozen configuration manifests,
 parent identifiers, candidate-level result tables, statistical summaries, analysis
-scripts, fixed model seeds, and the 78 Tier A candidate sequences are archived in a
+scripts, fixed model seeds, and the 74 Tier A candidate sequences are archived in a
 permanent Zenodo repository with an assigned DOI (\url{https://doi.org/10.5281/zenodo.21458489}; version v1.0.0). The repository additionally includes a minimal
 end-to-end reproduction script that regenerates the main figures and statistical
 tables from the released summary inputs. A public mirror of the source repository is
@@ -112,6 +128,12 @@ The authors declare no competing interests.
 \section*{Acknowledgements}
 The authors thank the ENCODE consortium and the Gosai et al.~study for making
 MPRA measurements publicly available.
+
+\section*{Generative AI Use Statement}
+Generative AI tools were used for language editing, document organization, and
+manuscript-formatting assistance. No generative AI system was used to generate the
+experimental or computational data, perform the statistical analyses, or replace the
+author's scientific judgment.
 
 \begingroup
 \small
