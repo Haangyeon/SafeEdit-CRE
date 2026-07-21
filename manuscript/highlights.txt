@@ -1,0 +1,4 @@
+Locked nine-criterion design pass rate increases from 38.8% to 60.6% over greedy editing.
+Cross-model specificity-margin gain of 0.877 across 600 held-out CRE parents.
+Compute-matched single-model beam is closely matched on predicted specificity with lower ensemble uncertainty.
+74 Tier A variants spanning three cell types and four edit budgets form a reporter-screening panel.
