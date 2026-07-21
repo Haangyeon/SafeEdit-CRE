@@ -123,4 +123,4 @@ Code: MIT License. Data and candidate sequences: CC-BY 4.0.
 
 ## Contact
 
-Yiwei Zhang — zhang_yiwei0404@163.com
+A.R. Xia — haangyeon@snnu.edu.cn
