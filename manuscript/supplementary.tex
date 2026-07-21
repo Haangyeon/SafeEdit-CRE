@@ -7,10 +7,12 @@
 \usepackage{amsmath,amssymb}
 \usepackage{booktabs}
 \usepackage{longtable}
+\usepackage{seqsplit}
 \usepackage{graphicx}
 \usepackage{microtype}
 \usepackage{xcolor}
 \usepackage{caption}
+\usepackage{pdflscape}
 \usepackage[numbers,sort&compress]{natbib}
 \usepackage{fancyhdr}
 \usepackage[hidelinks]{hyperref}
@@ -22,11 +24,11 @@
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L]{\small SafeEdit-CRE supplementary information}
-\fancyhead[R]{\small Computational regulatory-sequence design}
+\fancyhead[R]{\small Regulatory genomics and sequence design}
 \fancyfoot[C]{\thepage}
 
 \title{\textbf{Supplementary Information}\\[0.35em]
-\large SafeEdit-CRE: uncertainty-aware cross-model selection improves minimal regulatory-DNA editing for cell-type-specific design}
+\large Cross-model uncertainty-aware minimal editing of cis-regulatory elements for cell-type-selective design}}
 \author{Angran Xia\\
 School of Chemistry and Chemical Engineering, Shaanxi Normal University,\\
 620 West Chang'an Avenue, Chang'an District, Xi'an, Shaanxi 710119, China\\[0.35em]
@@ -44,7 +46,7 @@ School of Chemistry and Chemical Engineering, Shaanxi Normal University,\\
 
 The study was executed in sequential phases. G0--G3 established the data audit,
 published-model reproduction, pilot CNN reviewer, and initial editing workflow. G4
-froze a 96-parent, three-method hard-audit benchmark. G6 assigned computational
+froze a 90-parent, three-method hard-audit benchmark (six nominal parents excluded for overlap with the G4 exploratory pilot). G6 assigned computational
 candidate tiers. G7 trained the full-data residual-dilated reviewer and the
 multi-kernel post-freeze evaluator. G8 selected 600 new parents and compared four search
 methods. G9 reran seven complete search configurations on 180 parents. G10 applied
@@ -76,8 +78,8 @@ itself from self-hashing.
 
 \begin{table}[ht]
 \centering
-\caption{Quality-filtered full-data partitions used for G7 model training.}
-\label{tab:splits}
+\caption{\textbf{Table S1.} Quality-filtered full-data partitions used for G7 model training.}
+\label{tab:S1}
 {\small
 \begin{tabular}{lrrp{4.5cm}}
 \toprule
@@ -95,9 +97,9 @@ Total & 749,054 & -- & After quality filtering and exact deduplication \\
 
 \begin{table}[ht]
 \centering
-\caption{Ensemble performance on the 62,582-record test split, recomputed from saved
+\caption{\textbf{Table S2.} Ensemble performance on the 62,582-record test split, recomputed from saved
 candidate-independent prediction tables.}
-\label{tab:modelperf}
+\label{tab:S2}
 \begin{tabular}{llrrrr}
 \toprule
 Model & Cell & Pearson $r$ & Spearman $\rho$ & MAE & Uncertainty--error $\rho$ \\
@@ -115,8 +117,8 @@ Post-freeze evaluator & SK-N-SH & 0.799 & 0.760 & 0.444 & 0.400 \\
 
 \begin{table}[ht]
 \centering
-\caption{Validation-scaled interval coverage on the test split.}
-\label{tab:coverage}
+\caption{\textbf{Table S3.} Validation-scaled interval coverage on the test split.}
+\label{tab:S3}
 \begin{tabular}{llrrr}
 \toprule
 Model & Cell & 80\% interval & 90\% interval & 95\% interval \\
@@ -134,21 +136,21 @@ Post-freeze evaluator & SK-N-SH & 0.816 & 0.899 & 0.935 \\
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=\textwidth]{figS2_uncertainty_rejection.pdf}
-\caption{\textbf{Uncertainty rejection and interval calibration.} \textbf{A--B}, mean
+\includegraphics[width=\textwidth]{figS1_uncertainty_rejection.pdf}
+\caption{\textbf{Figure S1. Uncertainty rejection and interval calibration.} \textbf{A--B}, mean
 absolute error for the reviewer and post-freeze ensembles as records with the largest
 predicted uncertainty are removed from the held-out test set. \textbf{C--D}, observed
 test coverage at 80\%, 90\%, and 95\% nominal levels by cell type. Curves and bars are
 descriptive test diagnostics; variance scales were fixed from validation only.}
-\label{fig:s2}
+\label{fig:S1}
 \end{figure}
 
 \clearpage
 \subsection{G4 hard-audit stratification}
 
 \begin{longtable}{llrrrr}
-\caption{G4 audit pass rates by target cell and edit budget. Each row contains 96
-paired parents per method.}\label{tab:g4strata}\\
+\caption{\textbf{Table S4.} G4 audit pass rates by target cell and edit budget. Each row contains 90
+non-overlapping parents per method after excluding six parents that overlapped the G4 exploratory pilot.}\label{tab:S4}\\
 \toprule
 Target & Budget & Random (\%) & Greedy (\%) & SafeEdit (\%) & SafeEdit--Greedy (pp) \\
 \midrule
@@ -157,18 +159,18 @@ Target & Budget & Random (\%) & Greedy (\%) & SafeEdit (\%) & SafeEdit--Greedy (
 Target & Budget & Random (\%) & Greedy (\%) & SafeEdit (\%) & SafeEdit--Greedy (pp) \\
 \midrule
 \endhead
-K562 & 1 & 14.6 & 59.4 & 60.4 & 1.0 \\
-K562 & 5 & 8.3 & 57.3 & 78.1 & 20.8 \\
-K562 & 10 & 17.7 & 41.7 & 83.3 & 41.7 \\
-K562 & 20 & 25.0 & 50.0 & 82.3 & 32.3 \\
-HepG2 & 1 & 10.4 & 34.4 & 35.4 & 1.0 \\
-HepG2 & 5 & 5.2 & 37.5 & 47.9 & 10.4 \\
-HepG2 & 10 & 2.1 & 31.3 & 58.3 & 27.1 \\
-HepG2 & 20 & 8.3 & 28.1 & 59.4 & 31.3 \\
-SK-N-SH & 1 & 25.0 & 35.4 & 39.6 & 4.2 \\
-SK-N-SH & 5 & 16.7 & 35.4 & 57.3 & 21.9 \\
-SK-N-SH & 10 & 14.6 & 21.9 & 66.7 & 44.8 \\
-SK-N-SH & 20 & 8.3 & 30.2 & 68.8 & 38.5 \\
+K562 & 1 & 14.4 & 58.9 & 60.0 & 1.1 \\
+K562 & 5 & 8.9 & 56.7 & 77.8 & 21.1 \\
+K562 & 10 & 17.8 & 43.3 & 82.2 & 38.9 \\
+K562 & 20 & 24.4 & 50.0 & 81.1 & 31.1 \\
+HepG2 & 1 & 8.9 & 34.4 & 35.6 & 1.1 \\
+HepG2 & 5 & 5.6 & 35.6 & 45.6 & 10.0 \\
+HepG2 & 10 & 2.2 & 33.3 & 56.7 & 23.3 \\
+HepG2 & 20 & 8.9 & 27.8 & 60.0 & 32.2 \\
+SK-N-SH & 1 & 24.4 & 36.7 & 38.9 & 2.2 \\
+SK-N-SH & 5 & 17.8 & 35.6 & 57.8 & 22.2 \\
+SK-N-SH & 10 & 15.6 & 22.2 & 64.4 & 42.2 \\
+SK-N-SH & 20 & 8.9 & 31.1 & 66.7 & 35.6 \\
 \bottomrule
 \end{longtable}
 
@@ -176,9 +178,9 @@ SK-N-SH & 20 & 8.3 & 30.2 & 68.8 & 38.5 \\
 
 \begin{table}[ht]
 \centering
-\caption{Pooled G8 method summaries. Each method has 7,200 parent--target--budget
+\caption{\textbf{Table S5.} Pooled G8 method summaries. Each method has 7,200 parent--target--budget
 records after averaging the three random replicates.}
-\label{tab:g8summary}
+\label{tab:S5}
 \begin{tabular}{lrrrr}
 \toprule
 Method & Margin gain & Target gain & Positive margin (\%) & Uncertainty \\
@@ -193,9 +195,9 @@ SafeEdit consensus & 0.877 & 1.661 & 95.4 & 0.314 \\
 
 \begin{table}[ht]
 \centering
-\caption{Pooled paired G8 contrasts. Differences are SafeEdit minus comparator;
+\caption{\textbf{Table S6.} Pooled paired G8 contrasts. Differences are SafeEdit minus comparator;
 confidence intervals use 100,000 parent-cluster bootstrap replicates.}
-\label{tab:g8paired}
+\label{tab:S6}
 \begin{tabular}{llrr}
 \toprule
 Comparator & Metric & Mean difference & 95\% CI \\
@@ -217,12 +219,12 @@ Random matched & Post-freeze uncertainty & 0.1285 & 0.1222 to 0.1348 \\
 
 \clearpage
 \begin{center}
-\includegraphics[width=0.96\textwidth]{figS4_stratified_effects.pdf}
-\captionof{figure}{\textbf{Target--budget heterogeneity in the G8 post-freeze endpoint.}
+\includegraphics[width=0.96\textwidth]{figS2_stratified_effects.pdf}
+\captionof{figure}{\textbf{Figure S2. Target--budget heterogeneity in the G8 post-freeze endpoint.}
 \textbf{A--C}, mean post-freeze specificity-margin gain across edit budgets for random,
 greedy, primary-beam, and SafeEdit searches in K562, HepG2, and SK-N-SH. Each point
 summarizes 600 parents. Values are descriptive and are not multiplicity-adjusted.}
-\label{fig:s4}
+\label{fig:S2}
 \end{center}
 
 \clearpage
@@ -230,10 +232,10 @@ summarizes 600 parents. Values are descriptive and are not multiplicity-adjusted
 
 \begin{table}[ht]
 \centering
-\caption{G9 post-freeze outcomes for seven independently rerun search configurations.
+\caption{\textbf{Table S7.} G9 post-freeze outcomes for seven independently rerun search configurations.
 Each configuration contains 2,160 rows from 180 parents, three targets, and four
 budgets.}
-\label{tab:g9summary}
+\label{tab:S7}
 \begin{tabular}{lrrrrr}
 \toprule
 Configuration & Margin gain & Target gain & Positive (\%) & Uncertainty & Infeasible \\
@@ -251,9 +253,9 @@ No sequence prefilter & 0.910 & 1.763 & 98.1 & 0.318 & 0 \\
 
 \begin{table}[ht]
 \centering
-\caption{Selected G9 paired contrasts. Differences are full SafeEdit minus the
+\caption{\textbf{Table S8.} Selected G9 paired contrasts. Differences are full SafeEdit minus the
 ablation; intervals use 100,000 parent-cluster bootstrap replicates.}
-\label{tab:g9paired}
+\label{tab:S8}
 \begin{tabular}{llrr}
 \toprule
 Comparator & Metric & Mean difference & 95\% CI \\
@@ -278,44 +280,44 @@ No prefilter & Post-freeze uncertainty & $-0.0060$ & $-0.0102$ to $-0.0024$ \\
 \clearpage
 \begin{center}
 \includegraphics[width=0.86\textwidth]{figS3_candidate_tiers.pdf}
-\captionof{figure}{\textbf{Computational candidate tiers.} Primary-model and reviewer
-specificity-margin gains are shown for the frozen 3,456-sequence G4 library. All Tier
+\captionof{figure}{\textbf{Figure S3. Computational candidate tiers.} Primary-model and reviewer
+specificity-margin gains are shown for the frozen 3,240-sequence G4 library. All Tier
 A and Tier B candidates are plotted; Tier C is downsampled for legibility. Outlined
 points lie on the computed Pareto frontier. Tier labels represent computational
 priorities for experimental screening.}
-\label{fig:s3}
+\label{fig:S3}
 \end{center}
 
 \begin{table}[ht]
 \centering
-\caption{Frozen G4 candidate tiers.}
-\label{tab:tiers}
+\caption{\textbf{Table S9.} Frozen G4 candidate tiers.}
+\label{tab:S9}
 \begin{tabular}{lrrl}
 \toprule
 Tier & Candidates & Fraction (\%) & Intended use \\
 \midrule
-A & 78 & 2.3 & Highest-priority experimental panel \\
-B & 1,224 & 35.4 & Alternative computational candidates \\
-C & 2,154 & 62.3 & Method and failure-mode analysis \\
+A & 74 & 2.3 & Highest-priority experimental panel \\
+B & 1,141 & 35.2 & Alternative computational candidates \\
+C & 2,025 & 62.5 & Method and failure-mode analysis \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \subsection{Representative Tier A candidates}
 
-\begin{longtable}{p{1.8cm}p{1.8cm}p{1.8cm}p{1.8cm}p{1.8cm}p{1.8cm}p{1.8cm}}
-\caption{Three representative Tier A experimentally actionable candidates, one per cell
-type, selected from the locked non-overlapping 96-parent nine-criterion design benchmark.
+\begin{landscape}
+\begin{longtable}{p{2.2cm}p{2.0cm}p{2.0cm}p{2.0cm}p{2.0cm}p{2.0cm}p{2.0cm}}
+\caption{\textbf{Table S10.} Three representative Tier A reporter-screening candidates, one per cell
+type, selected from the locked non-overlapping 90-parent nine-criterion design benchmark.
 Representative examples were selected according to a prespecified rule requiring Tier A
 status, one example per target cell, positive cross-model margin gain, reduced
 uncertainty, and no synthesis-risk flag. Margins are shown
-for the primary Malinois predictor and the independent reviewer ensemble; all three
+for the primary Malinois predictor and the held-out reviewer ensemble; all three
 achieved Pareto-frontier status and carry no synthesis-risk flags. Edit positions use
 0-indexed coordinates within the 200-nt sequence window. Margin and uncertainty values
 are in log-fold-change units. GC is expressed as a fraction. All edits are
 substitutions within a budget of five nucleotides. Motif-level observations at edited
-positions represent candidate interpretive clues for experimental follow-up, not
-claimed mechanisms.}\label{tab:tierAexamples}\\
+positions are reported as testable sequence-grammar hypotheses for follow-up.}\label{tab:S10}\\
 \toprule
 Property & \multicolumn{2}{c}{K562 (chr7:127284707)} & \multicolumn{2}{c}{HepG2 (chr7:105701659)} & \multicolumn{2}{c}{SK-N-SH (chr13:23368564)} \\
 \cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}
@@ -344,23 +346,24 @@ Max homopolymer & $4$ & $4$ & $5$ & $5$ & $5$ & $5$ \\
 Synthesis risk & \multicolumn{2}{c}{None} & \multicolumn{2}{c}{None} & \multicolumn{2}{c}{None} \\
 Pareto frontier & \multicolumn{2}{c}{Yes} & \multicolumn{2}{c}{Yes} & \multicolumn{2}{c}{Yes} \\
 \addlinespace
-Parent sequence & \multicolumn{6}{p{13.5cm}}{\ttfamily\small TGAGGGCAGAGCTCAGCCGCAACCCGGCCCTGCTGCTTAGAGGCTCGGGGCCTTGGCAAATGACAGCCTCCCTGAGCCTGTTTCTCCATCCGTAAAACAGGCCTCCCAGCCCTGTGTCGGAGCAACTGAAACGAGGGTTAAATGAGGAAACCATGCGACAGATGTCAGCATAATCCCTGCCACGCAGAGGAGGCAAAATC} \\
-Edited sequence (K562) & \multicolumn{6}{p{13.5cm}}{\ttfamily\small TGAGGGCAGAGCTCAGCCGCAACCCGGCCCTGCTGCTTAGAGGCTCGGGGCCTTGGCAAATGACAGCCTCCCTGAGCCTGTTTCTCCAACCGTAAAACAGGCCTCCCAGCCCTGTGTGGGAGCAACTGATAAGAGGGTTAAATGAGGAAACCATGCGACAGATGTCAGCATAATCCCTGACACGCAGAGGAGGCAAAATC} \\
+Parent sequence & \multicolumn{6}{p{22.8cm}}{\ttfamily\scriptsize\seqsplit{TGAGGGCAGAGCTCAGCCGCAACCCGGCCCTGCTGCTTAGAGGCTCGGGGCCTTGGCAAATGACAGCCTCCCTGAGCCTGTTTCTCCATCCGTAAAACAGGCCTCCCAGCCCTGTGTCGGAGCAACTGAAACGAGGGTTAAATGAGGAAACCATGCGACAGATGTCAGCATAATCCCTGCCACGCAGAGGAGGCAAAATC}} \\
+Edited sequence (K562) & \multicolumn{6}{p{22.8cm}}{\ttfamily\scriptsize\seqsplit{TGAGGGCAGAGCTCAGCCGCAACCCGGCCCTGCTGCTTAGAGGCTCGGGGCCTTGGCAAATGACAGCCTCCCTGAGCCTGTTTCTCCAACCGTAAAACAGGCCTCCCAGCCCTGTGTGGGAGCAACTGATAAGAGGGTTAAATGAGGAAACCATGCGACAGATGTCAGCATAATCCCTGACACGCAGAGGAGGCAAAATC}} \\
 \addlinespace
-Parent sequence (HepG2) & \multicolumn{6}{p{13.5cm}}{\ttfamily\small GGGGGTGAGGGATCCCTGCAATACATAACACGTGCTAAGCAGTGGGGTTTGGGTGCTACTTCCCAACTGGCCGCTCTTAGGAACTGGTGAAACCTTAAGTCAGGTGTGACTGAGCGAGCCCCTGGGTCATGGCTATTCTCCTTGCTGCTCTGCTCTCCTAAGTCTGGTTTGAGGCTCCTCTCCCTCCCTGGCGTCCCACC} \\
-Edited sequence (HepG2) & \multicolumn{6}{p{13.5cm}}{\ttfamily\small GGGGGTGAGGGATCCCTGCAATACATAACACGTGCTAAGCAGTGGGGTTTGGGTGCTACTTCCCAACTGGCCGCTCTTAGGAACTGGTTAAACATTAACTCAGGTGTGACTCAGCGAGCCCCTGGGTCATGGCTATTCTCCTTGCTGCTCTGCTCTCCTAAGTCTGGTTTGAGGCTCCTCTCCCTCCCTGGCGTCCCAGC} \\
+Parent sequence (HepG2) & \multicolumn{6}{p{22.8cm}}{\ttfamily\scriptsize\seqsplit{GGGGGTGAGGGATCCCTGCAATACATAACACGTGCTAAGCAGTGGGGTTTGGGTGCTACTTCCCAACTGGCCGCTCTTAGGAACTGGTGAAACCTTAAGTCAGGTGTGACTGAGCGAGCCCCTGGGTCATGGCTATTCTCCTTGCTGCTCTGCTCTCCTAAGTCTGGTTTGAGGCTCCTCTCCCTCCCTGGCGTCCCACC}} \\
+Edited sequence (HepG2) & \multicolumn{6}{p{22.8cm}}{\ttfamily\scriptsize\seqsplit{GGGGGTGAGGGATCCCTGCAATACATAACACGTGCTAAGCAGTGGGGTTTGGGTGCTACTTCCCAACTGGCCGCTCTTAGGAACTGGTTAAACATTAACTCAGGTGTGACTCAGCGAGCCCCTGGGTCATGGCTATTCTCCTTGCTGCTCTGCTCTCCTAAGTCTGGTTTGAGGCTCCTCTCCCTCCCTGGCGTCCCAGC}} \\
 \addlinespace
-Parent sequence (SK-N-SH) & \multicolumn{6}{p{13.5cm}}{\ttfamily\small CGAAATTCCCACAACTGGAATATATACCGCATTGATACTATCTTCCCCTTTATCCTAAAACTGTCATCTTTAAGCTTCAAACAGTACTGTGATTTGATGTTAACCATGATGATTTGTACAACCGTATTTACAAGGCCACAACTCAAGTCATTTTTAGATTTCATCCTTCTAGACTGTAGCCAAATTCCCATCCATAAAGC} \\
-Edited sequence (SK-N-SH) & \multicolumn{6}{p{13.5cm}}{\ttfamily\small GGAAATTCCCACAACTGGAATATATACCGCATTGATACTATCTTCCCCTTTATCCTAAAACTGTCATCTTTAAGCTTCAAACAGTACTGTGATTTGATGTTAACCATGATGATTTGTACAACCGTATTTACAAGGCCACAACTCAAGCTATTTTTAGATTTCATCCTTCTGGAATGTAGCCAAATTCCCATCCATAAAGC} \\
+Parent sequence (SK-N-SH) & \multicolumn{6}{p{22.8cm}}{\ttfamily\scriptsize\seqsplit{CGAAATTCCCACAACTGGAATATATACCGCATTGATACTATCTTCCCCTTTATCCTAAAACTGTCATCTTTAAGCTTCAAACAGTACTGTGATTTGATGTTAACCATGATGATTTGTACAACCGTATTTACAAGGCCACAACTCAAGTCATTTTTAGATTTCATCCTTCTAGACTGTAGCCAAATTCCCATCCATAAAGC}} \\
+Edited sequence (SK-N-SH) & \multicolumn{6}{p{22.8cm}}{\ttfamily\scriptsize\seqsplit{GGAAATTCCCACAACTGGAATATATACCGCATTGATACTATCTTCCCCTTTATCCTAAAACTGTCATCTTTAAGCTTCAAACAGTACTGTGATTTGATGTTAACCATGATGATTTGTACAACCGTATTTACAAGGCCACAACTCAAGCTATTTTTAGATTTCATCCTTCTGGAATGTAGCCAAATTCCCATCCATAAAGC}} \\
 \midrule[\heavyrulewidth]
-\multicolumn{7}{p{14.5cm}}{\footnotesize Note: P = parent natural CRE; E = SafeEdit-CRE edited design. Primary margin and
+\multicolumn{7}{p{23.4cm}}{\footnotesize Note: P = parent natural CRE; E = SafeEdit-CRE edited design. Primary margin and
 target gain are from the Malinois predictor used to direct the search; reviewer margin
 and uncertainty are from the independent residual-dilated ensemble used during
 cross-model reranking. All edited sequences retain length 200 nt and exact edit budget.
-The full 78-candidate Tier A library is provided as a machine-readable table in the
+The full 74-candidate Tier A library is provided as a machine-readable table in the
 permanent Zenodo archive (v1.0.0).} \\
 \bottomrule
 \end{longtable}
+\end{landscape}
 
 \clearpage
 \section{Reproducibility summary}

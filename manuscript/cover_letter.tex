@@ -1,0 +1,67 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.75em}
+\begin{document}
+
+\begin{flushright}
+Angran Xia\\
+School of Chemistry and Chemical Engineering\\
+Shaanxi Normal University\\
+Xi'an, Shaanxi 710119, China\\
+\href{mailto:haangyeon@snnu.edu.cn}{haangyeon@snnu.edu.cn}\\[1em]
+\today
+\end{flushright}
+
+Dear Editors of \emph{Genes},
+
+Please consider our manuscript, ``Cross-model uncertainty-aware minimal editing of
+cis-regulatory elements for cell-type-selective design,'' for publication as a Research
+Article. The study addresses a biological problem in functional genomics: how to
+retune natural cis-regulatory elements (CREs) with a small, interpretable number of
+nucleotide substitutions while preserving a cell-type-selective regulatory signal.
+
+Existing sequence-design workflows have made sequence-to-activity prediction highly
+effective, but commonly select edits with the same predictor that defines the objective
+or return a single unconstrained high-scoring sequence. SafeEdit-CRE introduces a
+procedurally separated framework for minimal editing: candidate generation uses one
+predictor, cross-model review uses an architecture-diverse ensemble, and final
+evaluation uses a held-out multi-kernel model. It combines the published
+cell-type-specificity predictor with validation-calibrated uncertainty,
+sequence-domain controls, and constrained beam search on natural 200-nt CRE scaffolds,
+prioritizing variants with consistent predictions across separately trained,
+architecture-diverse models.
+
+The principal findings are:
+\begin{itemize}
+  \item Across 600 held-out natural CRE parents in K562, HepG2, and SK-N-SH cells,
+  SafeEdit-CRE increases cross-model specificity-margin gain from 0.822 for greedy
+  editing to 0.877 (paired difference 0.055; 95\% CI 0.040--0.071).
+  \item Against a compute-matched primary-model beam, predicted specificity remains
+  closely matching (difference $-0.004$; 95\% CI $-0.011$--$0.004$), while cross-model
+  uncertainty decreases from 0.335 to 0.314.
+  \item In a locked, non-overlapping 90-parent design-quality benchmark, the fraction
+  passing all prespecified sequence and model-agreement checks increases from 38.8\%
+  for greedy editing to 60.6\% for SafeEdit-CRE, yielding 74 Tier A variants
+  prioritized for reporter screening.
+\end{itemize}
+
+These results make a focused contribution to the scope of \emph{Genes}: they connect
+sequence modeling with cis-regulatory grammar, cell-type-specific transcriptional
+control, and reproducible functional-genomics design. The public code, checkpoints,
+candidate library, and frozen summary inputs are available at
+\href{https://github.com/Haangyeon/SafeEdit-CRE}{GitHub} and in the versioned Zenodo
+archive (DOI: \href{https://doi.org/10.5281/zenodo.21458489}{10.5281/zenodo.21458489}).
+
+The manuscript is original, is not under consideration elsewhere, and has been
+approved by the author. The author declares no competing interests. Thank you for
+considering this work.
+
+Sincerely,\\[0.8em]
+Angran Xia
+
+\end{document}
