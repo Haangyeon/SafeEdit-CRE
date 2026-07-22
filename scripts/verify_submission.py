@@ -38,6 +38,7 @@ def main() -> None:
         ROOT / "manuscript/main.pdf",
         ROOT / "manuscript/supplementary.pdf",
         ROOT / "data/g4_frozen_candidates.tsv.gz",
+        ROOT / "data/final_candidate_library_frozen.tsv.gz",
         ROOT / "data/g8_candidates_sealed_collapsed.tsv.gz",
         ROOT / "data/g9_true_ablation_sealed.tsv.gz",
         ROOT / "stats/final_stats.json",
@@ -49,7 +50,7 @@ def main() -> None:
     g8 = read_gz(ROOT / "data/g8_candidates_sealed_collapsed.tsv.gz")
     g9 = read_gz(ROOT / "data/g9_true_ablation_sealed.tsv.gz")
     checks.extend([
-        ("g4_rows", len(g4) == 3456),
+        ("g4_rows", len(g4) == 3240),
         ("g4_unique_keys", not g4.duplicated(["parent_id", "target_cell", "budget", "method"]).any()),
         ("g8_rows", len(g8) == 28800),
         ("g8_unique_keys", not g8.duplicated(["parent_id", "target_cell", "budget", "method"]).any()),
@@ -64,6 +65,13 @@ def main() -> None:
 
     stats = json.loads((ROOT / "stats/final_stats.json").read_text(encoding="utf-8"))
     checks.append(("stats_contains_g4_g8_g9", all(k in stats for k in ("g4", "g8", "g9"))))
+    final_library = read_gz(ROOT / "data/final_candidate_library_frozen.tsv.gz")
+    checks.extend([
+        ("final_library_rows", len(final_library) == 3240),
+        ("tier_a_count", int((final_library["priority_tier"] == "A").sum()) == 74),
+        ("tier_b_count", int((final_library["priority_tier"] == "B").sum()) == 1141),
+        ("tier_c_count", int((final_library["priority_tier"] == "C").sum()) == 2025),
+    ])
 
     failed = [name for name, ok in checks if not ok]
     report = {"checks": len(checks), "failed": failed, "status": "PASS" if not failed else "FAIL"}

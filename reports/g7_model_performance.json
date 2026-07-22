@@ -1,0 +1,184 @@
+{
+  "reviewer": {
+    "architecture": "ResidualDilatedCNN",
+    "seeds": [
+      20260721,
+      20260722,
+      20260723
+    ],
+    "ensemble_mean_pearson_r": 0.8363554875055949,
+    "members": [
+      {
+        "seed": 20260721,
+        "test_mean_pearson_r": 0.8312956690788269,
+        "test_metrics": {
+          "K562_log2FC": {
+            "pearson_r": 0.8268288373947144,
+            "spearman_rho": 0.7596966405358254,
+            "mae": 0.41817039251327515,
+            "rmse": 0.6451735496520996
+          },
+          "HepG2_log2FC": {
+            "pearson_r": 0.8376993536949158,
+            "spearman_rho": 0.7870374741202295,
+            "mae": 0.3818310797214508,
+            "rmse": 0.5611500144004822
+          },
+          "SKNSH_log2FC": {
+            "pearson_r": 0.8293588161468506,
+            "spearman_rho": 0.7909712025945352,
+            "mae": 0.413204163312912,
+            "rmse": 0.632458508014679
+          }
+        },
+        "best_epoch": 20,
+        "checkpoint_sha256": "2a0d333459de6434d6f13000a4ec2f42e3676b7eaa4df452599a1175a7821e12"
+      },
+      {
+        "seed": 20260722,
+        "test_mean_pearson_r": 0.8382739424705505,
+        "test_metrics": {
+          "K562_log2FC": {
+            "pearson_r": 0.8325628042221069,
+            "spearman_rho": 0.7627011334389188,
+            "mae": 0.40736910700798035,
+            "rmse": 0.6401488184928894
+          },
+          "HepG2_log2FC": {
+            "pearson_r": 0.8451076745986938,
+            "spearman_rho": 0.7918231549544648,
+            "mae": 0.3644450604915619,
+            "rmse": 0.5487879514694214
+          },
+          "SKNSH_log2FC": {
+            "pearson_r": 0.8371513485908508,
+            "spearman_rho": 0.7958375000490867,
+            "mae": 0.40391188859939575,
+            "rmse": 0.6184092164039612
+          }
+        },
+        "best_epoch": 19,
+        "checkpoint_sha256": "5a246fb4ac4e145ef0e2ea8d7ff2b9d4a6d592aa6335793007c310871b2d73d3"
+      },
+      {
+        "seed": 20260723,
+        "test_mean_pearson_r": 0.8394968509674072,
+        "test_metrics": {
+          "K562_log2FC": {
+            "pearson_r": 0.8342809677124023,
+            "spearman_rho": 0.7634790962434331,
+            "mae": 0.41096436977386475,
+            "rmse": 0.6331508159637451
+          },
+          "HepG2_log2FC": {
+            "pearson_r": 0.8435969352722168,
+            "spearman_rho": 0.7916971694574627,
+            "mae": 0.36640721559524536,
+            "rmse": 0.5496164560317993
+          },
+          "SKNSH_log2FC": {
+            "pearson_r": 0.8406126499176025,
+            "spearman_rho": 0.795277123925917,
+            "mae": 0.3980051875114441,
+            "rmse": 0.6114203333854675
+          }
+        },
+        "best_epoch": 18,
+        "checkpoint_sha256": "f8ac2c654a0a17141845443d20f1c80bbdc17edec8b4e014cb37ca39a0fe002c"
+      }
+    ]
+  },
+  "sealed_evaluator": {
+    "architecture": "MultiKernelCNN",
+    "seeds": [
+      20260731,
+      20260732,
+      20260733
+    ],
+    "ensemble_mean_pearson_r": 0.7708452542622884,
+    "members": [
+      {
+        "seed": 20260731,
+        "test_mean_pearson_r": 0.7723039189974467,
+        "test_metrics": {
+          "K562_log2FC": {
+            "pearson_r": 0.7649489045143127,
+            "spearman_rho": 0.6879344521320744,
+            "mae": 0.485308974981308,
+            "rmse": 0.7385812997817993
+          },
+          "HepG2_log2FC": {
+            "pearson_r": 0.7727361917495728,
+            "spearman_rho": 0.7107340538574378,
+            "mae": 0.44060400128364563,
+            "rmse": 0.6482568979263306
+          },
+          "SKNSH_log2FC": {
+            "pearson_r": 0.7792266607284546,
+            "spearman_rho": 0.7323436969392535,
+            "mae": 0.46726906299591064,
+            "rmse": 0.7065935730934143
+          }
+        },
+        "best_epoch": 14,
+        "checkpoint_sha256": "1bcb1cfbe6b0c64906c2384bc9bcf7841e4d2c2021d00327e76e4ff8db308e73"
+      },
+      {
+        "seed": 20260732,
+        "test_mean_pearson_r": 0.7696784734725952,
+        "test_metrics": {
+          "K562_log2FC": {
+            "pearson_r": 0.7599701285362244,
+            "spearman_rho": 0.6810717310544616,
+            "mae": 0.4854563772678375,
+            "rmse": 0.7466896176338196
+          },
+          "HepG2_log2FC": {
+            "pearson_r": 0.7713756561279297,
+            "spearman_rho": 0.7050591629813212,
+            "mae": 0.4406641125679016,
+            "rmse": 0.6497925519943237
+          },
+          "SKNSH_log2FC": {
+            "pearson_r": 0.7776896357536316,
+            "spearman_rho": 0.7267316505639047,
+            "mae": 0.4684610664844513,
+            "rmse": 0.7086189985275269
+          }
+        },
+        "best_epoch": 16,
+        "checkpoint_sha256": "ed85219579afb53fe4f9ce339a67720e5f908e39944c65f3a7cc8642140a8f3e"
+      },
+      {
+        "seed": 20260733,
+        "test_mean_pearson_r": 0.7705533703168234,
+        "test_metrics": {
+          "K562_log2FC": {
+            "pearson_r": 0.7618589401245117,
+            "spearman_rho": 0.6805461404316656,
+            "mae": 0.48637858033180237,
+            "rmse": 0.7431596517562866
+          },
+          "HepG2_log2FC": {
+            "pearson_r": 0.7722517251968384,
+            "spearman_rho": 0.7073822292989898,
+            "mae": 0.4401671886444092,
+            "rmse": 0.648903489112854
+          },
+          "SKNSH_log2FC": {
+            "pearson_r": 0.7775494456291199,
+            "spearman_rho": 0.7313211304946958,
+            "mae": 0.46844425797462463,
+            "rmse": 0.7089106440544128
+          }
+        },
+        "best_epoch": 17,
+        "checkpoint_sha256": "afe04aa739a5542f3d129eb0391dff375198eb0fac8b51f111b3257475b8aab0"
+      }
+    ]
+  },
+  "pearson_gate": 0.75,
+  "gate_passed": true,
+  "calibration_source": "validation_only",
+  "note": "Calibration parameters (variance scaling, etc.) determined exclusively on validation split; test predictions use frozen parameters without re-adjustment."
+}

@@ -1,0 +1,4 @@
+{
+  "status": "NO_INDEPENDENT_MATCHED_EXTERNAL_MPRA",
+  "explanation": "No independent external MPRA dataset with matched cell types and comparable measurement protocol was available. The sealed evaluator serves as the architecturally independent assessment layer. Using a different subset of the same Table S2 dataset would not constitute independent external validation."
+}

@@ -1,0 +1,250 @@
+{
+  "status": "SEALED_EVALUATOR_CPU_ANALYSIS_PASS",
+  "input_rows": 15120,
+  "collapsed_rows": 15120,
+  "parent_count": 180,
+  "method_summary": [
+    {
+      "method": "primary_beam",
+      "n": 2160,
+      "parent_count": 180,
+      "mean_sealed_margin_gain": 0.8896686928163541,
+      "median_sealed_margin_gain": 0.5992233008146286,
+      "positive_sealed_margin_fraction": 0.9472222222222222,
+      "mean_sealed_target_gain": 1.8971012874080737,
+      "mean_sealed_uncertainty": 0.3336010972943364
+    },
+    {
+      "method": "safeedit_consensus",
+      "n": 2160,
+      "parent_count": 180,
+      "mean_sealed_margin_gain": 0.8898692998958622,
+      "median_sealed_margin_gain": 0.5725623858161271,
+      "positive_sealed_margin_fraction": 0.9527777777777777,
+      "mean_sealed_target_gain": 1.705131786455156,
+      "mean_sealed_uncertainty": 0.31244951898783996
+    },
+    {
+      "method": "safeedit_no_naturalness_rerank",
+      "n": 2160,
+      "parent_count": 180,
+      "mean_sealed_margin_gain": 0.9786673409282264,
+      "median_sealed_margin_gain": 0.6808302588760853,
+      "positive_sealed_margin_fraction": 0.9532407407407407,
+      "mean_sealed_target_gain": 2.0167863199091833,
+      "mean_sealed_uncertainty": 0.3429349192219821
+    },
+    {
+      "method": "safeedit_no_reviewer_score",
+      "n": 2160,
+      "parent_count": 180,
+      "mean_sealed_margin_gain": 0.8896686928163541,
+      "median_sealed_margin_gain": 0.5992233008146286,
+      "positive_sealed_margin_fraction": 0.9472222222222222,
+      "mean_sealed_target_gain": 1.8971012874080737,
+      "mean_sealed_uncertainty": 0.3336010972943364
+    },
+    {
+      "method": "safeedit_no_sequence_prefilter",
+      "n": 2160,
+      "parent_count": 180,
+      "mean_sealed_margin_gain": 0.9096263838482459,
+      "median_sealed_margin_gain": 0.5963586444631801,
+      "positive_sealed_margin_fraction": 0.9805555555555555,
+      "mean_sealed_target_gain": 1.763230160266253,
+      "mean_sealed_uncertainty": 0.3184233934256352
+    },
+    {
+      "method": "safeedit_no_strand_penalty",
+      "n": 2160,
+      "parent_count": 180,
+      "mean_sealed_margin_gain": 0.8867972122746794,
+      "median_sealed_margin_gain": 0.5717084282077849,
+      "positive_sealed_margin_fraction": 0.9537037037037037,
+      "mean_sealed_target_gain": 1.7013432715629346,
+      "mean_sealed_uncertainty": 0.3101256962192969
+    },
+    {
+      "method": "safeedit_no_uncertainty_penalty",
+      "n": 2160,
+      "parent_count": 180,
+      "mean_sealed_margin_gain": 0.8911369126143519,
+      "median_sealed_margin_gain": 0.5697767436504364,
+      "positive_sealed_margin_fraction": 0.9523148148148148,
+      "mean_sealed_target_gain": 1.7193960498639105,
+      "mean_sealed_uncertainty": 0.31266888371254836
+    }
+  ],
+  "paired_comparisons": [
+    {
+      "comparison": "safeedit_consensus_vs_primary_beam",
+      "metric": "sealed_margin_gain",
+      "target_cell": "pooled",
+      "budget": "pooled",
+      "parent_count": 180,
+      "mean_paired_difference": 0.0002006070795080904,
+      "parent_cluster_bootstrap_95_ci": [
+        -0.014588283388015788,
+        0.015039599470420148
+      ]
+    },
+    {
+      "comparison": "safeedit_consensus_vs_primary_beam",
+      "metric": "sealed_target_gain",
+      "target_cell": "pooled",
+      "budget": "pooled",
+      "parent_count": 180,
+      "mean_paired_difference": -0.19196950095291768,
+      "parent_cluster_bootstrap_95_ci": [
+        -0.2437567516671131,
+        -0.14298411016870954
+      ]
+    },
+    {
+      "comparison": "safeedit_consensus_vs_primary_beam",
+      "metric": "sealed_margin_gain",
+      "target_cell": "K562",
+      "budget": 1,
+      "parent_count": 180,
+      "mean_paired_difference": 0.012222007051524186,
+      "parent_cluster_bootstrap_95_ci": [
+        -0.006218678993172943,
+        0.030015807435201065
+      ]
+    },
+    {
+      "comparison": "safeedit_consensus_vs_primary_beam",
+      "metric": "sealed_margin_gain",
+      "target_cell": "K562",
+      "budget": 5,
+      "parent_count": 180,
+      "mean_paired_difference": 0.05595400298221244,
+      "parent_cluster_bootstrap_95_ci": [
+        0.01430473089761411,
+        0.0983481847267184
+      ]
+    },
+    {
+      "comparison": "safeedit_consensus_vs_primary_beam",
+      "metric": "sealed_margin_gain",
+      "target_cell": "K562",
+      "budget": 10,
+      "parent_count": 180,
+      "mean_paired_difference": 0.04307262712261742,
+      "parent_cluster_bootstrap_95_ci": [
+        -0.017432248505194575,
+        0.105489885751934
+      ]
+    },
+    {
+      "comparison": "safeedit_consensus_vs_primary_beam",
+      "metric": "sealed_margin_gain",
+      "target_cell": "K562",
+      "budget": 20,
+      "parent_count": 180,
+      "mean_paired_difference": 0.03788546252116143,
+      "parent_cluster_bootstrap_95_ci": [
+        -0.0413186127922058,
+        0.11635208463367429
+      ]
+    },
+    {
+      "comparison": "safeedit_consensus_vs_primary_beam",
+      "metric": "sealed_margin_gain",
+      "target_cell": "HepG2",
+      "budget": 1,
+      "parent_count": 180,
+      "mean_paired_difference": 0.004087064029752384,
+      "parent_cluster_bootstrap_95_ci": [
+        -0.003286043947834207,
+        0.012196332155726845
+      ]
+    },
+    {
+      "comparison": "safeedit_consensus_vs_primary_beam",
+      "metric": "sealed_margin_gain",
+      "target_cell": "HepG2",
+      "budget": 5,
+      "parent_count": 180,
+      "mean_paired_difference": -0.0510713090085321,
+      "parent_cluster_bootstrap_95_ci": [
+        -0.07919405881121444,
+        -0.023975467367692776
+      ]
+    },
+    {
+      "comparison": "safeedit_consensus_vs_primary_beam",
+      "metric": "sealed_margin_gain",
+      "target_cell": "HepG2",
+      "budget": 10,
+      "parent_count": 180,
+      "mean_paired_difference": -0.04375304496950573,
+      "parent_cluster_bootstrap_95_ci": [
+        -0.07595814785350942,
+        -0.01123679458577601
+      ]
+    },
+    {
+      "comparison": "safeedit_consensus_vs_primary_beam",
+      "metric": "sealed_margin_gain",
+      "target_cell": "HepG2",
+      "budget": 20,
+      "parent_count": 180,
+      "mean_paired_difference": -0.04753478169441225,
+      "parent_cluster_bootstrap_95_ci": [
+        -0.09840674720290638,
+        0.0023402326347099173
+      ]
+    },
+    {
+      "comparison": "safeedit_consensus_vs_primary_beam",
+      "metric": "sealed_margin_gain",
+      "target_cell": "SKNSH",
+      "budget": 1,
+      "parent_count": 180,
+      "mean_paired_difference": 0.007658539570143654,
+      "parent_cluster_bootstrap_95_ci": [
+        -0.0018402874720050008,
+        0.018795093965018165
+      ]
+    },
+    {
+      "comparison": "safeedit_consensus_vs_primary_beam",
+      "metric": "sealed_margin_gain",
+      "target_cell": "SKNSH",
+      "budget": 5,
+      "parent_count": 180,
+      "mean_paired_difference": 0.009999664056684,
+      "parent_cluster_bootstrap_95_ci": [
+        -0.0151418641057939,
+        0.035563394983409026
+      ]
+    },
+    {
+      "comparison": "safeedit_consensus_vs_primary_beam",
+      "metric": "sealed_margin_gain",
+      "target_cell": "SKNSH",
+      "budget": 10,
+      "parent_count": 180,
+      "mean_paired_difference": -0.008466254511020245,
+      "parent_cluster_bootstrap_95_ci": [
+        -0.046042759400119794,
+        0.029048564039532914
+      ]
+    },
+    {
+      "comparison": "safeedit_consensus_vs_primary_beam",
+      "metric": "sealed_margin_gain",
+      "target_cell": "SKNSH",
+      "budget": 20,
+      "parent_count": 180,
+      "mean_paired_difference": -0.017646692196528115,
+      "parent_cluster_bootstrap_95_ci": [
+        -0.06698488908509413,
+        0.03118462156918313
+      ]
+    }
+  ],
+  "primary_endpoint": "sealed evaluator specificity-margin gain",
+  "interpretation": "computational transfer to models excluded from search; not experimental activity"
+}

@@ -34,16 +34,18 @@ evaluation uses a held-out multi-kernel model. It combines the published
 cell-type-specificity predictor with validation-calibrated uncertainty,
 sequence-domain controls, and constrained beam search on natural 200-nt CRE scaffolds,
 prioritizing variants with consistent predictions across separately trained,
-architecture-diverse models.
+architecture-diverse models. The resulting compact panels are designed to reduce
+construct burden and focus reporter-screening resources on candidates that remain
+traceable to a natural regulatory scaffold.
 
 The principal findings are:
 \begin{itemize}
   \item Across 600 held-out natural CRE parents in K562, HepG2, and SK-N-SH cells,
   SafeEdit-CRE increases cross-model specificity-margin gain from 0.822 for greedy
   editing to 0.877 (paired difference 0.055; 95\% CI 0.040--0.071).
-  \item Against a compute-matched primary-model beam, predicted specificity remains
-  closely matching (difference $-0.004$; 95\% CI $-0.011$--$0.004$), while cross-model
-  uncertainty decreases from 0.335 to 0.314.
+  \item Against a compute-matched primary-model beam, SafeEdit-CRE maintains closely
+  matched predicted specificity (difference $-0.004$; 95\% CI $-0.011$--$0.004$),
+  while cross-model uncertainty decreases from 0.335 to 0.314.
   \item In a locked, non-overlapping 90-parent design-quality benchmark, the fraction
   passing all prespecified sequence and model-agreement checks increases from 38.8\%
   for greedy editing to 60.6\% for SafeEdit-CRE, yielding 74 Tier A variants
@@ -52,10 +54,13 @@ The principal findings are:
 
 These results make a focused contribution to the scope of \emph{Genes}: they connect
 sequence modeling with cis-regulatory grammar, cell-type-specific transcriptional
-control, and reproducible functional-genomics design. The public code, checkpoints,
-candidate library, and frozen summary inputs are available at
-\href{https://github.com/Haangyeon/SafeEdit-CRE}{GitHub} and in the versioned Zenodo
-archive (DOI: \href{https://doi.org/10.5281/zenodo.21458489}{10.5281/zenodo.21458489}).
+control, and reproducible functional-genomics design. They also provide a direct
+engineering output: a small, traceable set of low-edit CRE constructs that can be
+ordered and screened without rebuilding an unconstrained design space. The code,
+candidate library, and frozen summary inputs are assembled in the v1.1.0 release bundle
+and will be deposited on GitHub and Zenodo before publication. The complete bundle is
+available from the corresponding author during peer review; the final DOI and commit
+hash will be inserted in the published version.
 
 The manuscript is original, is not under consideration elsewhere, and has been
 approved by the author. The author declares no competing interests. Thank you for

@@ -1,0 +1,99 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[a4paper,margin=22mm,headheight=14pt]{geometry}
+\usepackage[UTF8]{ctex}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{lineno}
+\usepackage{fancyhdr}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{navy}{HTML}{214B6B}
+\definecolor{orange}{HTML}{D9792B}
+\definecolor{teal}{HTML}{2A7F78}
+\definecolor{graytext}{HTML}{4A5560}
+\hypersetup{colorlinks=true,linkcolor=navy,citecolor=navy,urlcolor=navy}
+\captionsetup{font=small,labelfont={bf,color=navy},justification=justified}
+\setlist{nosep,leftmargin=1.5em}
+\setlength{\parindent}{1.1em}
+\setlength{\parskip}{0pt}
+\graphicspath{{figures/}}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small SafeEdit-CRE}
+\fancyhead[R]{\small 调控基因组学与序列设计}
+\fancyfoot[C]{\thepage}
+
+\title{\textbf{跨模型不确定性感知的顺式调控元件最小编辑：细胞类型选择性设计}}
+\author{夏昂然\\
+陕西师范大学化学化工学院\\
+陕西省西安市长安区西长安街620号 710119\\[0.35em]
+\textit{通信邮箱：} \texttt{haangyeon@snnu.edu.cn}}
+\date{}
+
+\begin{document}
+\maketitle
+\linenumbers
+
+\begin{abstract}
+\textbf{研究背景与目的：} MPRA和序列-活性模型已推动顺式调控元件（CRE）研究从事后注释走向预测性设计，近期研究也开始探索从头生成合成增强子。然而，单纯按模型得分优化容易产生模型特异性强或大幅改写的序列，预测结果与紧凑实验构建之间仍存在现实断层。我们开发了SafeEdit-CRE——一种跨模型、不确定性感知的最小编辑框架，在保留天然CRE骨架的同时，生成可审计、可直接进入实验流程的变异面板。\\
+\textbf{研究方法：} SafeEdit-CRE整合已发表的Malinois细胞类型特异性预测器、架构差异的评审集成模型、经验证集校准的不确定性、序列域防护及约束束搜索。在固定编辑预算（1、5、10或20个核苷酸）下编辑天然200-nt CRE；入选变异由完全排除在生成过程之外、独立训练的多核集成模型进行最终评估，从程序上分离搜索、评审和评估。\\
+\textbf{研究结果：} 在K562、HepG2和SK-N-SH三种细胞的600个留出CRE亲本上，跨模型特异性裕度增益从贪婪编辑的0.822提升至SafeEdit-CRE的0.877（配对差值0.055；95\% CI 0.040--0.071）。与计算量匹配的主模型束搜索相比，SafeEdit-CRE保持了高度吻合的预测特异性（差值$-0.004$；95\% CI $-0.011$--$0.004$），同时将集成不确定性从0.335降至0.314。在90个非重叠亲本的锁定基准中，60.6\%的设计通过全部九项预设序列和模型一致性检查，相比之下贪婪编辑为38.8\%、随机替换为13.1\%（配对差值+21.8个百分点；95\% CI 18.3--25.3）。\\
+\textbf{研究结论：} SafeEdit-CRE产出覆盖三种细胞类型和四种编辑预算、包含74个Tier A变异的报告基因筛选候选库。它将庞大的搜索空间压缩为编辑负担低且获得跨模型支持的紧凑候选集，在保留天然序列上下文的同时，有望减少合成和筛选工作量。该框架由此把调控语法分析与合成调控元件设计、功能性非编码变异优先排序及细胞类型选择性CRE工程化连接起来，具有直接的工程应用价值。
+\end{abstract}
+
+\noindent\textbf{关键词：} 顺式调控元件；转录调控；功能基因组学；细胞类型特异性；MPRA；调控序列设计；机器学习
+
+\section{引言}
+\input{sections/introduction}
+
+\section{材料与方法}
+\input{sections/methods}
+
+\section{结果}
+\input{sections/results}
+
+\section{讨论}
+\input{sections/discussion}
+
+\section{结论}
+SafeEdit-CRE建立了跨模型不确定性感知的最小编辑范式，为将序列-活性模型转化为紧凑、具有细胞类型选择性的CRE变异库提供了一条实用路径。通过保留天然序列骨架并明确控制编辑距离、模型一致性和预测不确定性，该框架为调控序列语法的功能基因组学研究提供了聚焦的起点。
+
+\section*{基金}
+本研究未接受外部资助。
+
+\section*{伦理审查声明}
+不适用。本研究使用公开的序列和MPRA汇总数据，未涉及人类参与者、可识别的个人数据或动物实验。
+
+\section*{知情同意声明}
+不适用。
+
+\section*{数据可用性声明}
+用于训练Malinois的处理后MPRA测量数据见Gosai等人~\citep{Gosai2024}的补充表2。相关的原始数据、处理notebook、模型权重和免疫荧光图像归档于Zenodo记录10698014（DOI：10.5281/zenodo.10698014）。所有SafeEdit-CRE代码、环境文件、冻结配置清单、亲本标识符、候选级结果表、统计汇总、分析脚本、固定模型种子以及74个Tier A候选序列已整理为v1.1.0发布包，将在正式发表前存入Zenodo永久记录并同步至\url{https://github.com/Haangyeon/SafeEdit-CRE}。同行评审期间，完整发布包可向通信作者索取；最终DOI和固定提交哈希将在发表版本中补入。该发布包还包含一个最小端到端复现脚本，可从汇总输入重新生成主要图和统计表。
+
+\section*{作者贡献}
+夏昂然构思了本研究，完成了计算分析，制备了图件和手稿，并批准了提交版本。
+
+\section*{利益冲突}
+作者声明无利益冲突。
+
+\section*{致谢}
+作者感谢ENCODE联合体和Gosai等人的研究团队公开了MPRA测量数据。
+
+\section*{生成式AI使用声明}
+生成式AI工具仅用于语言编辑、文档组织和手稿格式辅助。未使用任何生成式AI系统生成实验或计算数据、执行统计分析或替代作者的科学判断。
+
+\begingroup
+\small
+\bibliographystyle{unsrtnat}
+\bibliography{references}
+\endgroup
+
+\end{document}

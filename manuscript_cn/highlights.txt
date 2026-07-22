@@ -1,0 +1,7 @@
+Highlights for "Cross-model uncertainty-aware minimal editing of cis-regulatory elements for cell-type-selective design"
+
+- SafeEdit-CRE prioritizes cell-type-selective variants from natural cis-regulatory scaffolds under defined edit budgets.
+- Cross-model selection increases predicted specificity-margin gain from 0.82 to 0.88 over greedy editing across 600 held-out CRE parents.
+- A compute-matched beam retains specificity while SafeEdit-CRE returns variants with 6% lower predictive uncertainty.
+- Locked design-quality compliance rises from 38.8% to 60.6%, producing 74 Tier A variants for reporter screening.
+- Publicly archived code, checkpoints, summary tables, and candidate sequences support reproducible functional-genomics follow-up.

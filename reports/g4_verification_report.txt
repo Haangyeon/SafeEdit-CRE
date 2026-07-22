@@ -1,0 +1,27 @@
+G4 Frozen Candidates Verification Report
+=======================================================
+
+Source file: data/g4_frozen_candidates.tsv.gz
+Total rows: 3240 (expected 3240 = 90 x 3 methods x 3 cells x 4 budgets)
+Unique parents: 90 (expected 90)
+Excluded parents (overlap with exploratory G4): 6
+
+Per-method pass rates (all 9 design checks accepted):
+  Greedy: 419/1080 = 38.8%
+  Random: 142/1080 = 13.1%
+  SafeEdit-CRE: 654/1080 = 60.6%
+
+SafeEdit-CRE - Greedy difference: 21.76 percentage points
+
+Cell-type balance: {'K562': np.int64(1080), 'HepG2': np.int64(1080), 'SKNSH': np.int64(1080)}
+Budget balance: {1: np.int64(810), 5: np.int64(810), 10: np.int64(810), 20: np.int64(810)}
+
+Excluded parent IDs (6):
+  7:1132996:NA:NA
+  7:135012329:NA:NA
+  7:35653228:NA:NA
+  7:39699259:NA:NA
+  7:6894949:NA:NA
+  7:73140239:NA:NA
+
+All 90 retained parent IDs are listed in 90_parent_manifest.tsv

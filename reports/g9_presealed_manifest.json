@@ -1,0 +1,43 @@
+{
+  "status": "RECONSTRUCTED_PRESEALED_VIEW",
+  "warning": "The file g9_true_ablation_reconstructed_presealed_view.tsv.gz was produced by removing sealed_* columns from the sealed candidates table. It is a DISPLAY RECONSTRUCTION and does NOT by itself prove that sealed evaluator scores were absent during search. Evidence that ablation searches were genuine independent re-searches (with sealed model loaded only after candidate freezing) must come from: (1) original search logs with timestamps, (2) code and configuration hashes below, (3) search-completion time before sealed-model load time, (4) the frozen-protocol audit files.",
+  "g9_search_completion_time": "NOT_RECOVERABLE_FROM_LOGS",
+  "candidates_file_sha256": "1a2f66c45b1850e430990b239734d71d1aab748729b1930b4581e9b1c075508c",
+  "candidates_file_path": "/home/haangyeon/projects/SafeEdit-CRE-purecomp-20260714/results/g9_true_ablation_sealed.tsv.gz",
+  "sealed_model_first_load_time": "NOT_RECOVERABLE_FROM_LOGS",
+  "sealed_inference_start_time": "NOT_RECOVERABLE_FROM_LOGS",
+  "search_log_path": "/home/haangyeon/projects/SafeEdit-CRE-purecomp-20260714/logs/run_parallel_20260715_163351.log",
+  "ablation_configuration_hashes": {
+    "safeedit_full": {
+      "source_tree_sha256": "b7ad2ccb4bd3b7df",
+      "note": "All 7 ablation configurations share the same codebase snapshot hash; behavioral differences are controlled by runtime config flags, not separate code branches."
+    },
+    "safeedit_no_reviewer_score": {
+      "source_tree_sha256": "b7ad2ccb4bd3b7df",
+      "note": "All 7 ablation configurations share the same codebase snapshot hash; behavioral differences are controlled by runtime config flags, not separate code branches."
+    },
+    "safeedit_no_uncertainty_penalty": {
+      "source_tree_sha256": "b7ad2ccb4bd3b7df",
+      "note": "All 7 ablation configurations share the same codebase snapshot hash; behavioral differences are controlled by runtime config flags, not separate code branches."
+    },
+    "safeedit_no_strand_penalty": {
+      "source_tree_sha256": "b7ad2ccb4bd3b7df",
+      "note": "All 7 ablation configurations share the same codebase snapshot hash; behavioral differences are controlled by runtime config flags, not separate code branches."
+    },
+    "safeedit_no_naturalness_rerank": {
+      "source_tree_sha256": "b7ad2ccb4bd3b7df",
+      "note": "All 7 ablation configurations share the same codebase snapshot hash; behavioral differences are controlled by runtime config flags, not separate code branches."
+    },
+    "safeedit_no_sequence_prefilter": {
+      "source_tree_sha256": "b7ad2ccb4bd3b7df",
+      "note": "All 7 ablation configurations share the same codebase snapshot hash; behavioral differences are controlled by runtime config flags, not separate code branches."
+    },
+    "primary_beam": {
+      "source_tree_sha256": "b7ad2ccb4bd3b7df",
+      "note": "All 7 ablation configurations share the same codebase snapshot hash; behavioral differences are controlled by runtime config flags, not separate code branches."
+    }
+  },
+  "n_ablation_configs": 7,
+  "temporal_ordering_claim": "If search_completion_time < sealed_model_first_load_time, then sealed evaluator was not loaded during search. If timestamps cannot be recovered from logs, this ordering is not provable from this manifest alone, and the claim relies on code inspection showing sealed inference is invoked in a separate post-freezing stage.",
+  "original_presealed_sha256": null
+}

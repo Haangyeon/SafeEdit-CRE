@@ -1,0 +1,428 @@
+{
+  "reviewer": {
+    "architecture": "ResidualDilatedCNN",
+    "seeds": [
+      20260721,
+      20260722,
+      20260723
+    ],
+    "calibration_source": "validation_only",
+    "variance_scale_factors": {
+      "K562": 0.7665531039237976,
+      "HepG2": 0.768236517906189,
+      "SKNSH": 0.7985394597053528
+    },
+    "note": "Variance scale determined on validation split only; test predictions apply these factors without re-adjustment. Epoch/checkpoint/architecture NOT reselected based on test coverage.",
+    "per_cell_test": {
+      "K562": {
+        "pearson_r": 0.8446400761604309,
+        "spearman_r": 0.781470358097325,
+        "mae": 0.39564600586891174,
+        "rmse": 0.6168543100357056,
+        "coverage": {
+          "80%": 0.8149787478827778,
+          "90%": 0.8970310952030935,
+          "95%": 0.9348534722444153
+        },
+        "uncertainty_error_pearson": 0.4677031934261322,
+        "uncertainty_error_spearman": 0.44812498804025663,
+        "rejection_curve": [
+          {
+            "reject_fraction": 0.0,
+            "mae": 0.39564600586891174,
+            "n_kept": 62582
+          },
+          {
+            "reject_fraction": 0.1,
+            "mae": 0.3379347026348114,
+            "n_kept": 56323
+          },
+          {
+            "reject_fraction": 0.2,
+            "mae": 0.303055077791214,
+            "n_kept": 50065
+          },
+          {
+            "reject_fraction": 0.3,
+            "mae": 0.2782134413719177,
+            "n_kept": 43807
+          },
+          {
+            "reject_fraction": 0.4,
+            "mae": 0.2578023076057434,
+            "n_kept": 37549
+          },
+          {
+            "reject_fraction": 0.5,
+            "mae": 0.24214611947536469,
+            "n_kept": 31291
+          },
+          {
+            "reject_fraction": 0.6,
+            "mae": 0.2263958901166916,
+            "n_kept": 25032
+          },
+          {
+            "reject_fraction": 0.7,
+            "mae": 0.21370479464530945,
+            "n_kept": 18774
+          },
+          {
+            "reject_fraction": 0.8,
+            "mae": 0.20098750293254852,
+            "n_kept": 12516
+          },
+          {
+            "reject_fraction": 0.9,
+            "mae": 0.18665650486946106,
+            "n_kept": 6258
+          }
+        ]
+      },
+      "HepG2": {
+        "pearson_r": 0.8553828597068787,
+        "spearman_r": 0.8092668937323299,
+        "mae": 0.35443976521492004,
+        "rmse": 0.5307984948158264,
+        "coverage": {
+          "80%": 0.7939024000511329,
+          "90%": 0.8853823783196446,
+          "95%": 0.9297721389536927
+        },
+        "uncertainty_error_pearson": 0.43497103452682495,
+        "uncertainty_error_spearman": 0.40446292421914753,
+        "rejection_curve": [
+          {
+            "reject_fraction": 0.0,
+            "mae": 0.35443976521492004,
+            "n_kept": 62582
+          },
+          {
+            "reject_fraction": 0.1,
+            "mae": 0.3117760419845581,
+            "n_kept": 56323
+          },
+          {
+            "reject_fraction": 0.2,
+            "mae": 0.2848033010959625,
+            "n_kept": 50065
+          },
+          {
+            "reject_fraction": 0.3,
+            "mae": 0.2646888196468353,
+            "n_kept": 43807
+          },
+          {
+            "reject_fraction": 0.4,
+            "mae": 0.24585624039173126,
+            "n_kept": 37549
+          },
+          {
+            "reject_fraction": 0.5,
+            "mae": 0.23083561658859253,
+            "n_kept": 31291
+          },
+          {
+            "reject_fraction": 0.6,
+            "mae": 0.21562893688678741,
+            "n_kept": 25032
+          },
+          {
+            "reject_fraction": 0.7,
+            "mae": 0.20272476971149445,
+            "n_kept": 18774
+          },
+          {
+            "reject_fraction": 0.8,
+            "mae": 0.1876637488603592,
+            "n_kept": 12516
+          },
+          {
+            "reject_fraction": 0.9,
+            "mae": 0.17061680555343628,
+            "n_kept": 6258
+          }
+        ]
+      },
+      "SKNSH": {
+        "pearson_r": 0.8470840454101562,
+        "spearman_r": 0.8095443995983108,
+        "mae": 0.3895227611064911,
+        "rmse": 0.6003710031509399,
+        "coverage": {
+          "80%": 0.8143555654980665,
+          "90%": 0.9000031958071011,
+          "95%": 0.9398868684286217
+        },
+        "uncertainty_error_pearson": 0.4579382538795471,
+        "uncertainty_error_spearman": 0.3986161135679125,
+        "rejection_curve": [
+          {
+            "reject_fraction": 0.0,
+            "mae": 0.3895227611064911,
+            "n_kept": 62582
+          },
+          {
+            "reject_fraction": 0.1,
+            "mae": 0.33304542303085327,
+            "n_kept": 56323
+          },
+          {
+            "reject_fraction": 0.2,
+            "mae": 0.3063301146030426,
+            "n_kept": 50065
+          },
+          {
+            "reject_fraction": 0.3,
+            "mae": 0.2871161699295044,
+            "n_kept": 43807
+          },
+          {
+            "reject_fraction": 0.4,
+            "mae": 0.2710602581501007,
+            "n_kept": 37549
+          },
+          {
+            "reject_fraction": 0.5,
+            "mae": 0.2564241290092468,
+            "n_kept": 31291
+          },
+          {
+            "reject_fraction": 0.6,
+            "mae": 0.24132290482521057,
+            "n_kept": 25032
+          },
+          {
+            "reject_fraction": 0.7,
+            "mae": 0.2263648957014084,
+            "n_kept": 18774
+          },
+          {
+            "reject_fraction": 0.8,
+            "mae": 0.20971918106079102,
+            "n_kept": 12516
+          },
+          {
+            "reject_fraction": 0.9,
+            "mae": 0.19076503813266754,
+            "n_kept": 6258
+          }
+        ]
+      }
+    }
+  },
+  "sealed_evaluator": {
+    "architecture": "MultiKernelCNN",
+    "seeds": [
+      20260731,
+      20260732,
+      20260733
+    ],
+    "calibration_source": "validation_only",
+    "variance_scale_factors": {
+      "K562": 0.7794612646102905,
+      "HepG2": 0.7245686054229736,
+      "SKNSH": 0.7836486101150513
+    },
+    "note": "Variance scale determined on validation split only; test predictions apply these factors without re-adjustment. Epoch/checkpoint/architecture NOT reselected based on test coverage.",
+    "per_cell_test": {
+      "K562": {
+        "pearson_r": 0.7851329445838928,
+        "spearman_r": 0.7189535747444783,
+        "mae": 0.4628559350967407,
+        "rmse": 0.7128580808639526,
+        "coverage": {
+          "80%": 0.8214182991914608,
+          "90%": 0.8999872167715957,
+          "95%": 0.9345498705698124
+        },
+        "uncertainty_error_pearson": 0.47894832491874695,
+        "uncertainty_error_spearman": 0.4671826386777456,
+        "rejection_curve": [
+          {
+            "reject_fraction": 0.0,
+            "mae": 0.4628559350967407,
+            "n_kept": 62582
+          },
+          {
+            "reject_fraction": 0.1,
+            "mae": 0.39431920647621155,
+            "n_kept": 56323
+          },
+          {
+            "reject_fraction": 0.2,
+            "mae": 0.3537803590297699,
+            "n_kept": 50065
+          },
+          {
+            "reject_fraction": 0.3,
+            "mae": 0.3212515413761139,
+            "n_kept": 43807
+          },
+          {
+            "reject_fraction": 0.4,
+            "mae": 0.2970694899559021,
+            "n_kept": 37549
+          },
+          {
+            "reject_fraction": 0.5,
+            "mae": 0.2774280905723572,
+            "n_kept": 31291
+          },
+          {
+            "reject_fraction": 0.6,
+            "mae": 0.2617220878601074,
+            "n_kept": 25032
+          },
+          {
+            "reject_fraction": 0.7,
+            "mae": 0.24486690759658813,
+            "n_kept": 18774
+          },
+          {
+            "reject_fraction": 0.8,
+            "mae": 0.22817924618721008,
+            "n_kept": 12516
+          },
+          {
+            "reject_fraction": 0.9,
+            "mae": 0.2113400548696518,
+            "n_kept": 6258
+          }
+        ]
+      },
+      "HepG2": {
+        "pearson_r": 0.7954792976379395,
+        "spearman_r": 0.7430579592331814,
+        "mae": 0.41700175404548645,
+        "rmse": 0.6187524199485779,
+        "coverage": {
+          "80%": 0.7893483749320891,
+          "90%": 0.8787830366559074,
+          "95%": 0.9226454891182768
+        },
+        "uncertainty_error_pearson": 0.4410361647605896,
+        "uncertainty_error_spearman": 0.41611154757443614,
+        "rejection_curve": [
+          {
+            "reject_fraction": 0.0,
+            "mae": 0.41700175404548645,
+            "n_kept": 62582
+          },
+          {
+            "reject_fraction": 0.1,
+            "mae": 0.3668646514415741,
+            "n_kept": 56323
+          },
+          {
+            "reject_fraction": 0.2,
+            "mae": 0.3368491232395172,
+            "n_kept": 50065
+          },
+          {
+            "reject_fraction": 0.3,
+            "mae": 0.3108094334602356,
+            "n_kept": 43807
+          },
+          {
+            "reject_fraction": 0.4,
+            "mae": 0.2905385494232178,
+            "n_kept": 37549
+          },
+          {
+            "reject_fraction": 0.5,
+            "mae": 0.27179405093193054,
+            "n_kept": 31291
+          },
+          {
+            "reject_fraction": 0.6,
+            "mae": 0.2525939345359802,
+            "n_kept": 25032
+          },
+          {
+            "reject_fraction": 0.7,
+            "mae": 0.23507919907569885,
+            "n_kept": 18774
+          },
+          {
+            "reject_fraction": 0.8,
+            "mae": 0.21858802437782288,
+            "n_kept": 12516
+          },
+          {
+            "reject_fraction": 0.9,
+            "mae": 0.2017400860786438,
+            "n_kept": 6258
+          }
+        ]
+      },
+      "SKNSH": {
+        "pearson_r": 0.7992467880249023,
+        "spearman_r": 0.7603294458943445,
+        "mae": 0.4438556730747223,
+        "rmse": 0.6781806945800781,
+        "coverage": {
+          "80%": 0.8158096577290594,
+          "90%": 0.8990284746412707,
+          "95%": 0.935492633664632
+        },
+        "uncertainty_error_pearson": 0.4646947979927063,
+        "uncertainty_error_spearman": 0.4004607925285781,
+        "rejection_curve": [
+          {
+            "reject_fraction": 0.0,
+            "mae": 0.4438557028770447,
+            "n_kept": 62582
+          },
+          {
+            "reject_fraction": 0.1,
+            "mae": 0.37966322898864746,
+            "n_kept": 56323
+          },
+          {
+            "reject_fraction": 0.2,
+            "mae": 0.34920477867126465,
+            "n_kept": 50065
+          },
+          {
+            "reject_fraction": 0.3,
+            "mae": 0.3263184130191803,
+            "n_kept": 43807
+          },
+          {
+            "reject_fraction": 0.4,
+            "mae": 0.3078151345252991,
+            "n_kept": 37549
+          },
+          {
+            "reject_fraction": 0.5,
+            "mae": 0.28985169529914856,
+            "n_kept": 31291
+          },
+          {
+            "reject_fraction": 0.6,
+            "mae": 0.27253925800323486,
+            "n_kept": 25032
+          },
+          {
+            "reject_fraction": 0.7,
+            "mae": 0.2572859823703766,
+            "n_kept": 18774
+          },
+          {
+            "reject_fraction": 0.8,
+            "mae": 0.24532252550125122,
+            "n_kept": 12516
+          },
+          {
+            "reject_fraction": 0.9,
+            "mae": 0.2214287519454956,
+            "n_kept": 6258
+          }
+        ]
+      }
+    }
+  },
+  "calibration_source": "validation_only",
+  "note": "All variance scaling factors determined exclusively on validation split; test set never used for calibration, epoch selection, checkpoint choice, or architecture decisions."
+}

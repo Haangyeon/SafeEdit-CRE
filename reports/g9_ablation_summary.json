@@ -1,0 +1,62 @@
+{
+  "n_configs": 7,
+  "configs": [
+    "safeedit_full",
+    "safeedit_no_reviewer_score",
+    "safeedit_no_uncertainty_penalty",
+    "safeedit_no_strand_penalty",
+    "safeedit_no_naturalness_rerank",
+    "safeedit_no_sequence_prefilter",
+    "primary_beam"
+  ],
+  "n_parents": 180,
+  "n_rows": 15120,
+  "n_cells": 3,
+  "n_budgets": 4,
+  "note": "All configs are independent re-searches, not post-hoc filtering. See g9_presealed_manifest.json for temporal ordering evidence.",
+  "presealed_view_note": "g9_true_ablation_reconstructed_presealed_view.tsv.gz is a column-stripped reconstruction, not proof of blinding by itself.",
+  "per_config": {
+    "safeedit_full": {
+      "n": 2160,
+      "mean_sealed_margin_gain": 0.8898692998958622,
+      "std_sealed_margin_gain": 0.9345652666801011,
+      "mean_sealed_uncertainty": 0.31244951898783996
+    },
+    "safeedit_no_reviewer_score": {
+      "n": 2160,
+      "mean_sealed_margin_gain": 0.8896686928163541,
+      "std_sealed_margin_gain": 0.9294039864773607,
+      "mean_sealed_uncertainty": 0.3336010972943364
+    },
+    "safeedit_no_uncertainty_penalty": {
+      "n": 2160,
+      "mean_sealed_margin_gain": 0.8911369126143519,
+      "std_sealed_margin_gain": 0.9367531016695019,
+      "mean_sealed_uncertainty": 0.31266888371254836
+    },
+    "safeedit_no_strand_penalty": {
+      "n": 2160,
+      "mean_sealed_margin_gain": 0.8867972122746794,
+      "std_sealed_margin_gain": 0.9296337587039563,
+      "mean_sealed_uncertainty": 0.3101256962192969
+    },
+    "safeedit_no_naturalness_rerank": {
+      "n": 2160,
+      "mean_sealed_margin_gain": 0.9786673409282264,
+      "std_sealed_margin_gain": 0.9957273619523139,
+      "mean_sealed_uncertainty": 0.3429349192219821
+    },
+    "safeedit_no_sequence_prefilter": {
+      "n": 2160,
+      "mean_sealed_margin_gain": 0.9096263838482459,
+      "std_sealed_margin_gain": 0.9243387268178092,
+      "mean_sealed_uncertainty": 0.3184233934256352
+    },
+    "primary_beam": {
+      "n": 2160,
+      "mean_sealed_margin_gain": 0.8896686928163541,
+      "std_sealed_margin_gain": 0.9294039864773607,
+      "mean_sealed_uncertainty": 0.3336010972943364
+    }
+  }
+}

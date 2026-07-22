@@ -1,69 +1,76 @@
-Cis-regulatory elements (CREs) encode when and where genes are expressed through
-transcription-factor binding sites and their surrounding sequence context
-~\citep{Wasserman2004,ENCODE2012,Thurman2012,Roadmap2015,Sahu2022}. CREs are short
-enough to synthesize, and their activity can be measured directly. Massively parallel
-reporter assays (MPRAs), STARR-seq, and saturation-mutagenesis assays now quantify the
-effects of thousands to hundreds of thousands of regulatory sequences and variants in
-parallel~\citep{Melnikov2012,Arnold2013,Tewhey2016,Inoue2017,Gordon2020,Kircher2019}.
-These data have supported a progression from early convolutional and hybrid sequence
-models to long-range architectures and models that design synthetic enhancers
-~\citep{Alipanahi2015,Zhou2015,Quang2016,Kelley2016,Kelley2018,Eraslan2019,
-Avsec2021,Almeida2022,Taskiran2024,Gosai2024}.
+Functional assays such as MPRA and increasingly capable sequence-to-activity models
+have moved CRE research from retrospective annotation toward predictive sequence
+design~\citep{Melnikov2012,Arnold2013,Tewhey2016,Inoue2017,Gordon2020,Kircher2019,
+Avsec2021,Taskiran2024,Gosai2024}. The next engineering step is not simply to find a
+higher-scoring sequence: it is to turn these predictions into a small number of
+traceable constructs that can be synthesized, compared, and iterated in the laboratory.
+That step remains difficult because model scores do not by themselves indicate whether
+an edit is robust across predictors or practical to build. CREs are particularly well
+suited to this bridge between biology and engineering: their transcription-factor
+binding sites and surrounding sequence context encode when and where genes are
+expressed~\citep{Wasserman2004,ENCODE2012,Thurman2012,Roadmap2015,Sahu2022}, while
+their compact length permits direct synthesis and reporter measurement. A reliable
+design workflow could therefore support both mechanistic tests of cell-type-selective
+regulatory grammar and the development of tissue-selective control elements for
+synthetic biology, gene delivery, and functional noncoding-variant prioritization.
 
-Yet translating these predictive models into experimentally tractable CRE variant panels
-remains a bottleneck. Most design strategies return either unconstrained high-scoring
-sequences or de novo enhancers, making it difficult to connect the model's internal logic
-to the modular grammar of natural regulatory elements. When the goal is to understand how
-local sequence changes alter cell-type-specific output, what is needed instead is a
-compact set of interpretable edits anchored to a natural CRE scaffold.
+Current regulatory-design strategies have largely emphasized de novo generation or
+direct maximization of a single predictor~\citep{Vaishnav2022,Almeida2024,Gosai2024}.
+They can identify high-scoring sequences, but may alter large parts of a construct or
+leave the natural CRE context entirely. The resulting candidates are harder to
+attribute to specific nucleotide changes, increase synthesis and screening burden, and
+provide less guidance for the next design cycle. For experimental and engineering
+workflows, a more useful output is a compact panel of traceable variants that preserves
+the parent scaffold and changes only a defined number of nucleotides.
 
-Most regulatory-design studies have emphasized de novo generation or direct score
-maximization~\citep{Vaishnav2022,Almeida2024,Gosai2024}. A different problem arises
-when the starting point is a natural regulatory element and only a few substitutions
-are acceptable. We call this setting \emph{minimal editing}: the aim is to increase
-cell-type selectivity while retaining nearly all of the parent CRE. The natural parent
-supplies the sequence context, and the edit budget fixes both design distance and
-synthesis burden. Each proposed variant can therefore be interpreted as a controlled
-perturbation of an existing regulatory scaffold.
+We define this setting as \emph{minimal editing}: increasing cell-type selectivity while
+retaining nearly all of the parent CRE. The parent sequence preserves native context,
+whereas a fixed edit budget controls design distance, construct burden, and the number
+of causal changes that must be interpreted. Each variant is therefore a controlled
+perturbation rather than an unrelated synthetic sequence. The output is explicit,
+auditable, and directly transferable to oligonucleotide synthesis and reporter
+screening, making minimal editing a practical interface between model ranking and
+experimental iteration.
 
-A single-predictor search can assign its highest scores to sequences that exploit
-model-specific behavior, even when the predictor performs well on held-out natural
-sequences~\citep{Whalen2022,deBoer2024,Ovadia2019,Rafi2025}. Greedy search is especially
-exposed because every substitution is retained on the basis of its immediate gain under
-one objective. A wider beam samples more edit paths but still ranks them with the same
-model. The unresolved problem is selection: identifying a small set of interpretable
-edits whose predicted effects persist across models. Separately trained review and calibrated
-uncertainty give direct criteria for making that selection.
+Minimal changes alone, however, do not guarantee reliable designs. A single-predictor
+search can reward model-specific behavior even when the predictor performs well on
+held-out natural sequences~\citep{Whalen2022,deBoer2024,Ovadia2019,Rafi2025}. Greedy
+optimization retains substitutions for their immediate gain under one objective;
+wider beam search explores more paths but remains vulnerable when the same model
+generates and ranks every candidate. The unresolved problem is therefore selection:
+identifying a compact set of interpretable edits whose predicted effects persist across
+separately trained, architecture-diverse models while uncertainty and sequence-domain
+behavior remain controlled. This is the point at which a predictive model becomes an
+engineering decision system rather than a score generator.
 
-We developed SafeEdit-CRE to address this problem (Fig.~\ref{fig:workflow}). The
-published Malinois predictor~\citep{Gosai2024} provides the primary cell-type
-specificity objective. An architecture-diverse residual-dilated CNN ensemble serves as
-a reviewer during constrained beam search, while
-validation-calibrated uncertainty and sequence-domain controls (strand consistency,
-GC shift, homopolymers, 6-mer naturalness) guard against out-of-distribution edits.
-Selected sequences are then assessed by a second separately trained multi-kernel
-ensemble that is held out from the search process, providing an additional layer of
-cross-model evaluation. Fixed edit budgets of 1, 5, 10, and 20 nucleotides allow the
-effect of design freedom to be quantified without conflating minimal editing with
-unconstrained sequence generation.
+We developed SafeEdit-CRE to solve this selection problem (Fig.~\ref{fig:workflow}).
+The published Malinois predictor~\citep{Gosai2024} supplies the primary cell-type
+specificity objective. During constrained beam search, an architecture-diverse
+residual-dilated CNN ensemble reviews proposed variants, while validation-calibrated
+uncertainty and safeguards for strand consistency, GC shift, homopolymers, and 6-mer
+naturalness filter unstable or sequence-atypical edits. A second, separately trained
+multi-kernel ensemble is excluded from candidate generation and used only for final
+cross-model evaluation. This procedural separation of search, review, and evaluation
+makes model agreement an explicit design criterion rather than a retrospective check.
+Fixed budgets of 1, 5, 10, and 20 substitutions further allow design freedom to be
+quantified without conflating minimal editing with unconstrained generation.
 
-We benchmark SafeEdit-CRE against three comparators: random substitutions as a null
-baseline, iterative greedy optimization to test whether local score maximization is
-sufficient, and a compute-matched primary-model beam that uses the same beam width and
-expansion schedule as SafeEdit but only the primary predictor score. The compute-matched
-beam is critical because it isolates the benefit of cross-model selection from the
-benefit of a larger candidate pool. We evaluate four complementary endpoints: cross-model
-generalization on 600 held-out natural CRE parents across K562, HepG2, and SK-N-SH; a
-nine-criterion design-quality benchmark on 90 non-overlapping confirmatory parents; stratified analyses
-by cell type and edit budget; and complete re-search ablations that identify which
-components govern the trade-off between predicted selectivity and uncertainty.
-
-SafeEdit-CRE increased cross-model specificity margin over greedy editing and matched a
-compute-matched beam on predicted specificity while selecting variants with lower
-uncertainty. In the locked design-quality benchmark, the pass rate increased from
-38.8\% to 60.6\%. The final Tier A panel contains 74 sequences distributed across the
-three cell types and all four edit budgets, providing a focused library for reporter
-screening and subsequent analysis of cell-type-selective regulatory grammar.
+We benchmarked SafeEdit-CRE against random substitutions, iterative greedy editing,
+and a compute-matched primary-model beam with the same beam width and expansion
+schedule. Evaluation comprised cross-model generalization on 600 held-out natural CRE
+parents across K562, HepG2, and SK-N-SH cells; a locked nine-criterion design-quality
+benchmark on 90 non-overlapping parents; cell-type- and budget-stratified analyses; and
+complete re-search ablations. SafeEdit-CRE increased cross-model specificity margin
+over greedy editing, maintained closely matched predicted specificity against the
+compute-matched beam while lowering ensemble uncertainty, and raised the locked
+design-audit pass rate from 38.8\% to 60.6\%. The resulting Tier A library contains 74
+variants across all three cell types and four edit budgets. Thus, the framework
+contributes both a stringent test of cross-model minimal editing and a directly usable
+engineering output: a compact, traceable, reporter-screening-ready panel that
+concentrates synthesis and experimental resources on higher-confidence CRE designs.
+In practical terms, it reduces the number of constructs that must be ordered and
+screened, while retaining enough sequence context to interpret why each candidate
+changes cell-type selectivity.
 
 \begin{figure}[t]
   \centering

@@ -134,8 +134,8 @@ def arrow(ax, start, end, color="#32434C"):
 
 
 def fig1_workflow():
-    fig, ax = plt.subplots(figsize=(7.0, 4.8))
-    ax.set_xlim(0, 7.0); ax.set_ylim(0, 5.1); ax.axis("off")
+    fig, ax = plt.subplots(figsize=(7.0, 5.2))
+    ax.set_xlim(0, 7.0); ax.set_ylim(0, 5.6); ax.axis("off")
     main_x, main_w, h = 2.58, 1.84, 0.68
     h_freeze = 0.96
     y_data, y_primary, y_search, y_freeze, y_pf = 4.50, 3.52, 2.46, 1.32, 0.22
@@ -165,7 +165,7 @@ def fig1_workflow():
 
 
 def fig2_validation(g7r, g7s, cal):
-    fig, axs = plt.subplots(2, 2, figsize=(7.2, 5.4))
+    fig, axs = plt.subplots(2, 2, figsize=(7.2, 6.0))
     axs = axs.ravel()
     x = np.arange(3)
 
@@ -183,7 +183,7 @@ def fig2_validation(g7r, g7s, cal):
         for xx, yy in zip(x + off, perf[name]):
             axs[0].text(xx, yy + 0.006, f"{yy:.2f}", ha="center", va="bottom", fontsize=6.5)
     axs[0].set_xticks(x, [CELL_LABELS[c] for c in CELLS])
-    axs[0].set_ylim(0.74, 0.98); axs[0].set_ylabel("Pearson r")
+    axs[0].set_ylim(0.66, 0.98); axs[0].set_ylabel("Pearson r")
     axs[0].legend(frameon=False, ncol=3, loc="upper center", bbox_to_anchor=(0.5, 0.99), columnspacing=0.9)
     panel(axs[0], "A", "Held-out predictive performance")
 
@@ -212,7 +212,7 @@ def fig2_validation(g7r, g7s, cal):
         axs[2].bar(x + off, vals, width*0.9, color=color, label=name)
         for xx, yy in zip(x + off, vals):
             axs[2].text(xx, yy + 0.012, f"{yy:.2f}", ha="center", va="bottom", fontsize=6.7)
-    axs[2].set_xticks(x, [CELL_LABELS[c] for c in CELLS]); axs[2].set_ylim(0, 0.52)
+    axs[2].set_xticks(x, [CELL_LABELS[c] for c in CELLS]); axs[2].set_ylim(0, 0.66)
     axs[2].set_ylabel("Spearman rho")
     axs[2].legend(frameon=False, loc="upper right", bbox_to_anchor=(.99,.99))
     panel(axs[2], "C", "Uncertainty versus absolute error")
@@ -231,12 +231,12 @@ def fig2_validation(g7r, g7s, cal):
 
     for ax in axs:
         boxed(ax); ax.grid(axis="y", color="#D7DCE0", lw=0.55, alpha=0.65, zorder=0)
-    fig.subplots_adjust(left=.09, right=.99, bottom=.10, top=.92, wspace=.28, hspace=.32)
+    fig.subplots_adjust(left=.10, right=.98, bottom=.09, top=.94, wspace=.32, hspace=.40)
     save(fig, "fig2_validation")
 
 
 def fig3_hard_audit(g4):
-    fig, axs = plt.subplots(2, 2, figsize=(7.2, 5.4))
+    fig, axs = plt.subplots(2, 2, figsize=(7.2, 6.0))
     order = ["random_matched", "greedy_malinois", "safeedit_consensus"]
     # A pooled
     y = np.arange(len(order))
@@ -270,7 +270,7 @@ def fig3_hard_audit(g4):
                bbox_to_anchor=(0.5, 0.995), columnspacing=1.4)
     for ax in axs.ravel():
         boxed(ax); ax.grid(axis="y", color="#D7DCE0", lw=.55, alpha=.65)
-    fig.subplots_adjust(left=.10, right=.99, bottom=.10, top=.90, wspace=.28, hspace=.30)
+    fig.subplots_adjust(left=.11, right=.98, bottom=.09, top=.91, wspace=.34, hspace=.39)
     save(fig, "fig3_hard_audit")
 
 
@@ -296,7 +296,7 @@ def forest_contrast(ax, g8, metric, title, letter, xlim, seed):
 
 
 def fig4_sealed(g8):
-    fig, axs = plt.subplots(2, 2, figsize=(7.2, 5.5))
+    fig, axs = plt.subplots(2, 2, figsize=(7.2, 6.05))
     order = ["random_matched", "greedy_malinois", "primary_beam", "safeedit_consensus"]
     values = []
     for i, method in enumerate(order):
@@ -309,7 +309,7 @@ def fig4_sealed(g8):
                          capsize=3, lw=1.0, zorder=3)
         axs[0,0].text(i, hi+0.035, f"{mu:.3f}", ha="center", va="bottom", fontsize=7.0)
     axs[0,0].set_xticks(x, [LABELS[m] for m in order], rotation=18, ha="right")
-    axs[0,0].set_ylim(-.02, .98); axs[0,0].set_ylabel("Post-freeze specificity-margin gain")
+    axs[0,0].set_ylim(-.04, 1.02); axs[0,0].set_ylabel("Post-freeze specificity-margin gain")
     panel(axs[0,0], "A", "Method means across 600 parents")
     boxed(axs[0,0]); axs[0,0].grid(axis="y", color="#D7DCE0", lw=.55, alpha=.65, zorder=0)
 
@@ -318,7 +318,7 @@ def fig4_sealed(g8):
     forest_contrast(axs[1,1], g8, "sealed_uncertainty", "Ensemble-uncertainty contrast", "D", (-.030,.005), 20260760)
     for ax in axs.ravel()[1:]:
         ax.grid(axis="x", color="#D7DCE0", lw=.55, alpha=.65, zorder=0)
-    fig.subplots_adjust(left=.10, right=.98, bottom=.11, top=.93, wspace=.35, hspace=.32)
+    fig.subplots_adjust(left=.12, right=.97, bottom=.10, top=.95, wspace=.42, hspace=.42)
     save(fig, "fig3_primary_endpoint")
 
 
@@ -344,7 +344,7 @@ def paired_heatmap(ax, g8, baseline, title, letter):
 
 
 def fig5_budget(g8):
-    fig, axs = plt.subplots(2, 2, figsize=(7.2, 5.6))
+    fig, axs = plt.subplots(2, 2, figsize=(7.2, 6.05))
     methods = ["greedy_malinois", "primary_beam", "safeedit_consensus"]
     budget_x = np.arange(len(BUDGETS))
     for method in methods:
@@ -353,14 +353,14 @@ def fig5_budget(g8):
         means_u = [g8[(g8.method == method) & (g8.budget == b)].sealed_uncertainty.mean() for b in BUDGETS]
         axs[0,1].plot(budget_x, means_u, "o-", color=COLORS[method], lw=1.7, ms=4.2, label=LABELS[method])
     for ax, letter, title, ylabel in [
-        (axs[0,0], "A", "Specificity gain by edit budget", "Mean post-freeze margin gain"),
-        (axs[0,1], "B", "Uncertainty by edit budget", "Mean post-freeze uncertainty")]:
+        (axs[0,0], "A", "Specificity gain by edit budget", "Mean sealed margin gain"),
+        (axs[0,1], "B", "Uncertainty by edit budget", "Mean sealed uncertainty")]:
         ax.set_xticks(budget_x, BUDGETS); ax.set_xlim(-.25, len(BUDGETS)-.75); ax.set_xlabel("Edit budget (nt)"); ax.set_ylabel(ylabel)
         panel(ax, letter, title); boxed(ax); ax.grid(axis="y", color="#D7DCE0", lw=.55, alpha=.65)
     axs[0,0].legend(frameon=False, loc="upper left")
     paired_heatmap(axs[1,0], g8, "greedy_malinois", "SafeEdit versus Greedy", "C")
     paired_heatmap(axs[1,1], g8, "primary_beam", "SafeEdit versus primary beam", "D")
-    fig.subplots_adjust(left=.09, right=.98, bottom=.10, top=.93, wspace=.35, hspace=.30)
+    fig.subplots_adjust(left=.11, right=.97, bottom=.09, top=.95, wspace=.42, hspace=.43)
     save(fig, "fig5_budget_tradeoff")
 
 
@@ -377,7 +377,7 @@ def fig6_ablation(g9):
     labels = ["Primary beam", "No reviewer", "No uncertainty", "No strand", "No naturalness", "No prefilter"]
     full = cfg.loc["safeedit_full"]
     y = np.arange(len(order))
-    fig, axs = plt.subplots(2, 2, figsize=(7.2, 5.5))
+    fig, axs = plt.subplots(2, 2, figsize=(7.2, 6.1))
 
     for ax, metric, letter, title, xlabel, color in [
         (axs[0,0], "margin", "A", "Specificity-margin effect", "Change from full SafeEdit", COLORS["safeedit_consensus"]),
@@ -405,7 +405,7 @@ def fig6_ablation(g9):
     unc = [cfg.loc[o,"uncertainty"] for o in all_order]
     axs[1,0].barh(yy, unc, height=.58, color=[COLORS["safeedit_consensus"]]+["#9ABFC4"]*len(order), zorder=2)
     axs[1,0].set_yticks(yy, all_labels); axs[1,0].invert_yaxis(); axs[1,0].set_xlim(.29,.357)
-    axs[1,0].set_xlabel("Mean post-freeze uncertainty")
+    axs[1,0].set_xlabel("Mean sealed uncertainty")
     for yv, val in zip(yy, unc): axs[1,0].text(val+.001, yv, f"{val:.3f}", va="center", fontsize=6.7)
     panel(axs[1,0], "C", "Selected-candidate uncertainty"); boxed(axs[1,0])
     axs[1,0].grid(axis="x", color="#D7DCE0", lw=.55, alpha=.65)
@@ -419,19 +419,19 @@ def fig6_ablation(g9):
         axs[1,1].text(xpos, yv, str(val), va="center", fontsize=6.7)
     panel(axs[1,1], "D", "Search feasibility"); boxed(axs[1,1])
     axs[1,1].grid(axis="x", color="#D7DCE0", lw=.55, alpha=.65)
-    fig.subplots_adjust(left=.18, right=.98, bottom=.10, top=.93, wspace=.42, hspace=.30)
+    fig.subplots_adjust(left=.18, right=.97, bottom=.09, top=.95, wspace=.48, hspace=.42)
     save(fig, "fig6_ablation")
 
 
 def figS1_stratified(g8):
-    fig, axs = plt.subplots(2, 2, figsize=(7.2, 5.5))
+    fig, axs = plt.subplots(2, 2, figsize=(7.2, 6.0))
     methods = ["random_matched", "greedy_malinois", "primary_beam", "safeedit_consensus"]
     budget_x = np.arange(len(BUDGETS))
     for ax, cell, letter in zip([axs[0,0], axs[0,1], axs[1,0]], CELLS, ["A","B","C"]):
         for method in methods:
             means = [g8[(g8.method == method) & (g8.target_cell == cell) & (g8.budget == b)].sealed_margin_gain.mean() for b in BUDGETS]
             ax.plot(budget_x, means, "o-", color=COLORS[method], lw=1.6, ms=4, label=LABELS[method])
-        ax.set_xticks(budget_x, BUDGETS); ax.set_xlim(-.25, len(BUDGETS)-.75); ax.set_xlabel("Edit budget (nt)"); ax.set_ylabel("Mean post-freeze margin gain")
+        ax.set_xticks(budget_x, BUDGETS); ax.set_xlim(-.25, len(BUDGETS)-.75); ax.set_xlabel("Edit budget (nt)"); ax.set_ylabel("Mean sealed margin gain")
         panel(ax, letter, CELL_LABELS[cell]); boxed(ax); ax.grid(axis="y", color="#D7DCE0", lw=.55, alpha=.65)
     axs[1,1].axis("off")
     handles = [plt.Line2D([0],[0], color=COLORS[m], marker="o", lw=1.7, ms=4, label=LABELS[m]) for m in methods]
@@ -439,12 +439,12 @@ def figS1_stratified(g8):
                     loc="center", title="Editing method", title_fontsize=8.5)
     axs[1,1].text(.5,.17,"Each curve contains 600 parent sequences\nper target and budget.",
                   ha="center", va="center", transform=axs[1,1].transAxes, fontsize=7.4, color="#4A545B")
-    fig.subplots_adjust(left=.10, right=.99, bottom=.10, top=.93, wspace=.28, hspace=.30)
+    fig.subplots_adjust(left=.11, right=.98, bottom=.09, top=.95, wspace=.33, hspace=.40)
     save(fig, "fig4_stratified_effects")
 
 
 def figS2_uncertainty(cal):
-    fig, axs = plt.subplots(2, 2, figsize=(7.2, 5.4))
+    fig, axs = plt.subplots(2, 2, figsize=(7.2, 6.0))
     cell_colors = ["#087F8C", "#D97727", "#536FB6"]
     for col, (key, title) in enumerate([("reviewer","Reviewer ensemble"),("sealed_evaluator","Post-freeze evaluator")]):
         rows = cal[key]["per_cell_test"]
@@ -466,12 +466,12 @@ def figS2_uncertainty(cal):
         panel(axs[1,col], "C" if col==0 else "D", f"{title}: interval coverage")
     for ax in axs.ravel():
         boxed(ax); ax.grid(axis="y", color="#D7DCE0", lw=.55, alpha=.65, zorder=0)
-    fig.subplots_adjust(left=.09, right=.99, bottom=.10, top=.92, wspace=.28, hspace=.30)
+    fig.subplots_adjust(left=.11, right=.98, bottom=.09, top=.95, wspace=.35, hspace=.42)
     save(fig, "figS2_uncertainty_rejection")
 
 
 def figS3_tiers(tiers):
-    fig, ax = plt.subplots(figsize=(6.7, 5.0))
+    fig, ax = plt.subplots(figsize=(6.7, 5.8))
     rng = np.random.default_rng(20260716)
     c = tiers[tiers.priority_tier == "C"]
     if len(c)>1200: c=c.iloc[rng.choice(len(c),1200,replace=False)]
@@ -490,8 +490,8 @@ def figS3_tiers(tiers):
     panel(ax,"A","Frozen candidate library: computational priority tiers")
     boxed(ax); ax.grid(color="#D7DCE0",lw=.5,alpha=.55,zorder=0)
     ax.legend(frameon=True,edgecolor="#333333",facecolor="white",ncol=2,loc="upper center",
-              bbox_to_anchor=(.5,-.10),columnspacing=1.2,handletextpad=.5)
-    fig.subplots_adjust(left=.11,right=.98,bottom=.17,top=.93)
+              bbox_to_anchor=(.5,-.13),columnspacing=1.2,handletextpad=.5)
+    fig.subplots_adjust(left=.12,right=.98,bottom=.24,top=.92)
     save(fig,"figS3_candidate_tiers")
 
 

@@ -119,7 +119,7 @@ computational sequence-domain diagnostic during reranking.
 \subsection{Nine-criterion design benchmark}
 
 The nine-criterion benchmark (G4) used 90 test-split CRE parents with no overlap to
-development or primary-evaluation parents (six of 96 nominal parents were excluded
+development or primary-evaluation parents (six nominal parents were excluded
 after identifier-level overlap with an exploratory benchmark was discovered, without
 reference to outcomes). For each method--parent--target--budget
 combination, nine Boolean checks were recorded: non-negative primary target gain,
@@ -182,9 +182,9 @@ Table~S10.
 Preliminary development phases were run on an NVIDIA RTX 3060 Laptop GPU. Final
 benchmarks were run on RTX 3080 Ti compute nodes under Slurm. Fixed seeds, environment
 records, code hashes, candidate hashes, checkpoint hashes, and run logs are provided
-in the permanent Zenodo archive (v1.0.0). Statistical values and figures were
+in the frozen release bundle. Statistical values and figures were
 regenerated directly from candidate-level tables by an independent analysis script
 implemented with PyTorch, NumPy, pandas, and
 Matplotlib~\citep{Paszke2019,Harris2020,McKinney2010,Hunter2007}. All code,
 environment files, minimal reproduction scripts, core statistical inputs, candidate
-sequence tables, and pretrained model checkpoints are included in the public release.
+sequence tables, and retained model checkpoints are included in the release bundle.

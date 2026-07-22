@@ -1,0 +1,8 @@
+{
+  "stage": "G10",
+  "model_calls": "NA",
+  "instrumented": false,
+  "wallclock_seconds_estimate": null,
+  "wallclock_source": "not_recovered",
+  "note": "model_calls was not instrumented in the pipeline and is reported as NA. Wallclock is a best-effort estimate from log timestamps where available. This is listed as a limitation in the manuscript."
+}

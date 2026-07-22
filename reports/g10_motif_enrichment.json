@@ -1,0 +1,1810 @@
+{
+  "jaspar_version": "2024_CORE_vertebrates_non-redundant",
+  "motif_threshold_fraction": 0.7,
+  "background_model": "uniform 0.25 per base",
+  "n_motifs_scanned": 200,
+  "comparison": "safeedit_consensus_vs_random_matched",
+  "enrichment": [
+    {
+      "motif_id": "MA0004.1",
+      "motif_name": "Arnt",
+      "safeedit_gain_rate": 0.018472222222222223,
+      "random_gain_rate": 0.01898148148148148,
+      "odds_ratio": 0.9726658084466794,
+      "fisher_p": 0.6247308885400661,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0069.1",
+      "motif_name": "PAX6",
+      "safeedit_gain_rate": 0.0001388888888888889,
+      "random_gain_rate": 0.0001388888888888889,
+      "odds_ratio": 1.0,
+      "fisher_p": 0.6836157239702925,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0071.1",
+      "motif_name": "RORA",
+      "safeedit_gain_rate": 0.011527777777777777,
+      "random_gain_rate": 0.006296296296296296,
+      "odds_ratio": 1.8405722834307252,
+      "fisher_p": 1.5426431704610845e-05,
+      "fdr_bh": 5.142143901536949e-05
+    },
+    {
+      "motif_id": "MA0074.1",
+      "motif_name": "RXRA::VDR",
+      "safeedit_gain_rate": 0.0,
+      "random_gain_rate": 0.0,
+      "odds_ratio": 0.0,
+      "fisher_p": 1.0,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0101.1",
+      "motif_name": "REL",
+      "safeedit_gain_rate": 0.03125,
+      "random_gain_rate": 0.0062037037037037035,
+      "odds_ratio": 5.167549350024073,
+      "fisher_p": 6.153179786013269e-52,
+      "fdr_bh": 8.790256837161813e-51
+    },
+    {
+      "motif_id": "MA0107.1",
+      "motif_name": "RELA",
+      "safeedit_gain_rate": 0.035,
+      "random_gain_rate": 0.004768518518518518,
+      "odds_ratio": 7.569746969163439,
+      "fisher_p": 8.187330373528221e-75,
+      "fdr_bh": 2.7291101245094073e-73
+    },
+    {
+      "motif_id": "MA0115.1",
+      "motif_name": "NR1H2::RXRA",
+      "safeedit_gain_rate": 0.0011111111111111111,
+      "random_gain_rate": 0.0,
+      "odds_ratio": 0.0,
+      "fisher_p": 1.5214329830305822e-05,
+      "fdr_bh": 5.142143901536949e-05
+    },
+    {
+      "motif_id": "MA0116.1",
+      "motif_name": "Znf423",
+      "safeedit_gain_rate": 0.0,
+      "random_gain_rate": 0.0,
+      "odds_ratio": 0.0,
+      "fisher_p": 1.0,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0119.1",
+      "motif_name": "NFIC::TLX1",
+      "safeedit_gain_rate": 0.0005555555555555556,
+      "random_gain_rate": 0.0006481481481481481,
+      "odds_ratio": 0.8570634479472723,
+      "fisher_p": 0.6943848064683193,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0130.1",
+      "motif_name": "ZNF354C",
+      "safeedit_gain_rate": 0.034166666666666665,
+      "random_gain_rate": 0.03754629629629629,
+      "odds_ratio": 0.9068034542299636,
+      "fisher_p": 0.9133946835486352,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0142.1",
+      "motif_name": "Pou5f1::Sox2",
+      "safeedit_gain_rate": 0.0,
+      "random_gain_rate": 0.0004166666666666667,
+      "odds_ratio": 0.0,
+      "fisher_p": 1.0,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0149.1",
+      "motif_name": "EWSR1-FLI1",
+      "safeedit_gain_rate": 0.0,
+      "random_gain_rate": 0.0,
+      "odds_ratio": 0.0,
+      "fisher_p": 1.0,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0151.1",
+      "motif_name": "Arid3a",
+      "safeedit_gain_rate": 0.03916666666666667,
+      "random_gain_rate": 0.040462962962962964,
+      "odds_ratio": 0.9666574710088696,
+      "fisher_p": 0.6970928580106659,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0155.1",
+      "motif_name": "INSM1",
+      "safeedit_gain_rate": 0.0016666666666666668,
+      "random_gain_rate": 0.0012962962962962963,
+      "odds_ratio": 1.2861912711662293,
+      "fisher_p": 0.2847453629038493,
+      "fdr_bh": 0.5512914881545293
+    },
+    {
+      "motif_id": "MA0159.1",
+      "motif_name": "RARA::RXRA",
+      "safeedit_gain_rate": 0.0,
+      "random_gain_rate": 0.0,
+      "odds_ratio": 0.0,
+      "fisher_p": 1.0,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0163.1",
+      "motif_name": "PLAG1",
+      "safeedit_gain_rate": 0.0005555555555555556,
+      "random_gain_rate": 0.0004166666666666667,
+      "odds_ratio": 1.3335186214563646,
+      "fisher_p": 0.4157472828657199,
+      "fdr_bh": 0.7628390511297612
+    },
+    {
+      "motif_id": "MA0145.2",
+      "motif_name": "Tfcp2l1",
+      "safeedit_gain_rate": 0.0001388888888888889,
+      "random_gain_rate": 0.0008796296296296296,
+      "odds_ratio": 0.15777776153120682,
+      "fisher_p": 0.9968357577953922,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0468.1",
+      "motif_name": "DUX4",
+      "safeedit_gain_rate": 0.0033333333333333335,
+      "random_gain_rate": 0.0031944444444444446,
+      "odds_ratio": 1.0436236731132762,
+      "fisher_p": 0.4681968338416154,
+      "fdr_bh": 0.8435978988137215
+    },
+    {
+      "motif_id": "MA0515.1",
+      "motif_name": "Sox6",
+      "safeedit_gain_rate": 0.007916666666666667,
+      "random_gain_rate": 0.005416666666666667,
+      "odds_ratio": 1.4652214648014732,
+      "fisher_p": 0.01284259354285792,
+      "fdr_bh": 0.03292972703296903
+    },
+    {
+      "motif_id": "MA0258.2",
+      "motif_name": "ESR2",
+      "safeedit_gain_rate": 0.0011111111111111111,
+      "random_gain_rate": 0.0006018518518518519,
+      "odds_ratio": 1.847095062890391,
+      "fisher_p": 0.12983140972548873,
+      "fdr_bh": 0.29507138573974717
+    },
+    {
+      "motif_id": "MA0595.1",
+      "motif_name": "SREBF1",
+      "safeedit_gain_rate": 0.004166666666666667,
+      "random_gain_rate": 0.004629629629629629,
+      "odds_ratio": 0.899581589958159,
+      "fisher_p": 0.7251205906576926,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0596.1",
+      "motif_name": "SREBF2",
+      "safeedit_gain_rate": 0.007916666666666667,
+      "random_gain_rate": 0.005740740740740741,
+      "odds_ratio": 1.3820568749915325,
+      "fisher_p": 0.028502191285085007,
+      "fdr_bh": 0.07037578095082718
+    },
+    {
+      "motif_id": "MA0599.1",
+      "motif_name": "KLF5",
+      "safeedit_gain_rate": 0.03347222222222222,
+      "random_gain_rate": 0.006574074074074074,
+      "odds_ratio": 5.233245427443234,
+      "fisher_p": 4.953487352609316e-56,
+      "fdr_bh": 9.906974705218631e-55
+    },
+    {
+      "motif_id": "MA0604.1",
+      "motif_name": "Atf1",
+      "safeedit_gain_rate": 0.034722222222222224,
+      "random_gain_rate": 0.007314814814814815,
+      "odds_ratio": 4.881613696384664,
+      "fisher_p": 6.857647781803719e-55,
+      "fdr_bh": 1.1429412969672865e-53
+    },
+    {
+      "motif_id": "MA0608.1",
+      "motif_name": "Creb3l2",
+      "safeedit_gain_rate": 0.007916666666666667,
+      "random_gain_rate": 0.004814814814814815,
+      "odds_ratio": 1.6493716279520563,
+      "fisher_p": 0.0020509109062703482,
+      "fdr_bh": 0.006032090900795142
+    },
+    {
+      "motif_id": "MA0613.1",
+      "motif_name": "FOXG1",
+      "safeedit_gain_rate": 0.027916666666666666,
+      "random_gain_rate": 0.01074074074074074,
+      "odds_ratio": 2.6450625951490605,
+      "fisher_p": 2.0174647265921374e-22,
+      "fdr_bh": 1.1528369866240785e-21
+    },
+    {
+      "motif_id": "MA0614.1",
+      "motif_name": "Foxj2",
+      "safeedit_gain_rate": 0.03277777777777778,
+      "random_gain_rate": 0.014398148148148148,
+      "odds_ratio": 2.3197870167383567,
+      "fisher_p": 7.261184176829585e-21,
+      "fdr_bh": 3.821675882541887e-20
+    },
+    {
+      "motif_id": "MA0636.1",
+      "motif_name": "BHLHE41",
+      "safeedit_gain_rate": 0.011527777777777777,
+      "random_gain_rate": 0.0024074074074074076,
+      "odds_ratio": 4.832643399876785,
+      "fisher_p": 2.894840052191157e-19,
+      "fdr_bh": 1.4474200260955784e-18
+    },
+    {
+      "motif_id": "MA0641.1",
+      "motif_name": "ELF4",
+      "safeedit_gain_rate": 0.008472222222222223,
+      "random_gain_rate": 0.000925925925925926,
+      "odds_ratio": 9.219638604846617,
+      "fisher_p": 2.6924604251812787e-21,
+      "fdr_bh": 1.455384013611502e-20
+    },
+    {
+      "motif_id": "MA0042.2",
+      "motif_name": "FOXI1",
+      "safeedit_gain_rate": 0.05305555555555556,
+      "random_gain_rate": 0.029768518518518517,
+      "odds_ratio": 1.826099789825396,
+      "fisher_p": 5.514961977955108e-19,
+      "fdr_bh": 2.6902253551000526e-18
+    },
+    {
+      "motif_id": "MA0033.2",
+      "motif_name": "FOXL1",
+      "safeedit_gain_rate": 0.06472222222222222,
+      "random_gain_rate": 0.02347222222222222,
+      "odds_ratio": 2.879010163033832,
+      "fisher_p": 1.405118607382513e-55,
+      "fdr_bh": 2.5547611043318422e-54
+    },
+    {
+      "motif_id": "MA0153.2",
+      "motif_name": "HNF1B",
+      "safeedit_gain_rate": 0.10861111111111112,
+      "random_gain_rate": 0.000787037037037037,
+      "odds_ratio": 154.69273917108134,
+      "fisher_p": 0.0,
+      "fdr_bh": 0.0
+    },
+    {
+      "motif_id": "MA0486.2",
+      "motif_name": "HSF1",
+      "safeedit_gain_rate": 0.0002777777777777778,
+      "random_gain_rate": 0.0001388888888888889,
+      "odds_ratio": 2.000277854959711,
+      "fisher_p": 0.36718749957608576,
+      "fdr_bh": 0.6863317749085716
+    },
+    {
+      "motif_id": "MA0653.1",
+      "motif_name": "IRF9",
+      "safeedit_gain_rate": 0.007222222222222222,
+      "random_gain_rate": 0.0001388888888888889,
+      "odds_ratio": 52.371012870733075,
+      "fisher_p": 4.867180787316476e-28,
+      "fdr_bh": 3.4765577052260545e-27
+    },
+    {
+      "motif_id": "MA0655.1",
+      "motif_name": "JDP2",
+      "safeedit_gain_rate": 0.13347222222222221,
+      "random_gain_rate": 0.007175925925925926,
+      "odds_ratio": 21.310947267190254,
+      "fisher_p": 0.0,
+      "fdr_bh": 0.0
+    },
+    {
+      "motif_id": "MA0660.1",
+      "motif_name": "MEF2B",
+      "safeedit_gain_rate": 0.04486111111111111,
+      "random_gain_rate": 0.0008796296296296296,
+      "odds_ratio": 53.34840773593137,
+      "fisher_p": 5.057123150753185e-169,
+      "fdr_bh": 2.5285615753765927e-167
+    },
+    {
+      "motif_id": "MA0663.1",
+      "motif_name": "MLX",
+      "safeedit_gain_rate": 0.013055555555555556,
+      "random_gain_rate": 0.0024537037037037036,
+      "odds_ratio": 5.377910774312434,
+      "fisher_p": 2.0506556016487895e-23,
+      "fdr_bh": 1.2062680009698763e-22
+    },
+    {
+      "motif_id": "MA0665.1",
+      "motif_name": "MSC",
+      "safeedit_gain_rate": 0.012916666666666667,
+      "random_gain_rate": 0.003564814814814815,
+      "odds_ratio": 3.6577053170552536,
+      "fisher_p": 1.143781265500916e-16,
+      "fdr_bh": 5.446577454766267e-16
+    },
+    {
+      "motif_id": "MA0667.1",
+      "motif_name": "MYF6",
+      "safeedit_gain_rate": 0.012916666666666667,
+      "random_gain_rate": 0.004907407407407407,
+      "odds_ratio": 2.6534323056460414,
+      "fisher_p": 2.3145865317152436e-11,
+      "fdr_bh": 9.447291966184668e-11
+    },
+    {
+      "motif_id": "MA0669.1",
+      "motif_name": "NEUROG2",
+      "safeedit_gain_rate": 0.007361111111111111,
+      "random_gain_rate": 0.003981481481481482,
+      "odds_ratio": 1.855131930457079,
+      "fisher_p": 0.00041204614902885415,
+      "fdr_bh": 0.0012486246940268308
+    },
+    {
+      "motif_id": "MA0676.1",
+      "motif_name": "Nr2e1",
+      "safeedit_gain_rate": 0.017222222222222222,
+      "random_gain_rate": 0.015231481481481481,
+      "odds_ratio": 1.1329894622174188,
+      "fisher_p": 0.1315705947147604,
+      "fdr_bh": 0.29566425778597843
+    },
+    {
+      "motif_id": "MA0678.1",
+      "motif_name": "OLIG2",
+      "safeedit_gain_rate": 0.004722222222222222,
+      "random_gain_rate": 0.004768518518518518,
+      "odds_ratio": 0.9902451977921631,
+      "fisher_p": 0.5525734086559018,
+      "fdr_bh": 0.9828522064529329
+    },
+    {
+      "motif_id": "MA0068.2",
+      "motif_name": "PAX4",
+      "safeedit_gain_rate": 0.01638888888888889,
+      "random_gain_rate": 0.021111111111111112,
+      "odds_ratio": 0.7725887721280043,
+      "fisher_p": 0.995037547801239,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0512.2",
+      "motif_name": "Rxra",
+      "safeedit_gain_rate": 0.006805555555555555,
+      "random_gain_rate": 0.00018518518518518518,
+      "odds_ratio": 36.99496573905748,
+      "fisher_p": 2.6734129876582713e-25,
+      "fdr_bh": 1.6708831172864196e-24
+    },
+    {
+      "motif_id": "MA0083.3",
+      "motif_name": "SRF",
+      "safeedit_gain_rate": 0.0,
+      "random_gain_rate": 0.0,
+      "odds_ratio": 0.0,
+      "fisher_p": 1.0,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0009.2",
+      "motif_name": "TBXT",
+      "safeedit_gain_rate": 0.0,
+      "random_gain_rate": 4.6296296296296294e-05,
+      "odds_ratio": 0.0,
+      "fisher_p": 1.0,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0689.1",
+      "motif_name": "TBX20",
+      "safeedit_gain_rate": 0.0011111111111111111,
+      "random_gain_rate": 0.0028703703703703703,
+      "odds_ratio": 0.3864150130969895,
+      "fisher_p": 0.9985933004862866,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0691.1",
+      "motif_name": "TFAP4",
+      "safeedit_gain_rate": 0.013055555555555556,
+      "random_gain_rate": 0.00662037037037037,
+      "odds_ratio": 1.9848862086407821,
+      "fisher_p": 4.347988523176327e-07,
+      "fdr_bh": 1.610366119694936e-06
+    },
+    {
+      "motif_id": "MA0696.1",
+      "motif_name": "ZIC1",
+      "safeedit_gain_rate": 0.0,
+      "random_gain_rate": 4.6296296296296294e-05,
+      "odds_ratio": 0.0,
+      "fisher_p": 1.0,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0713.1",
+      "motif_name": "PHOX2A",
+      "safeedit_gain_rate": 0.0015277777777777779,
+      "random_gain_rate": 0.005138888888888889,
+      "odds_ratio": 0.2962220810322076,
+      "fisher_p": 0.9999982739740777,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0715.1",
+      "motif_name": "PROP1",
+      "safeedit_gain_rate": 0.0020833333333333333,
+      "random_gain_rate": 0.0044444444444444444,
+      "odds_ratio": 0.46764091858037576,
+      "fisher_p": 0.9990142275378797,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0724.1",
+      "motif_name": "VENTX",
+      "safeedit_gain_rate": 0.04694444444444444,
+      "random_gain_rate": 0.01087962962962963,
+      "odds_ratio": 4.4781745908704735,
+      "fisher_p": 4.704029199223218e-68,
+      "fdr_bh": 1.1760072998058046e-66
+    },
+    {
+      "motif_id": "MA0728.1",
+      "motif_name": "Nr2F6",
+      "safeedit_gain_rate": 0.0015277777777777779,
+      "random_gain_rate": 0.00037037037037037035,
+      "odds_ratio": 4.129781610794269,
+      "fisher_p": 0.00228085608096853,
+      "fdr_bh": 0.0066111770462855945
+    },
+    {
+      "motif_id": "MA0729.1",
+      "motif_name": "RARA",
+      "safeedit_gain_rate": 0.0001388888888888889,
+      "random_gain_rate": 0.0,
+      "odds_ratio": 0.0,
+      "fisher_p": 0.25,
+      "fdr_bh": 0.5
+    },
+    {
+      "motif_id": "MA0730.1",
+      "motif_name": "RARA",
+      "safeedit_gain_rate": 0.0,
+      "random_gain_rate": 0.0,
+      "odds_ratio": 0.0,
+      "fisher_p": 1.0,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0731.1",
+      "motif_name": "BCL6B",
+      "safeedit_gain_rate": 0.0,
+      "random_gain_rate": 0.0,
+      "odds_ratio": 0.0,
+      "fisher_p": 1.0,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0472.2",
+      "motif_name": "EGR2",
+      "safeedit_gain_rate": 0.0031944444444444446,
+      "random_gain_rate": 0.0010648148148148149,
+      "odds_ratio": 3.0064093632436952,
+      "fisher_p": 0.00022373029132664299,
+      "fdr_bh": 0.0006884008963896708
+    },
+    {
+      "motif_id": "MA0736.1",
+      "motif_name": "GLIS2",
+      "safeedit_gain_rate": 0.0,
+      "random_gain_rate": 0.0004166666666666667,
+      "odds_ratio": 0.0,
+      "fisher_p": 1.0,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0737.1",
+      "motif_name": "GLIS3",
+      "safeedit_gain_rate": 0.0,
+      "random_gain_rate": 0.0,
+      "odds_ratio": 0.0,
+      "fisher_p": 1.0,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0741.1",
+      "motif_name": "KLF16",
+      "safeedit_gain_rate": 0.01375,
+      "random_gain_rate": 0.0031018518518518517,
+      "odds_ratio": 4.480695382403572,
+      "fisher_p": 2.652626546693055e-21,
+      "fdr_bh": 1.455384013611502e-20
+    },
+    {
+      "motif_id": "MA0088.2",
+      "motif_name": "ZNF143",
+      "safeedit_gain_rate": 0.0002777777777777778,
+      "random_gain_rate": 4.6296296296296294e-05,
+      "odds_ratio": 6.001389274798555,
+      "fisher_p": 0.15624023358374461,
+      "fdr_bh": 0.33965268170379265
+    },
+    {
+      "motif_id": "MA0758.1",
+      "motif_name": "E2F7",
+      "safeedit_gain_rate": 0.0016666666666666668,
+      "random_gain_rate": 0.0001388888888888889,
+      "odds_ratio": 12.018363939899833,
+      "fisher_p": 1.2292884081303421e-05,
+      "fdr_bh": 4.238925545277042e-05
+    },
+    {
+      "motif_id": "MA0770.1",
+      "motif_name": "HSF2",
+      "safeedit_gain_rate": 0.0002777777777777778,
+      "random_gain_rate": 0.00032407407407407406,
+      "odds_ratio": 0.8571031635771842,
+      "fisher_p": 0.6997029751164432,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0771.1",
+      "motif_name": "HSF4",
+      "safeedit_gain_rate": 0.0008333333333333334,
+      "random_gain_rate": 0.0010185185185185184,
+      "odds_ratio": 0.8180301766623702,
+      "fisher_p": 0.7363296986548856,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0773.1",
+      "motif_name": "MEF2D",
+      "safeedit_gain_rate": 0.045,
+      "random_gain_rate": 0.0012962962962962963,
+      "odds_ratio": 36.302916978309646,
+      "fisher_p": 3.232730578699903e-160,
+      "fdr_bh": 1.2930922314799613e-158
+    },
+    {
+      "motif_id": "MA0774.1",
+      "motif_name": "MEIS2",
+      "safeedit_gain_rate": 0.014027777777777778,
+      "random_gain_rate": 0.015416666666666667,
+      "odds_ratio": 0.9086281661292226,
+      "fisher_p": 0.8137517641694492,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0776.1",
+      "motif_name": "MYBL1",
+      "safeedit_gain_rate": 0.0001388888888888889,
+      "random_gain_rate": 0.00018518518518518518,
+      "odds_ratio": 0.749965272954577,
+      "fisher_p": 0.7627227800688442,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0777.1",
+      "motif_name": "MYBL2",
+      "safeedit_gain_rate": 0.0001388888888888889,
+      "random_gain_rate": 0.0,
+      "odds_ratio": 0.0,
+      "fisher_p": 0.25,
+      "fdr_bh": 0.5
+    },
+    {
+      "motif_id": "MA0105.4",
+      "motif_name": "NFKB1",
+      "safeedit_gain_rate": 0.0006944444444444445,
+      "random_gain_rate": 0.0002777777777777778,
+      "odds_ratio": 2.5010423905489922,
+      "fisher_p": 0.11458457640312121,
+      "fdr_bh": 0.26341281931752003
+    },
+    {
+      "motif_id": "MA0780.1",
+      "motif_name": "PAX3",
+      "safeedit_gain_rate": 0.0009722222222222222,
+      "random_gain_rate": 0.003472222222222222,
+      "odds_ratio": 0.2792993187821493,
+      "fisher_p": 0.9999655293485066,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0783.1",
+      "motif_name": "PKNOX2",
+      "safeedit_gain_rate": 0.0009722222222222222,
+      "random_gain_rate": 0.0005555555555555556,
+      "odds_ratio": 1.7507298762685946,
+      "fisher_p": 0.17480481852973712,
+      "fdr_bh": 0.3680101442731307
+    },
+    {
+      "motif_id": "MA0787.1",
+      "motif_name": "POU3F2",
+      "safeedit_gain_rate": 0.005138888888888889,
+      "random_gain_rate": 0.0015277777777777779,
+      "odds_ratio": 3.3758455700379475,
+      "fisher_p": 5.388797676553633e-07,
+      "fdr_bh": 1.9595627914740484e-06
+    },
+    {
+      "motif_id": "MA0788.1",
+      "motif_name": "POU3F3",
+      "safeedit_gain_rate": 0.002916666666666667,
+      "random_gain_rate": 0.0007407407407407407,
+      "odds_ratio": 3.946092770580861,
+      "fisher_p": 3.789540517504198e-05,
+      "fdr_bh": 0.00012030287357156182
+    },
+    {
+      "motif_id": "MA0789.1",
+      "motif_name": "POU3F4",
+      "safeedit_gain_rate": 0.013888888888888888,
+      "random_gain_rate": 0.011157407407407408,
+      "odds_ratio": 1.2482613523464439,
+      "fisher_p": 0.03818026790327724,
+      "fdr_bh": 0.09312260464213962
+    },
+    {
+      "motif_id": "MA0792.1",
+      "motif_name": "POU5F1B",
+      "safeedit_gain_rate": 0.014444444444444444,
+      "random_gain_rate": 0.013101851851851852,
+      "odds_ratio": 1.103975364610929,
+      "fisher_p": 0.21149026605856538,
+      "fdr_bh": 0.4360624042444647
+    },
+    {
+      "motif_id": "MA0794.1",
+      "motif_name": "PROX1",
+      "safeedit_gain_rate": 0.0033333333333333335,
+      "random_gain_rate": 0.0004166666666666667,
+      "odds_ratio": 8.023411371237458,
+      "fisher_p": 1.1406104381334822e-08,
+      "fdr_bh": 4.386963223590316e-08
+    },
+    {
+      "motif_id": "MA0795.1",
+      "motif_name": "SMAD3",
+      "safeedit_gain_rate": 0.004861111111111111,
+      "random_gain_rate": 0.002685185185185185,
+      "odds_ratio": 1.8143032461438506,
+      "fisher_p": 0.0046534835460990565,
+      "fdr_bh": 0.01310840435520861
+    },
+    {
+      "motif_id": "MA0796.1",
+      "motif_name": "TGIF1",
+      "safeedit_gain_rate": 0.0009722222222222222,
+      "random_gain_rate": 0.0005555555555555556,
+      "odds_ratio": 1.7507298762685946,
+      "fisher_p": 0.17480481852973712,
+      "fdr_bh": 0.3680101442731307
+    },
+    {
+      "motif_id": "MA0797.1",
+      "motif_name": "TGIF2",
+      "safeedit_gain_rate": 0.0016666666666666668,
+      "random_gain_rate": 0.0008333333333333334,
+      "odds_ratio": 2.001669449081803,
+      "fisher_p": 0.05056743667038367,
+      "fdr_bh": 0.11938416411957915
+    },
+    {
+      "motif_id": "MA0511.2",
+      "motif_name": "RUNX2",
+      "safeedit_gain_rate": 0.0077777777777777776,
+      "random_gain_rate": 0.007222222222222222,
+      "odds_ratio": 1.0775260573692824,
+      "fisher_p": 0.34132161361509894,
+      "fdr_bh": 0.6501364068859027
+    },
+    {
+      "motif_id": "MA0801.1",
+      "motif_name": "MGA",
+      "safeedit_gain_rate": 0.017916666666666668,
+      "random_gain_rate": 0.01814814814814815,
+      "odds_ratio": 0.9870121998735855,
+      "fisher_p": 0.5677683257062917,
+      "fdr_bh": 0.9960847819408625
+    },
+    {
+      "motif_id": "MA0803.1",
+      "motif_name": "TBX15",
+      "safeedit_gain_rate": 0.015833333333333335,
+      "random_gain_rate": 0.01712962962962963,
+      "odds_ratio": 0.9231068494404651,
+      "fisher_p": 0.7854748949030699,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0805.1",
+      "motif_name": "TBX1",
+      "safeedit_gain_rate": 0.015833333333333335,
+      "random_gain_rate": 0.01712962962962963,
+      "odds_ratio": 0.9231068494404651,
+      "fisher_p": 0.7854748949030699,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0806.1",
+      "motif_name": "TBX4",
+      "safeedit_gain_rate": 0.01625,
+      "random_gain_rate": 0.017037037037037038,
+      "odds_ratio": 0.9530412684382078,
+      "fisher_p": 0.6900166354224556,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0807.1",
+      "motif_name": "TBX5",
+      "safeedit_gain_rate": 0.01875,
+      "random_gain_rate": 0.019166666666666665,
+      "odds_ratio": 0.9778454721683744,
+      "fisher_p": 0.6049680591872215,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0808.1",
+      "motif_name": "TEAD3",
+      "safeedit_gain_rate": 0.04666666666666667,
+      "random_gain_rate": 0.01574074074074074,
+      "odds_ratio": 3.060880296174414,
+      "fisher_p": 1.7031385837543522e-44,
+      "fdr_bh": 1.8923762041715024e-43
+    },
+    {
+      "motif_id": "MA0813.1",
+      "motif_name": "TFAP2B",
+      "safeedit_gain_rate": 0.00125,
+      "random_gain_rate": 0.001388888888888889,
+      "odds_ratio": 0.899874843554443,
+      "fisher_p": 0.6688689815195867,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0815.1",
+      "motif_name": "TFAP2C",
+      "safeedit_gain_rate": 0.0008333333333333334,
+      "random_gain_rate": 0.0011111111111111111,
+      "odds_ratio": 0.749791492910759,
+      "fisher_p": 0.7975383580063878,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0816.1",
+      "motif_name": "Ascl2",
+      "safeedit_gain_rate": 0.012777777777777779,
+      "random_gain_rate": 0.005833333333333334,
+      "odds_ratio": 2.2058847174210143,
+      "fisher_p": 1.8744355271938392e-08,
+      "fdr_bh": 7.073341612052223e-08
+    },
+    {
+      "motif_id": "MA0822.1",
+      "motif_name": "HES7",
+      "safeedit_gain_rate": 0.0002777777777777778,
+      "random_gain_rate": 0.0006018518518518519,
+      "odds_ratio": 0.46138884732938634,
+      "fisher_p": 0.9198733718374936,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0823.1",
+      "motif_name": "HEY1",
+      "safeedit_gain_rate": 0.006805555555555555,
+      "random_gain_rate": 0.0044907407407407405,
+      "odds_ratio": 1.5189959734562393,
+      "fisher_p": 0.012467932092521491,
+      "fdr_bh": 0.03277746242153099
+    },
+    {
+      "motif_id": "MA0826.1",
+      "motif_name": "OLIG1",
+      "safeedit_gain_rate": 0.008055555555555555,
+      "random_gain_rate": 0.005694444444444445,
+      "odds_ratio": 1.4180013796777564,
+      "fisher_p": 0.019356094903444965,
+      "fdr_bh": 0.04839023725861241
+    },
+    {
+      "motif_id": "MA0827.1",
+      "motif_name": "OLIG3",
+      "safeedit_gain_rate": 0.008333333333333333,
+      "random_gain_rate": 0.005601851851851852,
+      "odds_ratio": 1.4917008125564275,
+      "fisher_p": 0.00834442528471135,
+      "fdr_bh": 0.022251800759230268
+    },
+    {
+      "motif_id": "MA0838.1",
+      "motif_name": "CEBPG",
+      "safeedit_gain_rate": 0.011805555555555555,
+      "random_gain_rate": 0.0014814814814814814,
+      "odds_ratio": 8.052002810962755,
+      "fisher_p": 3.0795955093332715e-27,
+      "fdr_bh": 2.0530636728888478e-26
+    },
+    {
+      "motif_id": "MA0845.1",
+      "motif_name": "FOXB1",
+      "safeedit_gain_rate": 0.021666666666666667,
+      "random_gain_rate": 0.0043518518518518515,
+      "odds_ratio": 5.066838232628946,
+      "fisher_p": 4.7504281734725066e-36,
+      "fdr_bh": 4.5242173080690537e-35
+    },
+    {
+      "motif_id": "MA0032.2",
+      "motif_name": "FOXC1",
+      "safeedit_gain_rate": 0.019166666666666665,
+      "random_gain_rate": 0.0036574074074074074,
+      "odds_ratio": 5.3233709387737544,
+      "fisher_p": 2.505583082103236e-33,
+      "fdr_bh": 2.1787678974810745e-32
+    },
+    {
+      "motif_id": "MA0848.1",
+      "motif_name": "FOXO4",
+      "safeedit_gain_rate": 0.04569444444444445,
+      "random_gain_rate": 0.03337962962962963,
+      "odds_ratio": 1.386597391880607,
+      "fisher_p": 1.4098463553416505e-06,
+      "fdr_bh": 4.946829316988247e-06
+    },
+    {
+      "motif_id": "MA0849.1",
+      "motif_name": "FOXO6",
+      "safeedit_gain_rate": 0.04736111111111111,
+      "random_gain_rate": 0.028148148148148148,
+      "odds_ratio": 1.7165000268567614,
+      "fisher_p": 1.7502197897827764e-14,
+      "fdr_bh": 7.778754621256784e-14
+    },
+    {
+      "motif_id": "MA0850.1",
+      "motif_name": "FOXP3",
+      "safeedit_gain_rate": 0.07083333333333333,
+      "random_gain_rate": 0.02953703703703704,
+      "odds_ratio": 2.5047021943573666,
+      "fisher_p": 1.6814378260669347e-48,
+      "fdr_bh": 2.2419171014225796e-47
+    },
+    {
+      "motif_id": "MA0855.1",
+      "motif_name": "RXRB",
+      "safeedit_gain_rate": 0.006527777777777778,
+      "random_gain_rate": 4.6296296296296294e-05,
+      "odds_ratio": 141.91989375087377,
+      "fisher_p": 1.6373547203005734e-27,
+      "fdr_bh": 1.1292101519314299e-26
+    },
+    {
+      "motif_id": "MA0856.1",
+      "motif_name": "RXRG",
+      "safeedit_gain_rate": 0.008194444444444445,
+      "random_gain_rate": 0.00018518518518518518,
+      "odds_ratio": 44.60733790785604,
+      "fisher_p": 4.888731121150947e-31,
+      "fdr_bh": 3.760562400885344e-30
+    },
+    {
+      "motif_id": "MA0857.1",
+      "motif_name": "Rarb",
+      "safeedit_gain_rate": 0.0002777777777777778,
+      "random_gain_rate": 0.0001388888888888889,
+      "odds_ratio": 2.000277854959711,
+      "fisher_p": 0.36718749957608576,
+      "fdr_bh": 0.6863317749085716
+    },
+    {
+      "motif_id": "MA0858.1",
+      "motif_name": "Rarb",
+      "safeedit_gain_rate": 0.0,
+      "random_gain_rate": 0.0,
+      "odds_ratio": 0.0,
+      "fisher_p": 1.0,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0860.1",
+      "motif_name": "Rarg",
+      "safeedit_gain_rate": 0.0,
+      "random_gain_rate": 4.6296296296296294e-05,
+      "odds_ratio": 0.0,
+      "fisher_p": 1.0,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0525.2",
+      "motif_name": "TP63",
+      "safeedit_gain_rate": 0.00125,
+      "random_gain_rate": 4.6296296296296294e-05,
+      "odds_ratio": 27.032540675844807,
+      "fisher_p": 2.9461211417234615e-05,
+      "fdr_bh": 9.503616586204714e-05
+    },
+    {
+      "motif_id": "MA0106.3",
+      "motif_name": "TP53",
+      "safeedit_gain_rate": 0.012916666666666667,
+      "random_gain_rate": 0.0,
+      "odds_ratio": 0.0,
+      "fisher_p": 6.513963258134684e-57,
+      "fdr_bh": 1.4475473906965965e-55
+    },
+    {
+      "motif_id": "MA0862.1",
+      "motif_name": "GMEB2",
+      "safeedit_gain_rate": 0.03944444444444444,
+      "random_gain_rate": 0.013657407407407408,
+      "odds_ratio": 2.965670368881787,
+      "fisher_p": 2.063523191433648e-36,
+      "fdr_bh": 2.063523191433648e-35
+    },
+    {
+      "motif_id": "MA0863.1",
+      "motif_name": "MTF1",
+      "safeedit_gain_rate": 0.0,
+      "random_gain_rate": 4.6296296296296294e-05,
+      "odds_ratio": 0.0,
+      "fisher_p": 1.0,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0024.3",
+      "motif_name": "E2F1",
+      "safeedit_gain_rate": 0.0009722222222222222,
+      "random_gain_rate": 0.0005092592592592592,
+      "odds_ratio": 1.9099756075982963,
+      "fisher_p": 0.1389149690541219,
+      "fdr_bh": 0.308699931231382
+    },
+    {
+      "motif_id": "MA0866.1",
+      "motif_name": "SOX21",
+      "safeedit_gain_rate": 0.0,
+      "random_gain_rate": 9.259259259259259e-05,
+      "odds_ratio": 0.0,
+      "fisher_p": 1.0,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0870.1",
+      "motif_name": "Sox1",
+      "safeedit_gain_rate": 0.0,
+      "random_gain_rate": 0.0002314814814814815,
+      "odds_ratio": 0.0,
+      "fisher_p": 1.0,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0872.1",
+      "motif_name": "TFAP2A",
+      "safeedit_gain_rate": 0.0008333333333333334,
+      "random_gain_rate": 0.001388888888888889,
+      "odds_ratio": 0.5996663886572143,
+      "fisher_p": 0.9166661728122341,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA1124.1",
+      "motif_name": "ZNF24",
+      "safeedit_gain_rate": 0.0004166666666666667,
+      "random_gain_rate": 0.0007407407407407407,
+      "odds_ratio": 0.5623176323468112,
+      "fisher_p": 0.8887342738518714,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA1155.1",
+      "motif_name": "ZSCAN4",
+      "safeedit_gain_rate": 0.0004166666666666667,
+      "random_gain_rate": 0.0006018518518518519,
+      "odds_ratio": 0.6921794337384166,
+      "fisher_p": 0.8029647561087305,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA1127.1",
+      "motif_name": "FOSB::JUN",
+      "safeedit_gain_rate": 0.013055555555555556,
+      "random_gain_rate": 0.001712962962962963,
+      "odds_ratio": 7.709214139554697,
+      "fisher_p": 2.793737723588555e-29,
+      "fdr_bh": 2.0694353508063368e-28
+    },
+    {
+      "motif_id": "MA1129.1",
+      "motif_name": "FOSL1::JUN",
+      "safeedit_gain_rate": 0.02388888888888889,
+      "random_gain_rate": 0.0030092592592592593,
+      "odds_ratio": 8.108270215839937,
+      "fisher_p": 1.24933610317777e-53,
+      "fdr_bh": 1.9220555433504153e-52
+    },
+    {
+      "motif_id": "MA1136.1",
+      "motif_name": "FOSB::JUNB",
+      "safeedit_gain_rate": 0.01861111111111111,
+      "random_gain_rate": 0.002638888888888889,
+      "odds_ratio": 7.167414006286591,
+      "fisher_p": 2.1274116431096856e-39,
+      "fdr_bh": 2.239380676957564e-38
+    },
+    {
+      "motif_id": "MA1420.1",
+      "motif_name": "IRF5",
+      "safeedit_gain_rate": 0.0059722222222222225,
+      "random_gain_rate": 0.0,
+      "odds_ratio": 0.0,
+      "fisher_p": 1.1761663863165895e-26,
+      "fdr_bh": 7.588170234300577e-26
+    },
+    {
+      "motif_id": "MA1421.1",
+      "motif_name": "TCF7L1",
+      "safeedit_gain_rate": 0.017916666666666668,
+      "random_gain_rate": 0.001851851851851852,
+      "odds_ratio": 9.83326262197709,
+      "fisher_p": 1.266153336136534e-44,
+      "fdr_bh": 1.4895921601606284e-43
+    },
+    {
+      "motif_id": "MA1468.1",
+      "motif_name": "ATOH7",
+      "safeedit_gain_rate": 0.014027777777777778,
+      "random_gain_rate": 0.004814814814814815,
+      "odds_ratio": 2.9406850368957707,
+      "fisher_p": 5.2951868113492884e-14,
+      "fdr_bh": 2.302255135369256e-13
+    },
+    {
+      "motif_id": "MA1485.1",
+      "motif_name": "FERD3L",
+      "safeedit_gain_rate": 0.00125,
+      "random_gain_rate": 4.6296296296296294e-05,
+      "odds_ratio": 27.032540675844807,
+      "fisher_p": 2.9461211417234615e-05,
+      "fdr_bh": 9.503616586204714e-05
+    },
+    {
+      "motif_id": "MA1489.1",
+      "motif_name": "FOXN3",
+      "safeedit_gain_rate": 0.03180555555555555,
+      "random_gain_rate": 0.021296296296296296,
+      "odds_ratio": 1.5096892093330756,
+      "fisher_p": 5.735203300102832e-07,
+      "fdr_bh": 2.048286892893869e-06
+    },
+    {
+      "motif_id": "MA1493.1",
+      "motif_name": "HES6",
+      "safeedit_gain_rate": 0.0020833333333333333,
+      "random_gain_rate": 0.0031018518518518517,
+      "odds_ratio": 0.6709562833016546,
+      "fisher_p": 0.9414721551021896,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA1509.1",
+      "motif_name": "IRF6",
+      "safeedit_gain_rate": 0.014722222222222222,
+      "random_gain_rate": 0.004861111111111111,
+      "odds_ratio": 3.058882758065166,
+      "fisher_p": 2.368248534164483e-15,
+      "fdr_bh": 1.0764766064384016e-14
+    },
+    {
+      "motif_id": "MA1538.1",
+      "motif_name": "NR2F1",
+      "safeedit_gain_rate": 0.0,
+      "random_gain_rate": 0.0001388888888888889,
+      "odds_ratio": 0.0,
+      "fisher_p": 1.0,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA1539.1",
+      "motif_name": "NR2F6",
+      "safeedit_gain_rate": 0.0,
+      "random_gain_rate": 0.0001388888888888889,
+      "odds_ratio": 0.0,
+      "fisher_p": 1.0,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA1555.1",
+      "motif_name": "RXRB",
+      "safeedit_gain_rate": 0.0001388888888888889,
+      "random_gain_rate": 0.00018518518518518518,
+      "odds_ratio": 0.749965272954577,
+      "fisher_p": 0.7627227800688442,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA1556.1",
+      "motif_name": "RXRG",
+      "safeedit_gain_rate": 0.0001388888888888889,
+      "random_gain_rate": 0.00018518518518518518,
+      "odds_ratio": 0.749965272954577,
+      "fisher_p": 0.7627227800688442,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA1557.1",
+      "motif_name": "SMAD5",
+      "safeedit_gain_rate": 0.004861111111111111,
+      "random_gain_rate": 0.0033333333333333335,
+      "odds_ratio": 1.4605722260990928,
+      "fisher_p": 0.0443690421833956,
+      "fdr_bh": 0.1069133546587846
+    },
+    {
+      "motif_id": "MA1570.1",
+      "motif_name": "TFAP4",
+      "safeedit_gain_rate": 0.034166666666666665,
+      "random_gain_rate": 0.010833333333333334,
+      "odds_ratio": 3.2300391584256984,
+      "fisher_p": 1.4516697398345856e-35,
+      "fdr_bh": 1.319699763485987e-34
+    },
+    {
+      "motif_id": "MA1571.1",
+      "motif_name": "TGIF2LX",
+      "safeedit_gain_rate": 0.0016666666666666668,
+      "random_gain_rate": 0.0016666666666666668,
+      "odds_ratio": 1.0,
+      "fisher_p": 0.5553114966459071,
+      "fdr_bh": 0.9828522064529329
+    },
+    {
+      "motif_id": "MA1572.1",
+      "motif_name": "TGIF2LY",
+      "safeedit_gain_rate": 0.0025,
+      "random_gain_rate": 0.0018055555555555555,
+      "odds_ratio": 1.385579332947754,
+      "fisher_p": 0.15954859423872042,
+      "fdr_bh": 0.34311525642735574
+    },
+    {
+      "motif_id": "MA1580.1",
+      "motif_name": "ZBTB32",
+      "safeedit_gain_rate": 0.0019444444444444444,
+      "random_gain_rate": 0.003611111111111111,
+      "odds_ratio": 0.5375623541501637,
+      "fisher_p": 0.9918393061048802,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA1587.1",
+      "motif_name": "ZNF135",
+      "safeedit_gain_rate": 0.0004166666666666667,
+      "random_gain_rate": 0.0006018518518518519,
+      "odds_ratio": 0.6921794337384166,
+      "fisher_p": 0.8029647561087305,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA1588.1",
+      "motif_name": "ZNF136",
+      "safeedit_gain_rate": 0.0002777777777777778,
+      "random_gain_rate": 9.259259259259259e-05,
+      "odds_ratio": 3.000555709919422,
+      "fisher_p": 0.26171142477801695,
+      "fdr_bh": 0.518240445104984
+    },
+    {
+      "motif_id": "MA1594.1",
+      "motif_name": "ZNF382",
+      "safeedit_gain_rate": 0.0,
+      "random_gain_rate": 0.0,
+      "odds_ratio": 0.0,
+      "fisher_p": 1.0,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA1596.1",
+      "motif_name": "ZNF460",
+      "safeedit_gain_rate": 0.0001388888888888889,
+      "random_gain_rate": 0.00037037037037037035,
+      "odds_ratio": 0.37491318238644256,
+      "fisher_p": 0.9249465996702733,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA1597.1",
+      "motif_name": "ZNF528",
+      "safeedit_gain_rate": 0.0,
+      "random_gain_rate": 0.0,
+      "odds_ratio": 0.0,
+      "fisher_p": 1.0,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0158.2",
+      "motif_name": "HOXA5",
+      "safeedit_gain_rate": 0.010416666666666666,
+      "random_gain_rate": 0.01425925925925926,
+      "odds_ratio": 0.7276828434723172,
+      "fisher_p": 0.9951102879420916,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0912.2",
+      "motif_name": "HOXD3",
+      "safeedit_gain_rate": 0.027083333333333334,
+      "random_gain_rate": 0.02175925925925926,
+      "odds_ratio": 1.2514920953118593,
+      "fisher_p": 0.005815470522715996,
+      "fdr_bh": 0.015932795952646562
+    },
+    {
+      "motif_id": "MA0623.2",
+      "motif_name": "NEUROG1",
+      "safeedit_gain_rate": 0.005,
+      "random_gain_rate": 0.002824074074074074,
+      "odds_ratio": 1.7743636213856167,
+      "fisher_p": 0.005380573312805534,
+      "fdr_bh": 0.01494603698001537
+    },
+    {
+      "motif_id": "MA1715.1",
+      "motif_name": "ZNF707",
+      "safeedit_gain_rate": 0.0002777777777777778,
+      "random_gain_rate": 4.6296296296296294e-05,
+      "odds_ratio": 6.001389274798555,
+      "fisher_p": 0.15624023358374461,
+      "fdr_bh": 0.33965268170379265
+    },
+    {
+      "motif_id": "MA1718.1",
+      "motif_name": "ZNF8",
+      "safeedit_gain_rate": 0.0,
+      "random_gain_rate": 0.0,
+      "odds_ratio": 0.0,
+      "fisher_p": 1.0,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA1684.1",
+      "motif_name": "Foxn1",
+      "safeedit_gain_rate": 0.030972222222222224,
+      "random_gain_rate": 0.03962962962962963,
+      "odds_ratio": 0.774559668014665,
+      "fisher_p": 0.9997195863721403,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA1931.1",
+      "motif_name": "ELK1::HOXA1",
+      "safeedit_gain_rate": 0.00125,
+      "random_gain_rate": 0.0002777777777777778,
+      "odds_ratio": 4.504380475594493,
+      "fisher_p": 0.004183462225340791,
+      "fdr_bh": 0.011952749215259403
+    },
+    {
+      "motif_id": "MA1957.1",
+      "motif_name": "HOXB2::ELK1",
+      "safeedit_gain_rate": 0.0008333333333333334,
+      "random_gain_rate": 4.6296296296296294e-05,
+      "odds_ratio": 18.01417848206839,
+      "fisher_p": 0.001340904897255739,
+      "fdr_bh": 0.004002701185838027
+    },
+    {
+      "motif_id": "MA1962.1",
+      "motif_name": "POU2F1::SOX2",
+      "safeedit_gain_rate": 0.0,
+      "random_gain_rate": 0.0,
+      "odds_ratio": 0.0,
+      "fisher_p": 1.0,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA1972.1",
+      "motif_name": "ZFP14",
+      "safeedit_gain_rate": 0.0005555555555555556,
+      "random_gain_rate": 0.00032407407407407406,
+      "odds_ratio": 1.7146827602636385,
+      "fisher_p": 0.28667157384035524,
+      "fdr_bh": 0.5512914881545293
+    },
+    {
+      "motif_id": "MA1980.1",
+      "motif_name": "ZNF418",
+      "safeedit_gain_rate": 0.0001388888888888889,
+      "random_gain_rate": 4.6296296296296294e-05,
+      "odds_ratio": 3.0002778163633836,
+      "fisher_p": 0.4375065106427306,
+      "fdr_bh": 0.7954663829867828
+    },
+    {
+      "motif_id": "MA1985.1",
+      "motif_name": "ZNF669",
+      "safeedit_gain_rate": 0.0004166666666666667,
+      "random_gain_rate": 0.0,
+      "odds_ratio": 0.0,
+      "fisher_p": 0.015620117244031693,
+      "fdr_bh": 0.03954460061780176
+    },
+    {
+      "motif_id": "MA0079.5",
+      "motif_name": "SP1",
+      "safeedit_gain_rate": 0.018333333333333333,
+      "random_gain_rate": 0.008518518518518519,
+      "odds_ratio": 2.173691592234443,
+      "fisher_p": 4.037183958446549e-11,
+      "fdr_bh": 1.6148735833786196e-10
+    },
+    {
+      "motif_id": "MA0509.3",
+      "motif_name": "RFX1",
+      "safeedit_gain_rate": 0.0,
+      "random_gain_rate": 0.0001388888888888889,
+      "odds_ratio": 0.0,
+      "fisher_p": 1.0,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0516.3",
+      "motif_name": "SP2",
+      "safeedit_gain_rate": 0.021388888888888888,
+      "random_gain_rate": 0.010462962962962962,
+      "odds_ratio": 2.0670712561448283,
+      "fisher_p": 1.6595367035630505e-11,
+      "fdr_bh": 6.914736264846044e-11
+    },
+    {
+      "motif_id": "MA0607.2",
+      "motif_name": "BHLHA15",
+      "safeedit_gain_rate": 0.007083333333333333,
+      "random_gain_rate": 0.004722222222222222,
+      "odds_ratio": 1.5035669324381031,
+      "fisher_p": 0.012619323032289432,
+      "fdr_bh": 0.03277746242153099
+    },
+    {
+      "motif_id": "MA0685.2",
+      "motif_name": "SP4",
+      "safeedit_gain_rate": 0.022916666666666665,
+      "random_gain_rate": 0.01074074074074074,
+      "odds_ratio": 2.1602088081758692,
+      "fisher_p": 2.611464032048798e-13,
+      "fdr_bh": 1.1112612902335312e-12
+    },
+    {
+      "motif_id": "MA0740.2",
+      "motif_name": "KLF14",
+      "safeedit_gain_rate": 0.02847222222222222,
+      "random_gain_rate": 0.008564814814814815,
+      "odds_ratio": 3.3924424782180322,
+      "fisher_p": 8.553321384736251e-32,
+      "fdr_bh": 7.127767820613542e-31
+    },
+    {
+      "motif_id": "MA0742.2",
+      "motif_name": "KLF12",
+      "safeedit_gain_rate": 0.02125,
+      "random_gain_rate": 0.007361111111111111,
+      "odds_ratio": 2.9277572953565145,
+      "fisher_p": 3.339846483419202e-20,
+      "fdr_bh": 1.7127417863688216e-19
+    },
+    {
+      "motif_id": "MA0798.3",
+      "motif_name": "RFX3",
+      "safeedit_gain_rate": 0.0,
+      "random_gain_rate": 4.6296296296296294e-05,
+      "odds_ratio": 0.0,
+      "fisher_p": 1.0,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0818.2",
+      "motif_name": "BHLHE22",
+      "safeedit_gain_rate": 0.004166666666666667,
+      "random_gain_rate": 0.0031018518518518517,
+      "odds_ratio": 1.3447199150690063,
+      "fisher_p": 0.11034323339529296,
+      "fdr_bh": 0.2566121706867278
+    },
+    {
+      "motif_id": "MA0821.2",
+      "motif_name": "HES5",
+      "safeedit_gain_rate": 0.005833333333333334,
+      "random_gain_rate": 0.005138888888888889,
+      "odds_ratio": 1.1359280487528602,
+      "fisher_p": 0.2682994759634997,
+      "fdr_bh": 0.5260774038499993
+    },
+    {
+      "motif_id": "MA0831.3",
+      "motif_name": "TFE3",
+      "safeedit_gain_rate": 0.012361111111111111,
+      "random_gain_rate": 0.00125,
+      "odds_ratio": 10.0001406271973,
+      "fisher_p": 1.6621992888145884e-31,
+      "fdr_bh": 1.3297594310516707e-30
+    },
+    {
+      "motif_id": "MA0878.3",
+      "motif_name": "CDX1",
+      "safeedit_gain_rate": 0.0008333333333333334,
+      "random_gain_rate": 0.0038888888888888888,
+      "odds_ratio": 0.21363040629095675,
+      "fisher_p": 0.9999987973547473,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0884.2",
+      "motif_name": "DUXA",
+      "safeedit_gain_rate": 0.0004166666666666667,
+      "random_gain_rate": 0.0002777777777777778,
+      "odds_ratio": 1.500208420175073,
+      "fisher_p": 0.3993225086387841,
+      "fdr_bh": 0.7394861271088594
+    },
+    {
+      "motif_id": "MA1511.2",
+      "motif_name": "KLF10",
+      "safeedit_gain_rate": 0.025138888888888888,
+      "random_gain_rate": 0.008472222222222223,
+      "odds_ratio": 3.017941932786652,
+      "fisher_p": 1.5967813064973452e-24,
+      "fdr_bh": 9.677462463620273e-24
+    },
+    {
+      "motif_id": "MA1532.2",
+      "motif_name": "NR1D2",
+      "safeedit_gain_rate": 0.0,
+      "random_gain_rate": 0.0001388888888888889,
+      "odds_ratio": 0.0,
+      "fisher_p": 1.0,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA1547.2",
+      "motif_name": "PITX2",
+      "safeedit_gain_rate": 0.0025,
+      "random_gain_rate": 0.009675925925925926,
+      "odds_ratio": 0.2565144919715557,
+      "fisher_p": 0.9999999999934542,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA1563.2",
+      "motif_name": "SOX18",
+      "safeedit_gain_rate": 0.020694444444444446,
+      "random_gain_rate": 0.02962962962962963,
+      "odds_ratio": 0.6920649553254857,
+      "fisher_p": 0.9999855363155705,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA1573.2",
+      "motif_name": "Thap11",
+      "safeedit_gain_rate": 0.0001388888888888889,
+      "random_gain_rate": 0.0005555555555555556,
+      "odds_ratio": 0.24989581886373108,
+      "fisher_p": 0.9762641810701178,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA1601.2",
+      "motif_name": "ZNF75D",
+      "safeedit_gain_rate": 0.0005555555555555556,
+      "random_gain_rate": 0.0006018518518518519,
+      "odds_ratio": 0.9230341642793005,
+      "fisher_p": 0.6470432782477642,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA1633.2",
+      "motif_name": "BACH1",
+      "safeedit_gain_rate": 0.12833333333333333,
+      "random_gain_rate": 0.006990740740740741,
+      "odds_ratio": 20.913134868879236,
+      "fisher_p": 0.0,
+      "fdr_bh": 0.0
+    },
+    {
+      "motif_id": "MA0621.2",
+      "motif_name": "mix-a",
+      "safeedit_gain_rate": 0.024722222222222222,
+      "random_gain_rate": 0.02277777777777778,
+      "odds_ratio": 1.0875297844405387,
+      "fisher_p": 0.18296573836381205,
+      "fdr_bh": 0.38117862159127514
+    },
+    {
+      "motif_id": "MA0259.2",
+      "motif_name": "ARNT::HIF1A",
+      "safeedit_gain_rate": 0.044444444444444446,
+      "random_gain_rate": 0.039907407407407405,
+      "odds_ratio": 1.1189769600172665,
+      "fisher_p": 0.05073826975082114,
+      "fdr_bh": 0.11938416411957915
+    },
+    {
+      "motif_id": "MA2323.1",
+      "motif_name": "Pgr",
+      "safeedit_gain_rate": 0.0,
+      "random_gain_rate": 0.00018518518518518518,
+      "odds_ratio": 0.0,
+      "fisher_p": 1.0,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0019.2",
+      "motif_name": "Ddit3::Cebpa",
+      "safeedit_gain_rate": 0.002361111111111111,
+      "random_gain_rate": 0.005555555555555556,
+      "odds_ratio": 0.4236391479883057,
+      "fisher_p": 0.9999181306677285,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA0040.2",
+      "motif_name": "Foxq1",
+      "safeedit_gain_rate": 0.0077777777777777776,
+      "random_gain_rate": 0.008935185185185185,
+      "odds_ratio": 0.8694509396631254,
+      "fisher_p": 0.8394454372579105,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA2093.1",
+      "motif_name": "HOXB1",
+      "safeedit_gain_rate": 0.026944444444444444,
+      "random_gain_rate": 0.030648148148148147,
+      "odds_ratio": 0.8758077884040697,
+      "fisher_p": 0.9509441914104795,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA2094.1",
+      "motif_name": "PAX8",
+      "safeedit_gain_rate": 0.0,
+      "random_gain_rate": 0.0,
+      "odds_ratio": 0.0,
+      "fisher_p": 1.0,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA2096.1",
+      "motif_name": "ZNF524",
+      "safeedit_gain_rate": 0.0019444444444444444,
+      "random_gain_rate": 0.007314814814814815,
+      "odds_ratio": 0.2643924367705137,
+      "fisher_p": 0.9999999971484383,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA2097.1",
+      "motif_name": "ZNF75A",
+      "safeedit_gain_rate": 0.0,
+      "random_gain_rate": 0.0011111111111111111,
+      "odds_ratio": 0.0,
+      "fisher_p": 1.0,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA2098.1",
+      "motif_name": "ZNF766",
+      "safeedit_gain_rate": 0.007222222222222222,
+      "random_gain_rate": 0.010555555555555556,
+      "odds_ratio": 0.6819132329985568,
+      "fisher_p": 0.9958538280795047,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA2099.1",
+      "motif_name": "ZNF770",
+      "safeedit_gain_rate": 0.0059722222222222225,
+      "random_gain_rate": 0.01412037037037037,
+      "odds_ratio": 0.4194838482100523,
+      "fisher_p": 0.9999999987351593,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA2100.1",
+      "motif_name": "ZSCAN16",
+      "safeedit_gain_rate": 0.0,
+      "random_gain_rate": 0.0,
+      "odds_ratio": 0.0,
+      "fisher_p": 1.0,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA2101.1",
+      "motif_name": "ZNF677",
+      "safeedit_gain_rate": 0.0031944444444444446,
+      "random_gain_rate": 0.0025925925925925925,
+      "odds_ratio": 1.232886801090786,
+      "fisher_p": 0.2339554902612027,
+      "fdr_bh": 0.47746018420653613
+    },
+    {
+      "motif_id": "MA2102.1",
+      "motif_name": "ZBTB17",
+      "safeedit_gain_rate": 0.0044444444444444444,
+      "random_gain_rate": 0.015416666666666667,
+      "odds_ratio": 0.28511100386100385,
+      "fisher_p": 0.9999999999999997,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA2117.1",
+      "motif_name": "FOXP4",
+      "safeedit_gain_rate": 0.052222222222222225,
+      "random_gain_rate": 0.04486111111111111,
+      "odds_ratio": 1.1731278060678212,
+      "fisher_p": 0.006093364599843414,
+      "fdr_bh": 0.016468552972549767
+    },
+    {
+      "motif_id": "MA2118.1",
+      "motif_name": "FOXS1",
+      "safeedit_gain_rate": 0.03152777777777778,
+      "random_gain_rate": 0.01884259259259259,
+      "odds_ratio": 1.695134726398171,
+      "fisher_p": 6.230932853634878e-10,
+      "fdr_bh": 2.4435030798568148e-09
+    },
+    {
+      "motif_id": "MA2119.1",
+      "motif_name": "HOXA3",
+      "safeedit_gain_rate": 0.03972222222222222,
+      "random_gain_rate": 0.029953703703703705,
+      "odds_ratio": 1.3396106459621608,
+      "fisher_p": 4.1555667348773835e-05,
+      "fdr_bh": 0.00012986146046491822
+    },
+    {
+      "motif_id": "MA2120.1",
+      "motif_name": "ZNF184",
+      "safeedit_gain_rate": 0.0001388888888888889,
+      "random_gain_rate": 0.0006944444444444445,
+      "odds_ratio": 0.19988887345464648,
+      "fisher_p": 0.9899913206735194,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA2121.1",
+      "motif_name": "ZNF213",
+      "safeedit_gain_rate": 0.00375,
+      "random_gain_rate": 0.004166666666666667,
+      "odds_ratio": 0.8996235884567126,
+      "fisher_p": 0.7178142522613129,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA2324.1",
+      "motif_name": "BCL11A",
+      "safeedit_gain_rate": 0.0225,
+      "random_gain_rate": 0.0362037037037037,
+      "odds_ratio": 0.6127707170936872,
+      "fisher_p": 0.9999999983814281,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA2325.1",
+      "motif_name": "EPAS1",
+      "safeedit_gain_rate": 0.0004166666666666667,
+      "random_gain_rate": 0.0033796296296296296,
+      "odds_ratio": 0.1229222221587762,
+      "fisher_p": 0.9999998932367347,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA2326.1",
+      "motif_name": "IKZF2",
+      "safeedit_gain_rate": 0.02722222222222222,
+      "random_gain_rate": 0.012453703703703703,
+      "odds_ratio": 2.2190591037728837,
+      "fisher_p": 2.764432962947478e-16,
+      "fdr_bh": 1.2857827734639433e-15
+    },
+    {
+      "motif_id": "MA2327.1",
+      "motif_name": "PGR",
+      "safeedit_gain_rate": 0.009027777777777777,
+      "random_gain_rate": 0.011666666666666667,
+      "odds_ratio": 0.7717489238161979,
+      "fisher_p": 0.9747693918464946,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA2328.1",
+      "motif_name": "ZBED4",
+      "safeedit_gain_rate": 0.002638888888888889,
+      "random_gain_rate": 0.0030092592592592593,
+      "odds_ratio": 0.8765974312555569,
+      "fisher_p": 0.7316169637853382,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA2329.1",
+      "motif_name": "ZBTB11",
+      "safeedit_gain_rate": 0.035416666666666666,
+      "random_gain_rate": 0.005231481481481481,
+      "odds_ratio": 6.981765706531088,
+      "fisher_p": 3.6451993333173437e-72,
+      "fdr_bh": 1.0414855238049554e-70
+    },
+    {
+      "motif_id": "MA2330.1",
+      "motif_name": "ZBTB24",
+      "safeedit_gain_rate": 0.0016666666666666668,
+      "random_gain_rate": 0.004212962962962963,
+      "odds_ratio": 0.3945953879175916,
+      "fisher_p": 0.9997745688248484,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA2331.1",
+      "motif_name": "ZNF157",
+      "safeedit_gain_rate": 0.0,
+      "random_gain_rate": 0.0,
+      "odds_ratio": 0.0,
+      "fisher_p": 1.0,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA2332.1",
+      "motif_name": "ZNF175",
+      "safeedit_gain_rate": 0.03652777777777778,
+      "random_gain_rate": 0.009351851851851853,
+      "odds_ratio": 4.016112480499888,
+      "fisher_p": 2.9805161650417673e-48,
+      "fdr_bh": 3.7256452063022094e-47
+    },
+    {
+      "motif_id": "MA2333.1",
+      "motif_name": "ZNF35",
+      "safeedit_gain_rate": 0.028055555555555556,
+      "random_gain_rate": 0.043287037037037034,
+      "odds_ratio": 0.6379714295757535,
+      "fisher_p": 0.9999999989445921,
+      "fdr_bh": 1.0
+    },
+    {
+      "motif_id": "MA2334.1",
+      "motif_name": "ZNF547",
+      "safeedit_gain_rate": 0.0,
+      "random_gain_rate": 0.0001388888888888889,
+      "odds_ratio": 0.0,
+      "fisher_p": 1.0,
+      "fdr_bh": 1.0
+    }
+  ],
+  "disclaimer": "motif consistency only, not experimental TF binding"
+}

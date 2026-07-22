@@ -45,30 +45,36 @@ School of Chemistry and Chemical Engineering, Shaanxi Normal University,\\
 \linenumbers
 
 \begin{abstract}
-\textbf{Background/Objectives:} Cis-regulatory elements (CREs) encode cell-type-selective
-gene expression, yet sequence-to-activity models are rarely converted into compact,
-experimentally actionable variant panels that preserve natural regulatory scaffolds.
-We developed SafeEdit-CRE to select minimal edits that preserve cross-model
-specificity while substantially reducing predictive uncertainty, producing auditable
-CRE variant libraries ready for reporter screening.\\
+\textbf{Background/Objectives:} MPRA and sequence-to-activity models have moved
+cis-regulatory element (CRE) research from retrospective annotation toward predictive
+design, and recent work has begun generating synthetic enhancers. Yet score-driven
+optimization can produce model-specific or heavily rewritten sequences, leaving a
+practical gap between prediction and compact experimental constructs. We developed
+SafeEdit-CRE, a cross-model, uncertainty-aware minimal-editing framework that preserves
+natural CRE scaffolds while producing auditable, experimentally actionable variant
+panels.\\
 \textbf{Methods:} SafeEdit-CRE combines the published Malinois cell-type-specificity
 predictor with an architecture-diverse reviewer ensemble, validation-calibrated
-uncertainty, sequence-domain controls, and constrained beam search. Natural 200-nt CREs
-were edited under fixed budgets of 1, 5, 10, or 20 nucleotides and evaluated by a
-separately trained multi-kernel ensemble fully excluded from candidate generation.\\
+uncertainty, sequence-domain safeguards, and constrained beam search. Natural 200-nt
+CREs were edited under fixed budgets of 1, 5, 10, or 20 nucleotides; selected variants
+were evaluated by a separately trained multi-kernel ensemble excluded from generation,
+thereby separating search, review, and final evaluation.\\
 \textbf{Results:} Across 600 held-out CRE parents in K562, HepG2, and SK-N-SH cells,
 cross-model specificity-margin gain increased from 0.822 for greedy editing to 0.877
 for SafeEdit-CRE (paired difference 0.055; 95\% CI 0.040--0.071). Against a
-compute-matched primary-model beam, SafeEdit-CRE closely matched predicted specificity
-(difference $-0.004$; 95\% CI $-0.011$--$0.004$), while cross-model ensemble uncertainty
-decreased from 0.335 to 0.314. In a locked confirmatory benchmark of 90 non-overlapping
-parents, 60.6\% of SafeEdit-CRE designs passed all nine prespecified sequence and
-model-agreement checks, compared with 38.8\% for greedy and 13.1\% for random
-substitutions (paired difference +21.8 pp; 95\% CI 18.3--25.3).\\
-\textbf{Conclusions:} SafeEdit-CRE provides a reproducible sequence-engineering
-strategy for interrogating cell-type-specific regulatory grammar and yields a curated
-library of 74 Tier A CRE variants prioritized for reporter screening across three cell
-types and four edit budgets.
+compute-matched primary-model beam, SafeEdit-CRE maintained closely matched predicted
+specificity (difference $-0.004$; 95\% CI $-0.011$--$0.004$) while reducing ensemble
+uncertainty from 0.335 to 0.314. In a locked benchmark of 90 non-overlapping parents,
+60.6\% of designs passed all nine prespecified sequence and model-agreement checks,
+compared with 38.8\% for greedy and 13.1\% for random substitutions (paired
+difference +21.8 pp; 95\% CI 18.3--25.3).\\
+\textbf{Conclusions:} SafeEdit-CRE delivers a curated Tier A library of 74
+reporter-screening-ready variants spanning three cell types and four edit budgets.
+By converting a large search space into a compact set of low-burden, cross-model
+supported edits, it can reduce synthesis and screening load while retaining natural
+sequence context. The framework therefore links regulatory-grammar analysis with a
+direct engineering route to synthetic regulatory elements, functional noncoding-variant
+prioritization, and cell-type-selective CRE design.
 \end{abstract}
 
 \noindent\textbf{Keywords:} cis-regulatory elements; transcriptional regulation;
@@ -110,13 +116,13 @@ Table 2 of Gosai et al.~\citep{Gosai2024}. The associated raw data, processing
 notebooks, model weights, and immunofluorescence images are archived at Zenodo record
 10698014. All SafeEdit-CRE code, environment files, frozen configuration manifests,
 parent identifiers, candidate-level result tables, statistical summaries, analysis
-scripts, fixed model seeds, and the 74 Tier A candidate sequences are archived in a
-permanent Zenodo repository with an assigned DOI (\url{https://doi.org/10.5281/zenodo.21458489}; version v1.0.0). The repository additionally includes a minimal
-end-to-end reproduction script that regenerates the main figures and statistical
-tables from the released summary inputs. A public mirror of the source repository is
-maintained at \url{https://github.com/Haangyeon/SafeEdit-CRE} (release tag v1.0.0),
-where issue tracking and post-publication updates will be hosted. Pretrained model
-checkpoints are included in the Zenodo archive.
+scripts, fixed model seeds, and the 74 Tier A candidate sequences are assembled in
+the upload-ready v1.1.0 release bundle. The bundle will be deposited in a permanent
+Zenodo record and mirrored at \url{https://github.com/Haangyeon/SafeEdit-CRE} before
+publication; the final DOI and commit hash will be inserted in the published version.
+During peer review, the complete release bundle is available from the corresponding
+author. It includes a minimal end-to-end reproduction script that regenerates the main
+figures and statistical tables from the released summary inputs.
 
 \section*{Author contributions}
 Angran Xia conceived the study, performed the computational analyses, prepared the
